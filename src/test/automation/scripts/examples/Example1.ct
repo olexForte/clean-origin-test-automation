@@ -5,7 +5,6 @@ Open page 'urls.DIAMONDS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 #file:List_of_filters.csv
 #Set diamonds filter '{"cut_from":"VERY GOOD","cut_to":"EXCELLENT"}';
 Click on item 'diamondsPage.RESET_FILTERS';
-Wait for '7' seconds;
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Set diamonds filter '$line';
 Wait for '3' seconds;
