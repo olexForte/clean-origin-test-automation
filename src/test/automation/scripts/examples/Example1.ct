@@ -1,6 +1,6 @@
 
 
-Open page 'urls.DIAMONDS_URL:loginData.CLIENT_USER:loginData.CLIENT_PASSWORD';
+Open page 'urls.DIAMONDS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 #FOR line
 #file:List_of_filters.csv
 #Set diamonds filter '{"cut_from":"VERY GOOD","cut_to":"EXCELLENT"}';
