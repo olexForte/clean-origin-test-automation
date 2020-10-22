@@ -1,0 +1,20 @@
+
+Save element text 'FREE' to 'SAVED.data' and 'REPLACE:FREE:0';
+Validate value 'SAVED.data' equals '0$';
+Save element text 'unit_tests.dataForTest1' to 'SAVED.data' and 'REPLACE:.10: doLLars';
+Validate value 'SAVED.data' equals '100,000 doLLars';
+Save element text ' asd ' to 'SAVED.data1' and 'TRIM';
+Save element text 'ASD' to 'SAVED.data2' and 'LOW';
+Validate value 'SAVED.data1' equals 'SAVED.data2';
+Save element text 'asd and som.tHing' to 'SAVED.data2' and 'REMOVE: and som.tHing';
+Validate value 'SAVED.data1' equals 'SAVED.data2';
+
+Save element text 'FREE' to 'SAVED.data' and 'replace:FREE:0';
+Validate value 'SAVED.data' equals '0$';
+Save element text 'unit_tests.dataForTest1' to 'SAVED.data' and 'replace:.10: doLLars';
+Validate value 'SAVED.data' equals '100,000 doLLars';
+Save element text ' asd ' to 'SAVED.data1' and 'trim';
+Save element text 'ASD' to 'SAVED.data2' and 'low';
+Validate value 'SAVED.data1' equals 'SAVED.data2';
+Save element text 'asd and som.tHing' to 'SAVED.data2' and 'remove: and som.tHing';
+Validate value 'SAVED.data1' equals 'SAVED.data2';

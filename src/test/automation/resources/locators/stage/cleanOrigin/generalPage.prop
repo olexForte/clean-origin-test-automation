@@ -1,0 +1,22 @@
+
+CLOSE_MODAL_DIALOG = //img[@alt="Close"]
+
+CLOSE_CHAT_DIALOG =  //div[@class='olark-top-bar-button']
+
+CHECKOUT_BUTTON = //button[@class="action primary checkout"]
+
+LOADING_IMAGE = //img[@alt="Loading..."]
+
+NEXT_BUTTON_CHECKOUT_PAGE = //button[@class="button action continue primary"]
+
+CREDIT_CARD_PAYMENT_OPTION = //input[@id='braintree']
+
+CREDIT_CARD_NUMBER = //frame//input[@id="credit-card-number"]
+CREDIT_CARD_EXP_MON = //frame//input[@id="expiration-month"]
+CREDIT_CARD_EXP_YEAR = //frame//input[@id="expiration-year"]
+CREDIT_CARD_CVV = //frame//input[@id="cvv"]
+
+PLACE_ORDER_BUTTON = (//button[@class="action primary checkout"])[3]
+
+CHECKOUT_USERNAME_FIELD = //input[@id='customer-email']
+CHECKOUT_STREET_ADDRESS_FIELD = //legend[contains(.,'Street Address')]/following::div[1]//input[@class='input-text']

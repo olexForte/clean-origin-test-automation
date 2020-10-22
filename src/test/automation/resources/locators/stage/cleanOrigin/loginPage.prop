@@ -1,0 +1,4 @@
+
+LOGIN_INPUT = //input[@id="username"]
+PASSWORD_INPUT = //input[@id="login"]
+LOGIN_BUTTON = //span[text()="Sign in"]

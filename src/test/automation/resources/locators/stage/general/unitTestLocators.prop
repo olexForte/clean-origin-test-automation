@@ -1,0 +1,14 @@
+SEARCH = //*[@name="q"]
+NEXT = //a[@id='pnnext']/span[2]
+PAGE = (//a[@aria-label='$PARAMETER1'])
+SEARCH_BTN = (//input[@name='btnK'])[1]
+
+AMAZON_SEARCH_RESULT_ENTITY = { "parent": "//div[contains(@data-cel-widget,'search_result_') and not(@data-asin='')]", \
+"title": ".//span[@class='a-size-medium a-color-base a-text-normal']",\
+"rating": ".//span[@class='a-size-base']" }
+
+AMAZON_RESULT_TITLE = //span[@class='a-size-medium a-color-base a-text-normal'][contains(.,"$PARAMETER1")]
+
+ERROR_MESSAGE = //span[@id="ctl00_MasterContent_ucStepOne_requiredFieldValidatorDayTimePhone"]
+
+CONTINUE_BUTTON = //input[@value="Continue"]

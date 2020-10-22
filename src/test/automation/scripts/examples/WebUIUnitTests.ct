@@ -1,0 +1,23 @@
+
+Open page 'https://search.yahoo.com/search?p=tiger&fr=yfp-t&fp=1&toggle=1&cop=mss&ei=UTF-8';
+Click on item '//a[@class=" ac-algo fz-l ac-21th lh-24"]';
+Open next tab
+Validate element '//h1' is visible
+Close current tab;
+
+Open page 'http://amazon.com';
+Screenshot
+Select dropdown value 'Computers' in '//select[@id="searchDropdownBox"]';
+Type value 'processor' to '//input[@id="twotabsearchtextbox"]';
+Click on item '//input[@type="submit"]';
+
+Save entity 'unitTestLocators.AMAZON_SEARCH_RESULT_ENTITY' to 'saved.entity' by position last;
+Do click on '//a[text()="Next"]' until "//span[contains(text(),'Laptop')]" is visible up to '60' seconds;
+Validate element "//span[contains(text(),'Laptop')]" is visible;
+
+Type value 'saved.entity.title' to '//input[@id="twotabsearchtextbox"]';
+Click on item '//input[@type="submit"]';
+
+Validate entity on page 'unitTestLocators.AMAZON_SEARCH_RESULT_ENTITY' 'saved.entity' present;
+Validate element "unitTestLocators.AMAZON_RESULT_TITLE:saved.entity.title" is visible;
+

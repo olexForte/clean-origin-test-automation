@@ -1,0 +1,24 @@
+
+RING_BUILDER_EXAMPLE_DATA = {"Metal":"#2", "Shape":"#2", "Prong":"#2", "Ring Size":"#5"}
+RING_BUILDER_EXAMPLE_DATA_BY_VALUE = {"Metal":"14K Yellow Gold", "Shape":"Round", "Prong":"Standard", "Ring Size":"5"}
+
+ALL_DIAMONDS_FILTER_DATA = {"Attribute Set":"Diamonds", "Status":"Enabled", "Quantity->from":"1", "Quantity->to":"1"}
+
+DEFAULT_CHECKOUT_DATA = { "Email":"autotest@clear.com", "First Name": "Tester", "Last Name":"Tester", "StreetAddress":"5320 N Sheridan 1411", "City":"Chicago", "State/Province":"Illinois", "Zip/Postal Code":"60640", "Phone Number": "7734958072"}
+
+DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE = Your Custom Ring\
+Qty1\
+$$PARAMETER1\
+Diamond1 x $PARAMETER2 $$PARAMETER3\
+Carat$PARAMETER3\
+Color$PARAMETER4\
+Clarity$PARAMETER5\
+Cut Grade$PARAMETER6
+
+DEFAULT_CHECKOUT_RING_DATA_TEMPLATE = Ring $PARAMETER1\
+Ring1 x $PARAMETER2 $$PARAMETER3\
+Ring Size$PARAMETER4\
+Ring Metal$PARAMETER5\
+Ring Shape$$PARAMETER6\
+Prong$PARAMETER7\
+Diamond $PARAMETER8

@@ -1,0 +1,4 @@
+# Action:
+# Logout from application
+
+Open page 'urls.LOGOUT_URL';

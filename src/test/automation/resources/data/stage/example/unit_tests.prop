@@ -1,0 +1,10 @@
+# FOR UNIT TESTS
+dataForTest1 = 100,000.10
+dataForTest2 = Asd
+
+AMAZON_SEARCH_RESULT_ENTITY_EXPECTED = {"title", "AMD Ryzen 9 3900X 12-core, 24-thread unlocked desktop processor with Wraith Prism LED Cooler", "rating" : "1,846"}
+
+textWithNewLine = I love your app \n And I belive in Auto team)
+lastPartOfTextWithoutNewLine =  I love your app
+
+SSH_COMMAND = sleep 5; ls

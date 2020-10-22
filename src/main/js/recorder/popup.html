@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="popup.js"></script>
+</head>
+<body>
+<h3 style="font-weight:bold; text-align:center;">Recorder</h3>
+<table border="0" cellpadding="3" style="border-collapse:collapse;">
+
+    <tr>
+        <td> Test Name <input id="testName"></input></td>
+    </tr><tr>
+        <td><button id="recordButton">Start recording</button></td>
+        <td align="right"><div style="display:none;color:red" id="recordingIndicator">recording</div></td>
+
+
+    </tr>
+    <tr>
+        <td><button id="saveButton">Save</button></td>
+    </tr>
+    <tr>
+        <td><button id="clearButton">Clear</button></td>
+    </tr>
+</table>
+    <table border="0" cellpadding="3" style="border-collapse:collapse;">
+
+
+    <tr><td>Recorded Steps:</td></tr>
+    <tr>
+        <td><textarea id="scriptSteps" rows="10" cols="50"></textarea></td>
+    </tr>
+    <tr><td>Recorded Locators:</td></tr>
+    <tr>
+        <td><textarea id="locatorSteps" rows="10" cols="50"></textarea></td>
+    </tr>
+    <tr><td>Recorded Data:</td></tr>
+    <tr>
+        <td><textarea id="dataSteps" rows="10" cols="50"></textarea></td>
+    </tr>
+</table>
+</body>
+</html>

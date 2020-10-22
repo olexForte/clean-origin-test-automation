@@ -1,0 +1,40 @@
+#
+
+Login as 'loginData.ADMIN_USERNAME' 'loginData.ADMIN_PASSWORD';
+
+Open page 'urls.ADMIN_CATALOG_PRODUCT_URL:loginData.CLIENT_USER:loginData.CLIENT_PASSWORD' no cleanup;
+
+Optional Click on item 'magentoMainPage.CLEAR_FILTERS_BUTTON';
+
+Click on item 'magentoMainPage.FILTERS_BUTTON';
+
+Fill data form 'smokeData.ALL_DIAMONDS_FILTER_DATA';
+
+Click on item 'magentoMainPage.APPLY_FILTERS_BUTTON';
+
+Wait for '5' seconds;
+
+Save element text 'magentoMainPage.NUMBER_OF_RECORDS' to 'saved.TOTAL_NUMBER_OF_DIAMONDS' and 'REMOVE: records found';
+
+Open page 'urls.DIAMONDS_URL:loginData.CLIENT_USER:loginData.CLIENT_PASSWORD';
+
+Wait for '3' seconds;
+
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+
+debug
+Save element text 'diamondsPage.TOTAL_NUMBER_OF_RESULTS' to 'SAVED.total';
+
+REPORT MESSAGE "diamondsPage.TOTAL_NUMBER_OF_RESULTS";
+
+Optional Validate value 'saved.TOTAL_NUMBER_OF_DIAMONDS' equals 'SAVED.total';
+
+#Do click on 'diamondsPage.NEXT_BUTTON' until 'diamondsPage.NEXT_BUTTON' is invisible up to '500' seconds with timeout between clicks '2';
+
+Save table 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.data';
+
+Calculate value 'SAVED.total' mod '60' to 'saved.result';
+
+Validate table 'saved.data' rowcount equals '60';
+
+

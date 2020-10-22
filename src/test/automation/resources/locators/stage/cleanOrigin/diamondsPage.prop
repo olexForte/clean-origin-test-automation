@@ -1,0 +1,60 @@
+
+
+SHAPE_FILTER_TEMPLATE = //input[@data-label='$PARAMETER1']
+CUT_FILTER_TEMPLATE = //div[@id='diamond_cut_grade']//div[.='$PARAMETER1']
+CARAT_FILTER_FROM = //input[@id="diamond_weight-from"]
+CARAT_FILTER_TO = //input[@id='diamond_weight-to']
+COLOR_FILTER_TEMPLATE = //div[@class='filter-options-item diamond_color']//div[.='$PARAMETER1']
+PRICE_FILTER_FROM = //input[@id="price-from"]
+PRICE_FILTER_TO = //input[@id='price-to']
+CLARITY_FILTER_TEMPLATE = //div[@class='filter-options-item diamond_clarity']//div[.='$PARAMETER1']
+HEARTS_AND_ARROWS_CHECKBOX = //input[@data-label='YES']
+
+CUT_FILTER_PARENT = //div[@id='diamond_cut_grade']
+COLOR_FILTER_PARENT = //div[@class='filter-options-item diamond_color']
+CLARITY_FILTER_PARENT = //div[@class='filter-options-item diamond_clarity']
+
+SCROLLER_UPPER = .//div[@class='noUi-handle noUi-handle-upper']
+SCROLLER_LOWER = .//div[@class='noUi-handle noUi-handle-lower']
+
+RESET_FILTERS = //a[.='Reset Filters']
+
+TOTAL_NUMBER_OF_RESULTS = (//p[@id='toolbar-amount')[1]/span[3] | (//p[@id='toolbar-amount'])[1]/span[1]
+FOOTER = //footer
+
+NEXT_BUTTON = (//a[@class='action  next'])[2]
+
+DIAMONDS_TABLE_STRUCTURE = { "parent" : "//tr[@class='listing-row']", \
+"image" : "./td[@data-attr='diamond_image']", \
+"shape" : "./td[@data-attr='diamond_shape']", \
+"weight" : "./td[@data-attr='diamond_weight']", \
+"color" : "./td[@data-attr='diamond_color']", \
+"clarity" : "./td[@data-attr='diamond_clarity']", \
+"grade" : "./td[@data-attr='diamond_cut_grade']", \
+"price" : "./td[@data-attr='price']" }
+
+ADD_TO_RING_BUTTON = //button[@id='add-to-bundle']
+
+VIEW_DIAMOND_BY_PARAMETERS_LOCATOR = //td[contains(.,'$PARAMETER1')]\
+/following-sibling::td[contains(.,'$PARAMETER2')]\
+/following-sibling::td[contains(.,'$PARAMETER3')]\
+/following-sibling::td[contains(.,'$PARAMETER4')]\
+/following-sibling::td[contains(.,'$PARAMETER5')]\
+/following-sibling::td[contains(.,'$PARAMETER6')]\
+/following-sibling::td[@data-attr='diamond_link']
+
+DIAMOND_SPEC_ON_PLP = //div[@class='preview-specs']
+
+# PDP
+DIAMOND_PRICE_LABEL = //div[@class='product-info-price']//span[@class='price']
+DIAMOND_NAME_LABEL = //span[@data-ui-id='page-title-wrapper']
+DIAMOND_QUICK_DETAILS_LABEL = //div[@class='quick-attributes pb-4']
+# Carat: 0.56 Cut: Ideal Color: J  Clarity: VS1
+
+# top form Create your ring
+RING_PRICE_IN_CREATE_YOUR_RING_FORM = //div[@class="builder-price ring-price"]
+RING_NAME_IN_CREATE_YOUR_RING_FORM = //div[@class="ring-name"]
+DIAMON_PRICE_IN_CREATE_YOUR_RING_FORM = (//div[@class='builder-price diamond-price'])[2]
+DIAMOND_WEIGHT_IN_CREATE_YOUR_RING_FORM = (//div[@class="diamond-carat d-inline-block"])[2]
+DIAMOND_SHAPE_IN_CREATE_YOUR_RING_FORM = (//div[@class="diamond-shape d-inline-block"])[2]
+RING_TOTAL_PRICE_IN_CREATE_YOUR_RING_FORM = //div[@class="builder-price ring-total-price"]

@@ -1,0 +1,11 @@
+# Action:
+# Login to application as user
+
+# Parameters:
+# $1 - username
+# $2 - password
+
+Open page 'urls.ADMIN_LOGIN_URL:loginData.CLIENT_USER:loginData.CLIENT_PASSWORD';
+Type value '$1' to 'loginPage.LOGIN_INPUT';
+Type value '$2' to 'loginPage.PASSWORD_INPUT';
+Click on item 'loginPage.LOGIN_BUTTON';

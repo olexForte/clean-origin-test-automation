@@ -1,0 +1,19 @@
+#Login action
+!API!
+Save element text '10' to 'SAVED.data0';
+Generate value '5' to 'SAVED.data1';
+Generate value 'RANDOM.field:1d' to 'SAVED.data2';
+Generate value 'RANDOM.field2:2d';
+
+Validate value 'lll' equals 'lll';
+Validate value '$100,000.10' equals 'unit_tests.dataForTest1';
+Validate value 'unit_tests.dataForTest2' equals 'Asd';
+Validate value 'SAVED.data0' equals '10';
+Validate value '5$' equals 'SAVED.data1';
+Validate value 'SAVED.data2' equals 'RANDOM.field';
+
+Calculate value '100000$' minus '0.10' plus 'unit_tests.dataForTest1' to 'saved.result';
+Calculate value 'saved.result' minus '50%' to 'saved.result';
+Calculate value 'unit_tests.dataForTest1' minus '0.0001%' to 'unit_tests.dataForTest1';
+Validate value 'unit_tests.dataForTest1' contains 'saved.result';
+Validate value 'LIST OF ITEMS' contains 'OF';

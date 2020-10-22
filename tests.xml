@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="smoke" parallel="classes" thread-count="5">
+
+    <test name="Runners">
+        <classes>
+
+            <class name="runners.Test1"/>
+            <class name="runners.Test2"/>
+            <class name="runners.Test3"/>
+            <class name="runners.Test4"/>
+            <class name="runners.Test5"/>
+        </classes>
+    </test>
+</suite>
