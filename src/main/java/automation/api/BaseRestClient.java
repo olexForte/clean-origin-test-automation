@@ -3,15 +3,22 @@ package automation.api;
 import automation.datasources.JSONConverter;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import io.restassured.http.Cookies;
+import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import automation.reporting.ReporterManager;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.config.RedirectConfig.redirectConfig;
@@ -30,20 +37,113 @@ public class BaseRestClient {
      * @param headers map of headers
      * @return response object
      */
+    public Response getRequest(String requestURL, Object headers, Object cookies) {
+        reporter.info("GET URL: " + requestURL);
+        if(headers == null)
+            headers = new HashMap<>();
+        if(cookies == null)
+            cookies = new HashMap<>();
+
+        String creds = requestURL.replaceAll("(http|https)://(.*?:.*?)@.*", "$2");
+
+        Response response;
+        RequestSpecification responseSpecification;
+        if(!creds.equals(requestURL)) // credentials were found
+            responseSpecification = given().auth().basic(creds.split(":")[0], creds.split(":")[1]);
+        else
+            responseSpecification = given();
+
+        if(headers instanceof Headers)
+            responseSpecification = responseSpecification.headers((Headers)headers);
+        else
+            responseSpecification = responseSpecification.headers((HashMap<String,String>)headers);
+
+        if(cookies instanceof Cookies)
+            responseSpecification = responseSpecification.cookies((Cookies)cookies);
+        else
+            responseSpecification = responseSpecification.cookies((HashMap<String,String>)cookies);
+
+        response = responseSpecification.when()
+                    .contentType(ContentType.JSON)
+                    .get(requestURL)
+                    .then()
+                    .extract()
+                    .response();
+
+            return response;
+    }
+
+    /**
+     * Send GET request
+     * @param requestURL request URL
+     * @param headers map of headers
+     * @return response object
+     */
     public Response getRequest(String requestURL, Map<String,String> headers) {
         reporter.info("GET URL: " + requestURL);
         if(headers == null)
             headers = new HashMap<>();
-        Response response = given()
-                .headers(headers)
-                .when()
-                .contentType(ContentType.JSON)
-                .get(requestURL)
-                .then()
-                .extract()
-                .response();
+        String creds = requestURL.replaceAll("(http|https)://(.*?:.*?)@.*", "$2");
+        if(!creds.equals(requestURL)){ // credentials were found
+            Response response = given()
+                    .auth().basic(creds.split(":")[0], creds.split(":")[1])
+                    .headers(headers)
+                    .when()
+                    .contentType(ContentType.JSON)
+                    .get(requestURL)
+                    .then()
+                    .extract()
+                    .response();
 
-        return response;
+            return response;
+        } else {
+            Response response = given()
+                    .headers(headers)
+                    .when()
+                    .contentType(ContentType.JSON)
+                    .get(requestURL)
+                    .then()
+                    .extract()
+                    .response();
+
+            return response;
+        }
+    }
+
+    /**
+     * Send GET request
+     * @param requestURL request URL
+     * @param headers map of headers
+     * @return response object
+     */
+    public Response getRequest(String requestURL, Headers headers) {
+        reporter.info("GET URL: " + requestURL);
+
+        String creds = requestURL.replaceAll("(http|https)://(.*?:.*?)@.*", "$2");
+        if(!creds.equals(requestURL)){ // credentials were found
+            Response response = given()
+                    .auth().basic(creds.split(":")[0], creds.split(":")[1])
+                    .headers(headers)
+                    .when()
+                    .contentType(ContentType.JSON)
+                    .get(requestURL)
+                    .then()
+                    .extract()
+                    .response();
+
+            return response;
+        } else {
+            Response response = given()
+                    .headers(headers)
+                    .when()
+                    .contentType(ContentType.JSON)
+                    .get(requestURL)
+                    .then()
+                    .extract()
+                    .response();
+
+            return response;
+        }
     }
 
     /**
@@ -55,25 +155,41 @@ public class BaseRestClient {
      */
     public Response postRequest(String requestURL, String body, Map<String,String> headers) {
         String finalURL = requestURL;
-        if(headers == null)
+        if (headers == null)
             headers = new HashMap<>();
-//        try {
-//            finalURL = requestURL.substring(0, requestURL.indexOf("?")) + "?" + URLEncoder.encode(requestURL.substring(requestURL.indexOf("?")+1), StandardCharsets.UTF_8.toString());
-//        } catch (UnsupportedEncodingException e) {
-//            e.printStackTrace();
-//        }
-        reporter.info("POST URL: " + finalURL);
-        Response response = given()
-                .headers(headers)
-                .body(body)
-                .when()
-                .contentType(ContentType.JSON)
-                .config(RestAssured.config().redirect(redirectConfig().followRedirects(false)))
-                .post(finalURL)
-                .then()
-                .extract()
-                .response();
-        return response;
+
+        if (isJson(body)){ //json{
+
+            reporter.info("POST URL: " + finalURL);
+            Response response = given()
+                    .headers(headers)
+                    .body(body)
+                    .when()
+                    .contentType(ContentType.JSON)
+                    .config(RestAssured.config().redirect(redirectConfig().followRedirects(false)))
+                    .post(finalURL)
+                    .then()
+                    .extract()
+                    .response();
+            return response;
+        } else { // parameters
+            reporter.info("POST URL (with parameters): " + finalURL);
+            Map<String,String> parameters = new HashMap<>();
+            Stream<String> s = Stream.of(body.split(";"));
+            parameters = s.collect(Collectors.toMap(it -> it.split("=")[0], it -> it.split("=")[1]));
+            Response response = given()
+                    .headers(headers)
+                    .params(parameters)
+                    .when()
+                    .contentType(ContentType.JSON)
+                    .config(RestAssured.config().redirect(redirectConfig().followRedirects(false)))
+                    .post(finalURL)
+                    .then()
+                    .extract()
+                    .response();
+            return response;
+        }
+
     }
 
     /**
