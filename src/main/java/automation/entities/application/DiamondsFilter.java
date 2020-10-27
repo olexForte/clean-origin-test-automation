@@ -74,7 +74,7 @@ public class DiamondsFilter {
         if(filterAsMap.containsKey(CUT_FROM_LABEL) && !filterAsMap.get(CUT_FROM_LABEL).equals(""))
             this.setCutFrom(Cut.valueOf(filterAsMap.get(CUT_FROM_LABEL).replace(" ", "_")));
         if(filterAsMap.containsKey(CUT_TO_LABEL) && !filterAsMap.get(CUT_TO_LABEL).equals(""))
-            this.setCutTo(Cut.valueOf(filterAsMap.get(CUT_TO_LABEL)));
+            this.setCutTo(Cut.valueOf(filterAsMap.get(CUT_TO_LABEL).replace(" ", "_")));
 
         if(filterAsMap.containsKey(HEARTS_ARROWS_LABEL) && !filterAsMap.get(HEARTS_ARROWS_LABEL).equals(""))
             this.setHeartsArrows(Boolean.parseBoolean(filterAsMap.get(HEARTS_ARROWS_LABEL)));
