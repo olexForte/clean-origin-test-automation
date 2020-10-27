@@ -51,12 +51,7 @@ public class POSTRequestKeyword extends AbstractKeyword {
             url = (String)executor.testDataRepository.getData(target);
         String requestData = (String)executor.testDataRepository.getData(data);
         HashMap<String, String> requestHeaders = executor.testDataRepository.getComplexData(headers);
-        Response response;
-//        if (requestData.startsWith("URLENC"))
-//            response = executor.api.postRequest(target, requestData, requestHeaders, ContentType.URLENC);
-//        else
-        response = executor.api.postRequest(url, requestData, requestHeaders);
-
+        Response response = executor.api.postRequest(url, requestData, requestHeaders);
         if(result == null || result.equals(""))// TODO results or headers?
             result = executor.DEFAULT_LAST_API_RESULT;
         executor.testDataRepository.setTestDataObject(result, response);

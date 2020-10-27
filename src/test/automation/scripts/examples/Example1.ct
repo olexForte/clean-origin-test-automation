@@ -1,14 +1,18 @@
 
 
-Open page 'urls.DIAMONDS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
-#FOR line
-#file:List_of_filters.csv
-#Set diamonds filter '{"cut_from":"VERY GOOD","cut_to":"EXCELLENT"}';
-Click on item 'diamondsPage.RESET_FILTERS';
-Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
-Set diamonds filter '$line';
-Wait for '3' seconds;
-Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
-Optional Validate diamond filter '$line';
-#END
+Send GET request 'apiEndpoints.ADMIN_URL' with headers '' and save results to 'SAVED.apiResponse';
+Save API response cookie 'admin' from 'saved.apiResponse' to 'saved.adminCookie';
+Save API response cookie '__cfduid' from 'saved.apiResponse' to 'saved.uidCookie';
+Save API response value 'apiRequests.FORM_KEY_JPATH' from HTML 'saved.apiResponse' to 'saved.formKey';
+Send POST request 'apiEndpoints.ADMIN_URL' with data 'apiRequests.AUTHORIZATION:saved.formKey' with headers 'apiRequests.COOKIES:saved.adminCookie:saved.uidCookie' and save results to 'SAVED.apiResponse';
+Save API response header 'Location' from 'saved.apiResponse' to 'saved.LOCATION';
+Save all cookies from API response 'saved.apiResponse' to 'saved.allCookies';
+Send GET request 'saved.LOCATION' with cookies 'saved.allCookies' and save results to 'SAVED.apiResponse';
+#Send redirected POST request 'apiEndpoints.ADMIN_URL' 'apiEndpoints.ADMIN_URL' with data 'apiRequests.AUTHORIZATION:saved.formKey' with headers 'apiRequests.COOKIES:saved.adminCookie:saved.uidCookie' and save results to 'SAVED.apiResponse'
+Save API response cookie 'admin' from 'saved.apiResponse' to 'saved.adminCookie';
+Save API response cookie '__cfduid' from 'saved.apiResponse' to 'saved.uidCookie';
+debug
+Send GET request 'apiEndpoints.ADMIN_PRODUCT_SEARCH_URL:apiRequests.FILTER_FOR_HARTS_AND_ARROWS_DIAMONDS' with headers 'apiRequests.COOKIES:saved.adminCookie:saved.uidCookie' and save results to 'SAVED.data'
+
+
 

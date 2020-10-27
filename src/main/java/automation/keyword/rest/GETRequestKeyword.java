@@ -1,6 +1,8 @@
 package automation.keyword.rest;
 
 import automation.annotations.KeywordRegexp;
+import io.restassured.http.Cookies;
+import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import automation.keyword.AbstractKeyword;
 import automation.execution.TestStepsExecutor;
@@ -16,11 +18,13 @@ import java.util.regex.Pattern;
  */
 public class GETRequestKeyword extends AbstractKeyword {
 
-    @KeywordRegexp("Send GET request 'url' with headers 'headers' [ and save results to 'SAVED.data']")
+    @KeywordRegexp("Send GET request 'url' [with headers 'headers'][with cookies 'cookies'][ and save results to 'SAVED.data']")
     static String LABEL = "send get request";
     String result;
     String headers;
-
+    String cookies;
+    String regExpCookies = ".*with cookies ['\"](.*?)['\"].*";
+    String regExpHeaders = ".*with headers ['\"](.*?)['\"].*";
 
     @Override
     public AbstractKeyword generateFromLine(String line) {
@@ -32,12 +36,14 @@ public class GETRequestKeyword extends AbstractKeyword {
             Matcher matcher = p.matcher(line);
             matcher.find();
             result.target = line.substring(matcher.start()+1, matcher.end()-1);
-            matcher.find();
-            result.result = line.substring(matcher.start()+1, matcher.end()-1);
-            if(matcher.find()){
-                result.headers = result.result;
-                result.result = line.substring(matcher.start()+1, matcher.end()-1);
+
+            if (line.matches(regExpCookies)) {
+                result.cookies = line.replaceAll(regExpCookies, "$1");
             }
+            if (line.matches(regExpHeaders)) {
+                result.headers = line.replaceAll(regExpHeaders, "$1");
+            }
+            result.result = line.substring(matcher.start()+1, matcher.end()-1);
 
             return result;
         }
@@ -47,10 +53,28 @@ public class GETRequestKeyword extends AbstractKeyword {
     @Override
     public boolean execute(TestStepsExecutor executor) throws Exception {
         String url = executor.locatorsRepository.getTarget(target); // process dynamic values
+        Response response;
         if(url == null)
             url = (String)executor.testDataRepository.getData(target);
-        HashMap<String, String> requestHeaders = executor.testDataRepository.getComplexData(headers);
-        Response response = executor.api.getRequest(url, requestHeaders);
+
+//        if (executor.testDataRepository.getTestDataObject(headers) instanceof Headers) {
+//             response = executor.api.getRequest(url, (Headers)executor.testDataRepository.getTestDataObject(headers));
+//        }else {
+//            HashMap<String, String> requestHeaders = executor.testDataRepository.getComplexData(headers);
+//             response = executor.api.getRequest(url, requestHeaders);
+//        }
+//
+//        if (executor.testDataRepository.getTestDataObject(cookies) instanceof Cookies) {
+//            response = executor.api.getRequest(url, (Headers)executor.testDataRepository.getTestDataObject(cookies));
+//        }else {
+//            HashMap<String, String> requestHeaders = executor.testDataRepository.getComplexData(cookies);
+//            response = executor.api.getRequest(url, requestHeaders);
+//        }
+
+        response = executor.api.getRequest(url,
+                executor.testDataRepository.getTestDataObject(headers),
+                executor.testDataRepository.getTestDataObject(cookies));
+
         if(result == null || result.equals(""))
             result = executor.DEFAULT_LAST_API_RESULT;
         executor.testDataRepository.setTestDataObject(result, response);

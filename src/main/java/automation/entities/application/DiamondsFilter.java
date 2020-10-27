@@ -1,5 +1,6 @@
 package automation.entities.application;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class DiamondsFilter {
@@ -192,6 +193,7 @@ public class DiamondsFilter {
 
     public enum Cut{
         NONE,
+        GOOD,
         VERY_GOOD,
         EXCELLENT,
         IDEAL
@@ -256,6 +258,23 @@ public class DiamondsFilter {
         return Boolean.parseBoolean(heartsArrows) == isHeartsArrows();
     }
 
+    @Override
+    public String toString() {
+        return "DiamondsFilter{" +
+                "shapes=" + Arrays.toString(shapes) +
+                ", priceFrom=" + priceFrom +
+                ", priceTo=" + priceTo +
+                ", caratFrom=" + caratFrom +
+                ", caratTo=" + caratTo +
+                ", cutFrom=" + cutFrom +
+                ", cutTo=" + cutTo +
+                ", colorFrom=" + colorFrom +
+                ", colorTo=" + colorTo +
+                ", clarityFrom=" + clarityFrom +
+                ", clarityTo=" + clarityTo +
+                ", heartsArrows=" + heartsArrows +
+                '}';
+    }
 }
 //enum.valueOf("VALUE").ordinal()
 

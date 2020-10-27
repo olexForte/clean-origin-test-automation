@@ -186,6 +186,16 @@ public enum KeywordEnum {
             return new SaveCookieValueFromAPIResponseKeyword();
         }
     },
+    SAVE_HEADER_FROM_RESPONSE{
+        public AbstractKeyword getKeyword(){
+            return new SaveHeaderValueFromAPIResponseKeyword();
+        }
+    },
+    SAVE_COOKIES_HEADERS_FROM_RESPONSE{
+        public AbstractKeyword getKeyword(){
+            return new SaveHeadersCookiesFromAPIResponseKeyword();
+        }
+    },
     RESPONSE_VALIDATE{
         public AbstractKeyword getKeyword(){
             return new ValidateResponseKeyword();
@@ -242,7 +252,7 @@ public enum KeywordEnum {
             return new CompareFilesKeyword();
         }
     },
-    COMPSRE_HASHMAP{
+    COMPARE_HASHMAP{
         public AbstractKeyword getKeyword(){
             return new CompareMapListsKeyword();
         }

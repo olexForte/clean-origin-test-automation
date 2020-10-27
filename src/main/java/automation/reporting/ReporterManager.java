@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import automation.entities.TestFile;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -324,18 +325,19 @@ public class ReporterManager {
     }
 
     /**
-     * fail step and add screenshot
+     * fail step and add screenshot of whole page
      * @param details
      */
     public void failWithScreenshotFinal(String details) {
-        String screenshotFile;
         String message = "<pre>" + details.replace("\n", "<br>") + "</pre>";
         logger.error(details);
 
         try {
             if (DriverProvider.isDriverActive()) {
-                screenshotFile = takeScreenshotFinal(DriverProvider.getCurrentDriver());
-                message = message + "<br><img style=\"max-width: 100%;height: auto;max-height: 100%;width: auto;\" src=\"" + screenshotFile + "\"></img><br>";
+                ArrayList<String> screenshotFiles = takeScreenshotFinal(DriverProvider.getCurrentDriver());
+                for (String screenshotFile: screenshotFiles) {
+                    message = message + "<br><img style=\"max-width: 100%;height: auto;max-height: 100%;width: auto;\" src=\"" + screenshotFile + "\"></img><br>";
+                }
             }
 
         } catch (Exception e){
@@ -468,18 +470,37 @@ public class ReporterManager {
      * @param driver
      * @return
      */
-    public static String takeScreenshotFinal(WebDriver driver){
-        String filename = SessionManager.getSessionID() + "_" + String.valueOf(System.currentTimeMillis()) + "screen.png";
-        String screenshotLocation = FileManager.OUTPUT_DIR + File.separator + filename;
-
+    public static ArrayList<String> takeScreenshotFinal(WebDriver driver){
+        ArrayList<String> fileNames = new ArrayList();
         try {
-            //driver.
+            //take first screen
+            String windowH = String.valueOf(((JavascriptExecutor) driver).executeScript(
+                    "window.scroll(0, 0); return window.innerHeight"));
+            String filename = SessionManager.getSessionID() + "_" + String.valueOf(System.currentTimeMillis()) + "screen.png";
+            String screenshotLocation = FileManager.OUTPUT_DIR + File.separator + filename;
             File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(file, new File(screenshotLocation));
+            fileNames.add(filename);
+            //take all screens one by one
+            String prevOffset = "-1";
+            String currentOffset = "0";
+            while(!currentOffset.equals(prevOffset)) {
+                 prevOffset = String.valueOf(((JavascriptExecutor) driver).executeScript(
+                        "return window.pageYOffset"));
+                 currentOffset = String.valueOf(((JavascriptExecutor) driver).executeScript(
+                        "window.scrollBy(0, " + windowH + "); return window.pageYOffset"));
+
+                 filename = SessionManager.getSessionID() + "_" + String.valueOf(System.currentTimeMillis()) + "screen.png";
+                 screenshotLocation = FileManager.OUTPUT_DIR + File.separator + filename;
+                 file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(file, new File(screenshotLocation));
+                fileNames.add(filename);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return filename;
+        return fileNames;
     }
 
     /**

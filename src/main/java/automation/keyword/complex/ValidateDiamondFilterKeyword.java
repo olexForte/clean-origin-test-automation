@@ -65,6 +65,10 @@ public class ValidateDiamondFilterKeyword extends AbstractKeyword {
         while( iCurrentPage < iMaxPage){
             iCurrentPage++;
             allDiamondsOnPage = executor.page.getComplexObject(executor.locatorsRepository.getComplexTarget("diamondsPage.DIAMONDS_TABLE_STRUCTURE"));
+            //retry
+            if(allDiamondsOnPage.size() > 0 && allDiamondsOnPage.get(allDiamondsOnPage.size()-1).entrySet().stream().filter(k -> !k.getValue().equals("")).count() == 0)
+                allDiamondsOnPage = executor.page.getComplexObject(executor.locatorsRepository.getComplexTarget("diamondsPage.DIAMONDS_TABLE_STRUCTURE"));
+
             LOGGER.info("Number of diamonds on page: " + iCurrentPage + " " +  allDiamondsOnPage.size());
             if(expectedNumberOfDiamonds != -1) {
                 if (expectedNumberOfDiamonds == allDiamondsOnPage.size()) {
@@ -81,9 +85,11 @@ public class ValidateDiamondFilterKeyword extends AbstractKeyword {
             }
 
             result = result && validateFilterWasAppliedToEntities(allDiamondsOnPage, filter);
-            if(executor.page.isElementDisplayedRightNow(executor.locatorsRepository.getTarget("diamondsPage.NEXT_BUTTON"), 0))
+            if(executor.page.isElementDisplayedRightNow(executor.locatorsRepository.getTarget("diamondsPage.NEXT_BUTTON"), 0)) {
+                if(executor.page.isElementDisplayedRightNow(executor.locatorsRepository.getTarget("generalPage.CLOSE_MODAL_DIALOG"), 0))
+                    executor.page.clickOnElement(executor.locatorsRepository.getTarget("generalPage.CLOSE_MODAL_DIALOG"), true);
                 executor.page.clickOnElement(executor.locatorsRepository.getTarget("diamondsPage.NEXT_BUTTON"));
-            else
+            } else
                 break;
         }
 

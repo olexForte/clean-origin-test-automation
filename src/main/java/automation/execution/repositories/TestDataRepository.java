@@ -382,6 +382,8 @@ public class TestDataRepository {
      * @return Object from test data
      */
     public Object getTestDataObject(String objectID){
+        if(objectID == null || objectID.equals("") ||!TEST_DATA.containsKey(objectID.toLowerCase()))
+            return null;
         return TEST_DATA.get(objectID.toLowerCase());
     }
 

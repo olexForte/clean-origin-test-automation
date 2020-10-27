@@ -1,0 +1,10 @@
+#FOR line
+#file:List_of_filters.csv
+Open page 'urls.DIAMONDS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+execute js 'general.close_close_close_CLOSE' '//body';
+Click on item 'diamondsPage.RESET_FILTERS';
+Wait for '3' seconds;
+Set diamonds filter '$line';
+Wait for '3' seconds;
+Optional Validate diamond filter '$line';
+#END

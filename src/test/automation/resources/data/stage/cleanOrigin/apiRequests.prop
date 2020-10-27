@@ -1,0 +1,8 @@
+
+AUTHORIZATION = login[username]=${ADMIN_USERNAME};login[password]=${ADMIN_PASSWORD};form_key=$PARAMETER1
+
+COOKIES = {"Cookie":"admin=$PARAMETER1,__cfduid=$PARAMETER2"}
+
+FORM_KEY_JPATH = **.findAll {it.@name=='form_key'}.@value
+
+FILTER_FOR_HARTS_AND_ARROWS_DIAMONDS = ?namespace=product_listing&filters%5Bplaceholder%5D=true&filters%5Bstatus%5D=1&filters%5Battribute_set_id%5D=9&filters%5Bqty%5D%5Bto%5D=1&filters%5Bqty%5D%5Bfrom%5D=1&filters%5Bdiamond_hearts_and_arrows%5D=38&paging%5BpageSize%5D=20&paging%5Bcurrent%5D=1&search=&sorting%5Bfield%5D=diamond_vendor&sorting%5Bdirection%5D=desc&isAjax=false

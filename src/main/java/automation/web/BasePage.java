@@ -26,8 +26,11 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -121,6 +124,8 @@ public class BasePage {
             try {
                 reporter.info("Driver creation");
                 driver.set(DriverProvider.getDriver(reporter.TEST_NAME.get())); // for BS / SL drivers
+
+                driver.get().manage().timeouts().setScriptTimeout(30, TimeUnit.MINUTES);
 
                 reporter.info("Driver created " + BasePage.driver.get().hashCode());
             } catch (Exception e) {
@@ -237,6 +242,11 @@ public class BasePage {
             reporter.info("The page has not finished loading: " + error.getMessage());
         }
 
+        if(driver().findElements(By.xpath("//body[@aria-busy='true']")).size() > 0) {
+            System.out.println("Was found!!!!!!" + LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+            (new WebDriverWait(driver(), MAIN_TIMEOUT)).until((ExpectedConditions.invisibilityOfElementLocated(By.xpath("//body[@aria-busy='true'])"))));
+            System.out.println("Was not found!!!!!!" + LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+        }
     }
 
     /**

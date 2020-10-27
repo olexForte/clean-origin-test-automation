@@ -8,3 +8,5 @@ DEFAULT_VISA_CARD_EXP_MON = 12
 DEFAULT_VISA_CARD_EXP_YEAR = 30
 DEFAULT_VISA_CARD_CVV = 123
 DEFAULT_VISA_CARD_CODE = 1234
+
+close_close_close_CLOSE = function autoCloseFunction(){var xPathRes = document.evaluate ("//div[@class='privy-popup-inner-content-wrap']//div[@title='Close']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null); if(xPathRes.snapshotLength > 0) { xPathRes.snapshotItem(0).click()} }; setInterval(function(){autoCloseFunction()},1000);

@@ -5,6 +5,7 @@ import automation.entities.application.DiamondsFilter;
 import automation.execution.TestStepsExecutor;
 import automation.keyword.AbstractKeyword;
 import automation.web.BasePage;
+import org.openqa.selenium.By;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -51,13 +52,15 @@ public class SetDiamondFilterKeyword extends AbstractKeyword {
 
         //for each filter item
         for (Map.Entry<String, String> field : allFields.entrySet()) {
-            executor.page.clickOnElement("generalPage.CLOSE_MODAL_DIALOG", true);
+            //executor.page.clickOnElement("generalPage.CLOSE_MODAL_DIALOG", true);
             String fieldLabel = field.getKey();
             String fieldValue = field.getValue();
 
             try {
-                if (fieldValue != null && !fieldValue.equals(""))
+                if (fieldValue != null && !fieldValue.equals("")) {
                     setFieldValue(executor, fieldLabel, fieldValue);
+                    setFieldValue(executor, fieldLabel, fieldValue);
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -82,7 +85,8 @@ public class SetDiamondFilterKeyword extends AbstractKeyword {
             case SHAPES_LABEL:
                 for(String shapeName : fieldValue.split(",")) {
                     String shapeFilter = executor.locatorsRepository.getTarget("diamondsPage.SHAPE_FILTER_TEMPLATE:" + shapeName);
-                    executor.page.clickOnElement(shapeFilter);
+                    if(!shapeWasSelected(executor, shapeFilter))
+                        executor.page.clickOnElement(shapeFilter);
                 }
                 break;
             case CUT_FROM_LABEL:
@@ -144,6 +148,11 @@ public class SetDiamondFilterKeyword extends AbstractKeyword {
             default:
                 LOGGER.warn("No such field: " + fieldLabel);
         }
+    }
+
+    private boolean shapeWasSelected(TestStepsExecutor executor, String shapeFilter) {
+        //if box-shadow == none - unselected
+        return !executor.page.findDynamicElement(shapeFilter, 1).getCssValue("box-shadow").equals("none");
     }
 
 }

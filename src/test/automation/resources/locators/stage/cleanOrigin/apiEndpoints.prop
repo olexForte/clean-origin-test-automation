@@ -1,0 +1,4 @@
+
+ADMIN_URL = https://${CLIENT_USER}:${CLIENT_PASSWORD}@merch-staging-webscale.cleanorigin.com/admin_11zu69
+
+ADMIN_PRODUCT_SEARCH_URL = https://${CLIENT_USER}:${CLIENT_PASSWORD}@merch-staging-webscale.cleanorigin.com/admin_11zu69/mui/index/render/$PSRSMETER1

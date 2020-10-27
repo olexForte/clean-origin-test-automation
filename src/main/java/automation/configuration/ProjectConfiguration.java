@@ -129,7 +129,10 @@ public class ProjectConfiguration {
 
         Matcher m = globalParameterInStringPattern.matcher(line);
         while(m.find()){
-            line = line.replace("${"+m.group(1)+"}", getConfigProperty(m.group(1)));
+            if(getConfigProperty(m.group(1)) != null)
+                line = line.replace("${"+m.group(1)+"}", getConfigProperty(m.group(1)));
+            else
+                logger.warn("Parameter was not found: " + m.group(1));
         }
         return line;
     }
