@@ -540,7 +540,8 @@ public class BasePage {
                 //item.sendKeys(value);
                 Actions act = new Actions(driver());
                 item.clear();
-                act.click(item).sendKeys(value).sendKeys(Keys.ENTER).build().perform();
+                act.click(item).sendKeys(value).build().perform();
+                act.click(item).sendKeys(Keys.ENTER).build().perform();
             }
         } catch (Exception e){
             if(!ignoreException)

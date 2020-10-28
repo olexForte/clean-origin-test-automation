@@ -58,8 +58,10 @@ public class SetDiamondFilterKeyword extends AbstractKeyword {
 
             try {
                 if (fieldValue != null && !fieldValue.equals("")) {
+                    //executor.page.clickOnElement("generalPage.CLOSE_MODAL_DIALOG", true);
                     setFieldValue(executor, fieldLabel, fieldValue);
-                    setFieldValue(executor, fieldLabel, fieldValue);
+                    //executor.page.clickOnElement("generalPage.CLOSE_MODAL_DIALOG", true);
+                    //setFieldValue(executor, fieldLabel, fieldValue);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -80,7 +82,7 @@ public class SetDiamondFilterKeyword extends AbstractKeyword {
         String pointOnSlider;
         String parent;
         String field;
-
+executor.page.sleepFor(2000);
         switch(fieldLabel.toLowerCase()){
             case SHAPES_LABEL:
                 for(String shapeName : fieldValue.split(",")) {

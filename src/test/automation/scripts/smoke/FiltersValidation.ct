@@ -3,8 +3,10 @@
 Open page 'urls.DIAMONDS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 execute js 'general.close_close_close_CLOSE' '//body';
 Click on item 'diamondsPage.RESET_FILTERS';
+execute js 'general.close_close_close_CLOSE' '//body';
 Wait for '3' seconds;
 Set diamonds filter '$line';
+execute js 'general.close_close_close_CLOSE' '//body';
 Wait for '3' seconds;
-Optional Validate diamond filter '$line';
+Validate diamond filter '$line';
 #END
