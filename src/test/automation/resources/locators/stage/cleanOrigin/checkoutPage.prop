@@ -7,4 +7,7 @@ ITEMS_IN_CART_PRODUCT_DETAILS_PANEL = //div[@class="product-item-details"]
 EXPAND_DETAILS_OF_ITEMS = //div[@aria-expanded='false' and @class='title']
 
 ORDER_NUMBER_ELEMENT = //p[contains(text(),"Your order # is:")]/span
-CART_SUBOTOTAL_LABEL = //span[@data-th='Cart Subtotal']
+CART_SUBTOTAL_LABEL = //span[@data-th='Subtotal']
+CART_TOTAL_LABEL = //td[@data-th='Order Total']//span
+
+THANK_YOU_LABEL = //h1[contains(.,'Thank you for your purchase!')]

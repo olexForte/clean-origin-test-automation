@@ -19,9 +19,10 @@ public class SaveValueKeyword extends AbstractKeyword {
     private static final String UP_ACTION_LABEL = "UP";
     private static final String LOW_ACTION_LABEL = "LOW";
     private static final String REMOVE_ACTION_LABEL = "REMOVE";
+    private static final String REGEXP_REMOVE_ACTION_LABEL = "REGEXP_REMOVE";
     private static final String PARAMETER_SPLITER = ":";
 
-    @KeywordRegexp("Save element text 'locatorORdata' to 'SAVED.data' [and 'TRIM|UP|LOW|REMOVE:what|REPLACE:what:with'];")
+    @KeywordRegexp("Save element text 'locatorORdata' to 'SAVED.data' [and 'TRIM|UP|LOW|REMOVE:what|REPLACE:what:with|REGEXP_REMOVE:what|'];")
     static String LABEL = "save element text";
 
     String action = "";
@@ -96,6 +97,11 @@ public class SaveValueKeyword extends AbstractKeyword {
         if(action.toUpperCase().startsWith(REMOVE_ACTION_LABEL)){
             String[] parts = action.split(PARAMETER_SPLITER);
             return result.replace(parts[1], "");
+        }
+        //remove regexp
+        if(action.toUpperCase().startsWith(REGEXP_REMOVE_ACTION_LABEL)){
+            String[] parts = action.split(PARAMETER_SPLITER);
+            return result.replaceAll(parts[1], "");
         }
 
         return result;

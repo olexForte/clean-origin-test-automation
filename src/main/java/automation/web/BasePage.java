@@ -243,9 +243,9 @@ public class BasePage {
         }
 
         if(driver().findElements(By.xpath("//body[@aria-busy='true']")).size() > 0) {
-            System.out.println("Was found!!!!!!" + LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+            //System.out.println("Was found!!!!!!" + LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
             (new WebDriverWait(driver(), MAIN_TIMEOUT)).until((ExpectedConditions.invisibilityOfElementLocated(By.xpath("//body[@aria-busy='true'])"))));
-            System.out.println("Was not found!!!!!!" + LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
+            //System.out.println("Was not found!!!!!!" + LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME));
         }
     }
 

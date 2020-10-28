@@ -24,17 +24,18 @@ Click on item 'engagementPage.RING_COLLECTION_FILTER_ITEM_BY_INDEX:SAVED.metal';
 
 # Random ring
 Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:saved.ringIndex';
-wait for '5' seconds;
+#wait for '5' seconds;
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA';
 
-Save element text 'engagementPage.RING_METAL_SELECT' to 'SAVED.ringMetal';
-Save value 'Round' to 'SAVED.ringShape';
+Save element text 'engagementPage.RING_NAME_LABEL' to 'SAVED.ringName';
+Save element text 'engagementPage.RING_METAL_SELECT' to 'SAVED.ringMetal' and 'REGEXP_REMOVE:( \+.*)' ;
+Save value 'Round' to 'SAVED.ringShape' if empty;
 Optional Save element text 'engagementPage.RING_SHAPE_SELECT' to 'SAVED.ringShape';
 Save element text 'engagementPage.RING_PRONG_SELECT' to 'SAVED.ringProng';
 Save element text 'engagementPage.RING_SIZE_SELECT' to 'SAVED.ringSize';
 Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice';
-Save element text 'engagementPage.RING_NAME_LABEL' to 'SAVED.ringName';
 
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
@@ -42,7 +43,9 @@ Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
 Optional Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
 
-Wait for '5' seconds;
+#Wait for '5' seconds;
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
+
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 
@@ -73,8 +76,8 @@ Save element text 'diamondsPage.DIAMOND_WEIGHT_IN_CREATE_YOUR_RING_FORM' to 'SAV
 Save element text 'diamondsPage.DIAMOND_SHAPE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.diamondShapeOnTopPanel';
 Save element text 'diamondsPage.RING_TOTAL_PRICE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.ringTotalOnTopPanel';
 
-Save entity 'engagementPage.SELECTED_RING_DETAILS_ENTYTY_LOCATOR' to 'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
-Save entity 'engagementPage.SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR' to 'saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
+Optional Save entity 'engagementPage.SELECTED_RING_DETAILS_ENTYTY_LOCATOR' to 'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
+Optional Save entity 'engagementPage.SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR' to 'saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
 
 
 Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.diamondPriceOnTopPanel';
@@ -97,19 +100,26 @@ Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'engagementPage.ADD_TO_BAG_BUTTON';
 
 Wait for '10' seconds;
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 
-Save element text 'checkoutpage.first_item_in_checkout_info' to 'SAVED.diamondInfoOnCheckoutPage' and 'TRIM';
-Save element text 'checkoutpage.second_item_in_checkout_info' to 'SAVED.ringInfoOnCheckoutPage' and 'TRIM';
+Save element text 'checkoutpage.first_item_in_checkout_info' to 'SAVED.diamondInfoOnCheckoutPage' and 'REMOVE:,';
+Save element text 'checkoutpage.second_item_in_checkout_info' to 'SAVED.ringInfoOnCheckoutPage' and 'REMOVE:,';
+
+Save element text 'checkoutpage.CART_SUBTOTAL_LABEL' to 'SAVED.orderSubtotal';
+Save element text 'checkoutpage.CART_TOTAL_LABEL' to 'SAVED.orderTotal';
+Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.orderSubtotal';
+Optional Validate value 'SAVED.orderTotal' equals 'SAVED.orderSubtotal';
 
 Click on item 'generalPage.CHECKOUT_BUTTON';
 Wait for '20' seconds;
 Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 
-debug
 Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
-Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'TRIM';
-Optional Validate value 'SAVED.productsInCartOverview' contains 'smokeData.DEFAULT_CHECKOUT_RING_DATA_TEMPLATE:saved.RING_DETAILS_FROM_RINGBUILDER_PAGE.StyleNumber:saved.ringName:saved.ringPrice:saved.ringSize:saved.ringMetal:saved.ringShape:saved.ringProng:saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE.SKU';
-Optional Validate value 'SAVED.productsInCartOverview' contains 'smokeData.DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE:saved.expectedFullPrice:saved.diamondName:saved.diamondPrice:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade';
+Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
+Save value 'smokeData.DEFAULT_CHECKOUT_RING_DATA_TEMPLATE:saved.RING_DETAILS_FROM_RINGBUILDER_PAGE.StyleNumber:saved.ringName:saved.ringPrice:saved.ringSize:saved.ringMetal:saved.ringShape:saved.ringProng:saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE.SKU' to 'saved.RING_EXPECTED_DATA' and 'REMOVE:,';
+Save value 'smokeData.DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE:saved.expectedFullPrice:saved.diamondName:saved.diamondPrice:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:,';
+Optional Validate value 'SAVED.productsInCartOverview' contains 'saved.RING_EXPECTED_DATA';
+Optional Validate value 'SAVED.productsInCartOverview' contains 'saved.DIAMOND_EXPECTED_DATA';
 
 Fill data form 'smokeData.DEFAULT_CHECKOUT_DATA';
 Type value 'smokeData.DEFAULT_CHECKOUT_DATA.Email' to 'generalPage.CHECKOUT_USERNAME_FIELD';
@@ -120,18 +130,16 @@ Wait for '3' seconds;
 Click on item 'generalPage.NEXT_BUTTON_CHECKOUT_PAGE';
 Wait for '20' seconds;
 
-Click on item 'generalPage.CREDIT_CARD_PAYMENT_OPTION';
+Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
+#debug
+#Type value 'general.DEFAULT_VISA_CARD_NUMBER' to 'generalPage.CREDIT_CARD_NUMBER';
+#Type value 'general.DEFAULT_VISA_CARD_EXP_MON' to 'generalPage.CREDIT_CARD_EXP_MON';
+#Type value 'general.DEFAULT_VISA_CARD_EXP_YEAR' to 'generalPage.CREDIT_CARD_EXP_YEAR';
+#Type value 'general.DEFAULT_VISA_CARD_CVV' to 'generalPage.CREDIT_CARD_CVV';
 
-Type value 'general.DEFAULT_VISA_CARD_NUMBER' to 'generalPage.CREDIT_CARD_NUMBER';
-Type value 'general.DEFAULT_VISA_CARD_EXP_MON' to 'generalPage.CREDIT_CARD_EXP_MON';
-Type value 'general.DEFAULT_VISA_CARD_EXP_YEAR' to 'generalPage.CREDIT_CARD_EXP_YEAR';
-Type value 'general.DEFAULT_VISA_CARD_CVV' to 'generalPage.CREDIT_CARD_CVV';
+Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
 
-Click on item 'generalPage.PLACE_ORDER_BUTTON';
-
-#//h1 Thank you for your purchase!
-Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderSubtotal';
-Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.orderSubtotal';
+Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
 
 Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
 Report message "Order number" "SAVED.orderNumber"

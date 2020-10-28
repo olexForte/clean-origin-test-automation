@@ -72,7 +72,7 @@ public class CalculateKeyword extends AbstractKeyword {
                 result = Math.floorMod(Math.round(result) , Math.round(curOperand));
             }
             if(operator.equals(TO_OPERATOR)){
-                executor.testDataRepository.setData(operands.get(operationNumber+1), String.valueOf(result));
+                executor.testDataRepository.setData(operands.get(operationNumber+1), String.format("%.2f", result));
             }
         }
 

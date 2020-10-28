@@ -17,6 +17,7 @@ public class ValidateEqualsKeyword extends AbstractKeyword {
     public enum ActionType {
         EQUALS(" equals "),
         CONTAINS(" contains "),
+        STRICT_CONTAINS(" strict contains "),
         SIMILAR(" similar "),
         NOT_CONTAINS(" does not contain "),
         MATCHES(" match ");
@@ -98,11 +99,11 @@ public class ValidateEqualsKeyword extends AbstractKeyword {
                 if (looksLikePrice(secondValue) &&
                         looksLikePrice(firstValue)) {
                     LOGGER.info("Process values as Numbers");
-                    firstValue = getFloatValue(firstValue);
-                    secondValue = getFloatValue(secondValue);
+                    firstValue = String.valueOf(getFloatValue(firstValue));
+                    secondValue = String.valueOf(getFloatValue(secondValue));
                 }
-
                 result = secondValue.equals(firstValue);
+
                 if (result){
                     executor.reporter.passWithScreenshot("Elements are equal: \n First: " + firstValue + "\nSecond: " + secondValue);
                 }else {
@@ -111,6 +112,15 @@ public class ValidateEqualsKeyword extends AbstractKeyword {
                 }
                 break;
             case CONTAINS:
+                result = cleanValue(firstValue).contains(cleanValue(secondValue));
+                if (result){
+                    executor.reporter.passWithScreenshot("Element  \n First: " + firstValue + " contains: \nSecond: " +  secondValue);
+                }else {
+                    executor.reporter.failWithScreenshot("Elements \n First: " + firstValue + " does not contain: \n Second: " + secondValue);
+                    return false;
+                }
+                break;
+            case STRICT_CONTAINS:
                 result = firstValue.contains(secondValue);
                 if (result){
                     executor.reporter.passWithScreenshot("Element  \n First: " + firstValue + " contains: \nSecond: " +  secondValue);
@@ -180,25 +190,39 @@ public class ValidateEqualsKeyword extends AbstractKeyword {
      * @param floatValue
      * @return
      */
-    private String getFloatValue(String floatValue) {
+//    private String getFloatValue(String floatValue) {
+//        String expectedValue = floatValue
+//                .replace("$", "")
+//                .replace(",","")
+//                .trim();
+//        String expectedFloatValue;
+//        if(!expectedValue.contains("."))
+//            expectedFloatValue = expectedValue;
+//        else {
+//            String[] priceParts = expectedValue.split("\\.");
+//            if (priceParts[1].length() == 1)
+//                expectedFloatValue = expectedValue;
+//            else {
+//                expectedFloatValue = priceParts[0] + "." + priceParts[1].substring(0, 2);
+//            }
+//        }
+//        return expectedFloatValue;
+//    }
+
+    private Float getFloatValue(String floatValue) {
         String expectedValue = floatValue
                 .replace("$", "")
                 .replace(",","")
                 .trim();
-        String expectedFloatValue;
-        if(!expectedValue.contains("."))
-            expectedFloatValue = expectedValue;
-        else {
-            String[] priceParts = expectedValue.split("\\.");
-            if (priceParts[1].length() == 1)
-                expectedFloatValue = expectedValue;
-            else {
-                expectedFloatValue = priceParts[0] + "." + priceParts[1].substring(0, 2);
-            }
-        }
-        return expectedFloatValue;
+
+        return Float.valueOf(expectedValue);
     }
 
+    /**
+     * Remove all space chars from data line
+     * @param data
+     * @return
+     */
     private String cleanValue(String data) {
         return data.replaceAll("[\n\r\t ]","");
     }
