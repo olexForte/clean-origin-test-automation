@@ -61,7 +61,7 @@ public class SetDiamondFilterKeyword extends AbstractKeyword {
                     //executor.page.clickOnElement("generalPage.CLOSE_MODAL_DIALOG", true);
                     setFieldValue(executor, fieldLabel, fieldValue);
                     //executor.page.clickOnElement("generalPage.CLOSE_MODAL_DIALOG", true);
-                    //setFieldValue(executor, fieldLabel, fieldValue);
+                    setFieldValue(executor, fieldLabel, fieldValue);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

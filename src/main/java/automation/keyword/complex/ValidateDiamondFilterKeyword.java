@@ -64,6 +64,7 @@ public class ValidateDiamondFilterKeyword extends AbstractKeyword {
         boolean result = true;
         while( iCurrentPage < iMaxPage){
             iCurrentPage++;
+            executor.page.sleepFor(1000);
             allDiamondsOnPage = executor.page.getComplexObject(executor.locatorsRepository.getComplexTarget("diamondsPage.DIAMONDS_TABLE_STRUCTURE"));
             //retry
             if(allDiamondsOnPage.size() > 0 && allDiamondsOnPage.get(allDiamondsOnPage.size()-1).entrySet().stream().filter(k -> !k.getValue().equals("")).count() == 0)
