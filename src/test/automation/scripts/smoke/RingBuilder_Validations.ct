@@ -3,7 +3,7 @@
 
 
 
-Open page 'urls.MAIN_URL:loginData.CLIENT_USER:loginData.CLIENT_PASSWORD';
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
@@ -31,8 +31,8 @@ Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA';
 
 Save element text 'engagementPage.RING_NAME_LABEL' to 'SAVED.ringName';
 Save element text 'engagementPage.RING_METAL_SELECT' to 'SAVED.ringMetal' and 'REGEXP_REMOVE:( \+.*)' ;
-Save value 'Round' to 'SAVED.ringShape' if empty;
 Optional Save element text 'engagementPage.RING_SHAPE_SELECT' to 'SAVED.ringShape';
+Save value 'Round' to 'SAVED.ringShape' if empty;
 Save element text 'engagementPage.RING_PRONG_SELECT' to 'SAVED.ringProng';
 Save element text 'engagementPage.RING_SIZE_SELECT' to 'SAVED.ringSize';
 Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice';
