@@ -5,6 +5,7 @@ import automation.datasources.JSONConverter;
 import automation.execution.TestStepsExecutor;
 import automation.execution.TestsExecutor;
 import automation.keyword.AbstractKeyword;
+import automation.tools.ComparatorTool;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -238,13 +239,13 @@ public class ValidateListOfMapsKeyword extends AbstractKeyword {
     private String normalizeValue(String value) {
         //check for null
         String result = value.equals("null") ? "" : value;
-        result = cleanValue(result);
-        if(looksLikePrice(result))
-            result = getFloatValue(result);
+        result = ComparatorTool.cleanValue(result);
+        if(ComparatorTool.looksLikePrice(result))
+            result = ComparatorTool.getFloatValue(result);
         return result.replace("--",""); //TODO make list of replacements
     }
 
-    private ArrayList<HashMap<String, String>> getListAsHashMaps(TestStepsExecutor executor, String target) {
+    private ArrayList<HashMap<String, String>> getListAsHashMaps(TestStepsExecutor executor, String target) throws Exception {
         try {
             return  (ArrayList<HashMap<String, String>>) executor.testDataRepository.getTestDataObject(target);
 
@@ -255,46 +256,6 @@ public class ValidateListOfMapsKeyword extends AbstractKeyword {
                 return  (ArrayList<HashMap<String, String>>)JSONConverter.toHashMapList("[" + executor.testDataRepository.getTestDataObject(target) + "]");
             }
         }
-    }
-
-    /**
-     * Check if Values looks like Price
-     * @param value
-     * @return
-     */
-    private boolean looksLikePrice(String value) {
-        return value.replace("$", "").matches("[0-9\\.,]+");
-    }
-
-    /**
-     * Get Price/Number
-     * @param floatValue price/number
-     * @return float with two digits
-     */
-    private String getFloatValue(String floatValue) {
-        String expectedValue = floatValue
-                .replace("$", "")
-                .replace(",","")
-                .trim();
-        return Float.valueOf(expectedValue).toString();
-
-
-//        String expectedFloatValue;
-//        if(!expectedValue.contains("."))
-//            expectedFloatValue = expectedValue;
-//        else {
-//            String[] priceParts = expectedValue.split("\\.");
-//            if (priceParts[1].length() == 1)
-//                expectedFloatValue = expectedValue;
-//            else {
-//                expectedFloatValue = priceParts[0] + "." + priceParts[1].substring(0, 2);
-//            }
-//        }
-//        return expectedFloatValue;
-    }
-
-    private String cleanValue(String data) {
-        return data.replaceAll("[\n\r\t ]","");
     }
 //
 //    {transaction_id=, notes=, type_id=75, , description=, tax=3, tax_rate=0.1, sf_invoice_id=, paid_at=, payment_method_id=1, licenses=5, total=33, status_id=72, rate=6, subtotal=30,, }

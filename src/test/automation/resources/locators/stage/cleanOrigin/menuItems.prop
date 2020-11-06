@@ -1,0 +1,18 @@
+
+MENU_ITEM_4CDIAMONDS = //a[contains(.,'4 C')][contains(.,'s of Diamonds')]
+MENU_ITEM_LAB_GROWN_VS_MINED = //a[contains(.,'Lab Grown vs. Mined')]
+
+MENU_ITEM_WARRANTY = //a[contains(.,'Lifetime Manufacturer')][contains(.,'s Warranty')]
+
+MENU_ITEM_WOMANS_WEDDING_BAND = //a[contains(.,'Women')][contains(.,'s Wedding Bands')]
+MENU_ITEM_MANS_WEDDING_BAND = //a[contains(.,'Men')][contains(.,'s Wedding Bands')]
+
+MENU_ITEM_JEWELRY_NEW_ARRIVALS = (//a[.="New Arrivals"])[2]
+MENU_ITEM_WEDDING_NEW_ARRIVALS = //a[.="New Arrivals"]
+
+MENU_ITEM_NOUVEAU_COLLECTION = (//a[.="Nouveau Collection"])[2]
+
+MENU_ITEM_JEWELRY_ETERNITY_BANDS = (//a[.="Eternity Bands"])[2]
+MENU_ITEM_JEWELRY_ANNIVERSARY_BANDS = (//a[.="Anniversary Bands"])[2]
+MENU_ITEM_JEWELRY_STACKABLE_BANDS = (//a[.="Stackable Bands"])[2]
+

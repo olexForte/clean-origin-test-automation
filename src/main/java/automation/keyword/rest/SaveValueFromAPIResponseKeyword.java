@@ -29,6 +29,10 @@ public class SaveValueFromAPIResponseKeyword extends AbstractKeyword {
     String AS_HTML_MARKER = " from html";
     boolean fromHTML = false;
 
+    String AS_TEXT_MARKER = " from text";
+    boolean fromTEXT = false;
+
+
     @Override
     public AbstractKeyword generateFromLine(String line) {
         if(prepareLine(line).toLowerCase().startsWith(LABEL.toLowerCase())){
@@ -50,6 +54,8 @@ public class SaveValueFromAPIResponseKeyword extends AbstractKeyword {
                 result.asMaps = true;
             if(line.toLowerCase().contains(AS_HTML_MARKER))
                 result.fromHTML = true;
+            if(line.toLowerCase().contains(AS_TEXT_MARKER))
+                result.fromTEXT = true;
             return result;
         }
         return null;
@@ -71,6 +77,12 @@ public class SaveValueFromAPIResponseKeyword extends AbstractKeyword {
         Response response =  (Response)executor.testDataRepository.getTestDataObject(source);
 
         Object val;
+
+        if(fromTEXT){
+            val = response.asString().replace("\n","").replaceAll(dataLine, "$1");
+            executor.testDataRepository.setTestDataObject(target, val);
+        } else // not a string
+
         if(asList){
             if(fromHTML) {
                 val = response.htmlPath().getList(dataLine, String.class);

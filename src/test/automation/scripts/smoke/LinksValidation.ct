@@ -1,0 +1,15 @@
+# Test: Validate that all navigation menu links work
+
+#FOR menuitem link url expected
+#file:Menu_items_to_validate.csv
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+wait for '3' seconds;
+execute js 'general.close_close_close_CLOSE' '//body';
+Hover over item "mainPage.NAVIGATION_MENU_ITEM:$menuitem";
+Optional Click on item "$link";
+wait for '3' seconds;
+Optional Get value from URL 'https://.*?/(.*)' to save 'SAVED.value';
+Optional Validate value '$url' equals 'SAVED.value';
+Optional Validate element "$expected" is visible;;
+#END FOR
+Report message "SAVED.target"

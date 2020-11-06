@@ -3,7 +3,7 @@
 
 Save value 'Wellsley Ring' to 'saved.TYPE_OF_RING';
 
-Open page 'urls.MAIN_URL:loginData.CLIENT_USER:loginData.CLIENT_PASSWORD';
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 

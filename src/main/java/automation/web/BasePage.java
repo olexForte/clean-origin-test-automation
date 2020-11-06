@@ -26,11 +26,9 @@ import java.awt.event.KeyEvent;
 import java.io.File;
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -686,12 +684,33 @@ public class BasePage {
         }
     }
 
+    public String getText(WebElement elem, boolean ignoreException) throws Exception {
+        try {
+           if (elem == null)
+                if(ignoreException)
+                    return "";
+                else
+                    throw new Exception("Element was not found: " + elem.toString());
+
+            if(elem.getTagName().toLowerCase().equals("select")) // select text
+                return (new Select(elem)).getFirstSelectedOption().getText();
+            if (elem.getAttribute("value") != null && !elem.getAttribute("value").equals(""))
+                return elem.getAttribute("value"); //TODO add type validation
+            return elem.getText();
+        } catch (Exception e) {
+            if(ignoreException)
+                return "";
+            else
+                throw new Exception("Cannot get text from element: " + elem.toString());
+        }
+    }
+
     /**
      * Get text from element
      * @param element
      * @return
      */
-    private String getText(WebElement element) {
+    public String getElementText(WebElement element) {
         String value = element.getText();
         if(element.getAttribute("value") != null && !element.getAttribute("value").equals(""))
             return element.getAttribute("value");
@@ -729,7 +748,7 @@ public class BasePage {
                 for (Map.Entry<String, String> value : expectedValues.entrySet()) {
                     if(!targets.containsKey(value.getKey()))
                         continue;
-                    actualValue = getText(parent.findElement(By.xpath(targets.get(value.getKey()))));
+                    actualValue = getElementText(parent.findElement(By.xpath(targets.get(value.getKey()))));
                     expectedValue = value.getValue();
                     if (!expectedValue.equals(actualValue)) {
                         wasFound = false;
@@ -769,10 +788,10 @@ public class BasePage {
                     if(key.equals("parent"))
                         continue;
                     WebElement currentTarget = currentElement.findElement(By.xpath(targets.get(key)));
-                    if(getText(currentTarget).contains(by_value)) {
+                    if(getElementText(currentTarget).contains(by_value)) {
                         valueWasFound = true;
                     }
-                    result.put(key, getText(currentTarget));
+                    result.put(key, getElementText(currentTarget));
                 }
                 if(valueWasFound) {
                     return result;
@@ -787,7 +806,7 @@ public class BasePage {
                 continue;
             WebElement currentTarget = currentElement.findElement(By.xpath(targets.get(key)));
 
-            result.put(key, getText(currentTarget));
+            result.put(key, getElementText(currentTarget));
         }
 
         return result;
@@ -817,7 +836,7 @@ public class BasePage {
                     WebElement currentTarget;
                     try {
                         currentTarget = currentElement.findElement(By.xpath(targets.get(key)));
-                        item.put(key, getText(currentTarget));
+                        item.put(key, getElementText(currentTarget));
                     }catch (Exception e){
                         item.put(key, "");
                     }
@@ -1421,14 +1440,40 @@ public class BasePage {
             if(isOptional)
                 return false;
             else
-                throw new Exception("Failure clicking on element - element not visible: " + target);
+                throw new Exception("Failure hovering on element - element not visible: " + target);
             waitForPageToLoad();
             return true;
         } catch (Exception e) {
             if(isOptional)
                 return false;
             else
-                throw new Exception("Failure clicking on element: " + target, e);
+                throw new Exception("Failure hovering on element: " + target, e);
+        }
+
+    }
+
+    public boolean hoverElement(WebElement element, boolean isOptional) throws Exception {
+        LOGGER.info("Hovering over " + element.toString());
+        try {
+
+            scrollToElement(element);
+            if (element.isDisplayed()) {
+                Actions action = new Actions(driver());
+                sleepFor(1000);
+                action.moveToElement(element).perform();
+                //clickOnElementUsingJS(element);
+            } else
+            if(isOptional)
+                return false;
+            else
+                throw new Exception("Failure clicking on element - element not visible: " + element.toString());
+            waitForPageToLoad();
+            return true;
+        } catch (Exception e) {
+            if(isOptional)
+                return false;
+            else
+                throw new Exception("Failure clicking on element: " + element.toString(), e);
         }
 
     }

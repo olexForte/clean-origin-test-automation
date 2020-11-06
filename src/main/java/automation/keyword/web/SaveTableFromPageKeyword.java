@@ -58,5 +58,5 @@ public class SaveTableFromPageKeyword extends AbstractKeyword {
         executor.testDataRepository.setComplexData(data, actualValues);
         return true;
 
-        }
+    }
 }

@@ -25,6 +25,7 @@ public class GETRequestKeyword extends AbstractKeyword {
     String cookies;
     String regExpCookies = ".*with cookies ['\"](.*?)['\"].*";
     String regExpHeaders = ".*with headers ['\"](.*?)['\"].*";
+    String regExpResults = ".*results to ['\"](.*?)['\"].*";
 
     @Override
     public AbstractKeyword generateFromLine(String line) {
@@ -43,7 +44,9 @@ public class GETRequestKeyword extends AbstractKeyword {
             if (line.matches(regExpHeaders)) {
                 result.headers = line.replaceAll(regExpHeaders, "$1");
             }
-            result.result = line.substring(matcher.start()+1, matcher.end()-1);
+            if (line.matches(regExpResults)) {
+                result.result = line.replaceAll(regExpResults, "$1");
+            }
 
             return result;
         }
@@ -56,20 +59,6 @@ public class GETRequestKeyword extends AbstractKeyword {
         Response response;
         if(url == null)
             url = (String)executor.testDataRepository.getData(target);
-
-//        if (executor.testDataRepository.getTestDataObject(headers) instanceof Headers) {
-//             response = executor.api.getRequest(url, (Headers)executor.testDataRepository.getTestDataObject(headers));
-//        }else {
-//            HashMap<String, String> requestHeaders = executor.testDataRepository.getComplexData(headers);
-//             response = executor.api.getRequest(url, requestHeaders);
-//        }
-//
-//        if (executor.testDataRepository.getTestDataObject(cookies) instanceof Cookies) {
-//            response = executor.api.getRequest(url, (Headers)executor.testDataRepository.getTestDataObject(cookies));
-//        }else {
-//            HashMap<String, String> requestHeaders = executor.testDataRepository.getComplexData(cookies);
-//            response = executor.api.getRequest(url, requestHeaders);
-//        }
 
         response = executor.api.getRequest(url,
                 executor.testDataRepository.getTestDataObject(headers),

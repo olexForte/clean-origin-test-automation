@@ -1,8 +1,6 @@
 package automation.keyword;
 
-import automation.keyword.complex.FillDataFormKeyword;
-import automation.keyword.complex.SetDiamondFilterKeyword;
-import automation.keyword.complex.ValidateDiamondFilterKeyword;
+import automation.keyword.complex.*;
 import automation.keyword.general.*;
 import automation.keyword.mailtrap.CheckForEmailKeyword;
 import automation.keyword.mailtrap.DownloadAttachmentFromEmailKeyword;
@@ -277,6 +275,16 @@ public enum KeywordEnum {
     VALIDATE_DIAMONDS_FILTER{
         public AbstractKeyword getKeyword(){
             return new ValidateDiamondFilterKeyword();
+        }
+    },
+    SET_RINGS_FILTER{
+        public AbstractKeyword getKeyword(){
+            return new SetEngagementFilterKeyword();
+        }
+    },
+    VALIDATE_RINGS_FILTER{
+        public AbstractKeyword getKeyword(){
+            return new ValidateEngagementFilterKeyword();
         }
     }
     ;

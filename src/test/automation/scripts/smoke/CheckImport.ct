@@ -1,8 +1,8 @@
 #
 
-Login as 'loginData.ADMIN_USERNAME' 'loginData.ADMIN_PASSWORD';
+Login as "${ADMIN_USER}" "${ADMIN_PASSWORD}";
 
-Open page 'urls.ADMIN_CATALOG_PRODUCT_URL:loginData.CLIENT_USER:loginData.CLIENT_PASSWORD' no cleanup;
+Open page 'urls.ADMIN_CATALOG_PRODUCT_URL:${CLIENT_USER}:${CLIENT_PASSWORD}' no cleanup;
 
 Optional Click on item 'magentoMainPage.CLEAR_FILTERS_BUTTON';
 
@@ -16,7 +16,7 @@ Wait for '5' seconds;
 
 Save element text 'magentoMainPage.NUMBER_OF_RECORDS' to 'saved.TOTAL_NUMBER_OF_DIAMONDS' and 'REMOVE: records found';
 
-Open page 'urls.DIAMONDS_URL:loginData.CLIENT_USER:loginData.CLIENT_PASSWORD';
+Open page 'urls.DIAMONDS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 
 Wait for '3' seconds;
 

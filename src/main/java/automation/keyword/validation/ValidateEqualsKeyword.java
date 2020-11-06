@@ -3,6 +3,7 @@ package automation.keyword.validation;
 import automation.annotations.KeywordRegexp;
 import automation.keyword.AbstractKeyword;
 import automation.execution.TestStepsExecutor;
+import automation.tools.ComparatorTool;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -96,11 +97,11 @@ public class ValidateEqualsKeyword extends AbstractKeyword {
         switch (action){
             case EQUALS:
                 //if comparing prices
-                if (looksLikePrice(secondValue) &&
-                        looksLikePrice(firstValue)) {
+                if (ComparatorTool.looksLikePrice(secondValue) &&
+                        ComparatorTool.looksLikePrice(firstValue)) {
                     LOGGER.info("Process values as Numbers");
-                    firstValue = String.valueOf(getFloatValue(firstValue));
-                    secondValue = String.valueOf(getFloatValue(secondValue));
+                    firstValue = String.valueOf(ComparatorTool.getFloatValue(firstValue));
+                    secondValue = String.valueOf(ComparatorTool.getFloatValue(secondValue));
                 }
                 result = secondValue.equals(firstValue);
 
@@ -112,7 +113,7 @@ public class ValidateEqualsKeyword extends AbstractKeyword {
                 }
                 break;
             case CONTAINS:
-                result = cleanValue(firstValue).contains(cleanValue(secondValue));
+                result = ComparatorTool.cleanValue(firstValue).contains(ComparatorTool.cleanValue(secondValue));
                 if (result){
                     executor.reporter.passWithScreenshot("Element  \n First: " + firstValue + " contains: \nSecond: " +  secondValue);
                 }else {
@@ -130,7 +131,7 @@ public class ValidateEqualsKeyword extends AbstractKeyword {
                 }
                 break;
             case SIMILAR:
-                result = cleanValue(firstValue).equals(cleanValue(secondValue));
+                result = ComparatorTool.cleanValue(firstValue).equals(ComparatorTool.cleanValue(secondValue));
                 if (result){
                     executor.reporter.pass("Elements are similar:  \n First: " + firstValue + "\nSecond: " +  secondValue);
                 }else {
@@ -173,59 +174,5 @@ public class ValidateEqualsKeyword extends AbstractKeyword {
         val = line.substring(startChar, (startChar + 100) > line.length()? line.length(): (startChar + 100) );
         return val;
     }
-
-    /**
-     * Check if Values looks like Price
-     * @param value
-     * @return
-     */
-    private boolean looksLikePrice(String value) {
-        return value.replace("$", "").matches("[0-9\\.,]+");
-    }
-
-    /**
-     * Input -> String with a float number with any number of decimal places.
-     * Output -> float value with max of two decimal places in a form of String.
-     *
-     * @param floatValue
-     * @return
-     */
-//    private String getFloatValue(String floatValue) {
-//        String expectedValue = floatValue
-//                .replace("$", "")
-//                .replace(",","")
-//                .trim();
-//        String expectedFloatValue;
-//        if(!expectedValue.contains("."))
-//            expectedFloatValue = expectedValue;
-//        else {
-//            String[] priceParts = expectedValue.split("\\.");
-//            if (priceParts[1].length() == 1)
-//                expectedFloatValue = expectedValue;
-//            else {
-//                expectedFloatValue = priceParts[0] + "." + priceParts[1].substring(0, 2);
-//            }
-//        }
-//        return expectedFloatValue;
-//    }
-
-    private Float getFloatValue(String floatValue) {
-        String expectedValue = floatValue
-                .replace("$", "")
-                .replace(",","")
-                .trim();
-
-        return Float.valueOf(expectedValue);
-    }
-
-    /**
-     * Remove all space chars from data line
-     * @param data
-     * @return
-     */
-    private String cleanValue(String data) {
-        return data.replaceAll("[\n\r\t ]","");
-    }
-
 
 }

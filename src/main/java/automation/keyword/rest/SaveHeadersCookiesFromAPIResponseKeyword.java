@@ -58,7 +58,7 @@ public class SaveHeadersCookiesFromAPIResponseKeyword extends AbstractKeyword {
         if(saveHeaders)
             executor.testDataRepository.setTestDataObject(target, response.getHeaders());
         else
-            executor.testDataRepository.setTestDataObject(target, response.getCookies());
+            executor.testDataRepository.setTestDataObject(target, response.getDetailedCookies());
         return true;
     }
 }

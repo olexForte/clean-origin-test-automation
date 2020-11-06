@@ -1,5 +1,6 @@
 package automation.api;
 
+import automation.configuration.ProjectConfiguration;
 import automation.datasources.JSONConverter;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
@@ -9,6 +10,7 @@ import io.restassured.response.Response;
 import automation.reporting.ReporterManager;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import org.apache.commons.collections4.map.HashedMap;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -39,10 +41,16 @@ public class BaseRestClient {
      */
     public Response getRequest(String requestURL, Object headers, Object cookies) {
         reporter.info("GET URL: " + requestURL);
-        if(headers == null)
+        if(headers == null || headers.equals(""))
             headers = new HashMap<>();
-        if(cookies == null)
+        else
+            if(headers instanceof String)
+                headers = JSONConverter.toHashMapFromJsonString((String) headers);
+        if(cookies == null || cookies.equals(""))
             cookies = new HashMap<>();
+        else
+            if(cookies instanceof String)
+                cookies = JSONConverter.toHashMapFromJsonString((String) cookies);
 
         String creds = requestURL.replaceAll("(http|https)://(.*?:.*?)@.*", "$2");
 
@@ -61,10 +69,10 @@ public class BaseRestClient {
         if(cookies instanceof Cookies)
             responseSpecification = responseSpecification.cookies((Cookies)cookies);
         else
-            responseSpecification = responseSpecification.cookies((HashMap<String,String>)cookies);
+            responseSpecification = responseSpecification.cookies((Map<String,String>)cookies);
 
         response = responseSpecification.when()
-                    .contentType(ContentType.JSON)
+                    //.contentType(ContentType.JSON)
                     .get(requestURL)
                     .then()
                     .extract()
@@ -164,7 +172,7 @@ public class BaseRestClient {
             Response response = given()
                     .headers(headers)
                     .body(body)
-                    .when()
+                    .when().redirects().follow(true)
                     .contentType(ContentType.JSON)
                     .config(RestAssured.config().redirect(redirectConfig().followRedirects(false)))
                     .post(finalURL)
@@ -180,7 +188,7 @@ public class BaseRestClient {
             Response response = given()
                     .headers(headers)
                     .params(parameters)
-                    .when()
+                    .when().redirects().follow(true)
                     .contentType(ContentType.JSON)
                     .config(RestAssured.config().redirect(redirectConfig().followRedirects(false)))
                     .post(finalURL)
@@ -240,62 +248,6 @@ public class BaseRestClient {
     }
 
     /**
-     * Send post request an process redirections
-     * @param initialUrl
-     * @param targetUrl
-     * @param data
-     * @param headers
-     * @return
-     */
-    public Response postWithRedirect(String initialUrl, String targetUrl, String data, Map<String,String> headers){
-
-        if(headers == null)
-            headers = new HashMap<>();
-
-        //send initial request
-        Response initialResponse = null;
-        if(initialUrl != null)
-            initialResponse= given()
-                .get(initialUrl)
-                .then()
-                .extract()
-                .response();
-
-        //send main request
-        Response response;
-        if(!isJson(data)) {
-            response = given().contentType(ContentType.JSON)
-                    .headers(headers)
-                    .body(data)
-                    .cookies(initialResponse !=null ? initialResponse.cookies() : new HashMap<>())
-                    .post(targetUrl)
-                    .then()
-                    .extract()
-                    .response();
-        } else {
-            HashMap<String, String> parameters = JSONConverter.toHashMapFromJsonString(data);
-            response = given().contentType(ContentType.URLENC)
-                    .headers(headers)
-                    .params(parameters != null ? parameters : new HashMap<>())
-                    .cookies(initialResponse !=null ? initialResponse.cookies() : new HashMap<>())
-                    .post(targetUrl)
-                    .then()
-                    .extract()
-                    .response();
-        }
-
-        //redirect to new location
-        Response result = given()
-                .cookies(response.cookies())
-                .get(response.then().extract().header("Location"))
-                .then()
-                .extract()
-                .response();
-
-        return result;
-    }
-
-    /**
      * Upload POST request
      * @param requestURL request URL
      * @param file file
@@ -331,4 +283,44 @@ public class BaseRestClient {
         return data.startsWith("{");
     }
 
+//TODO move to another class
+    /**
+     * Send post request to Login an process redirections
+     * @param targetUrl
+     * @return
+     */
+    public Map<String,String> loginToAdminAndGetCookies(String targetUrl) {
+        //send initial request
+        Response initialResponse = null;
+        initialResponse = given().auth().basic(ProjectConfiguration.getConfigProperty("CLIENT_USER"), ProjectConfiguration.getConfigProperty("CLIENT_PASSWORD"))
+                .get(targetUrl)
+                .then()
+                .extract()
+                .response();
+
+        String key = (String) initialResponse.htmlPath().get("**.findAll {it.@name=='form_key'}.@value");
+        Map<String, String> cookies = initialResponse.getCookies();
+
+        //send main request
+        Response response = given().auth().basic(ProjectConfiguration.getConfigProperty("CLIENT_USER"), ProjectConfiguration.getConfigProperty("CLIENT_PASSWORD"))
+                .formParam("login[username]", ProjectConfiguration.getConfigProperty("ADMIN_USER"))
+                .formParam("login[password]", ProjectConfiguration.getConfigProperty("ADMIN_PASSWORD"))
+                .formParam("form_key", key)
+                .cookies(initialResponse.cookies())
+                .post(targetUrl)
+                .then()
+                .extract()
+                .response();
+
+
+        //redirect to new location
+        Response result = given().auth().basic(ProjectConfiguration.getConfigProperty("CLIENT_USER"), ProjectConfiguration.getConfigProperty("CLIENT_PASSWORD"))
+                .cookies(response.cookies())
+                .get(targetUrl)
+                .then()
+                .extract()
+                .response();
+
+        return result.getCookies();
+    }
 }

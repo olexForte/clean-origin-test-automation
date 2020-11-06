@@ -24,7 +24,7 @@ public class GenerateValueKeyword  extends AbstractKeyword {
 
     @KeywordRegexp("Generate value 'RANDOM.field' to 'SAVED.target' [if empty][and 'TRIM|UP|LOW|REMOVE:what|REPLACE:what:with|REGEXP_REMOVE:what|'];")
     static String LABEL = "generate value";
-    @KeywordRegexp("Save value '12' to 'SAVED.target';")
+    @KeywordRegexp("Save value '12' to 'SAVED.target' [if empty][and 'TRIM|UP|LOW|REMOVE:what|REPLACE:what:with|REGEXP_REMOVE:what|'];")
     static String LABEL_ALT = "save value";
 
     static String IF_EMPTY_MARKER = " if empty";

@@ -381,9 +381,9 @@ public class TestDataRepository {
      * @param objectID id of element in format key.value
      * @return Object from test data
      */
-    public Object getTestDataObject(String objectID){
+    public Object getTestDataObject(String objectID) throws Exception {
         if(objectID == null || objectID.equals("") ||!TEST_DATA.containsKey(objectID.toLowerCase()))
-            return null;
+            return getData(objectID); //null;
         return TEST_DATA.get(objectID.toLowerCase());
     }
 
