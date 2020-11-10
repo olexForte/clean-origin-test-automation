@@ -1,0 +1,14 @@
+# Test: Validate that all footer links work
+
+#FOR link url expected
+#file:Footer_links_to_validate.csv
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+wait for '3' seconds;
+execute js 'general.close_close_close_CLOSE' '//body';
+Optional Click on item "generalPage.FOOTER_LINK_BY_TEXT:$link";
+wait for '3' seconds;
+Optional Get value from URL 'https://.*?/(.*)' to save 'SAVED.value';
+Optional Validate value '$url' equals 'SAVED.value';
+Optional Validate element "$expected" is visible;;
+#END FOR
+Report message "SAVED.target"

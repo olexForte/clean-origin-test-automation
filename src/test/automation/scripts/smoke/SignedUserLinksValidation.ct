@@ -1,0 +1,20 @@
+# Test: Validate that all links work for Sighen user
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+Click on item  'generalPage.SIGN_IN_LINK';
+Type value '${APP_CLIENT_USER}' to 'signInPage.USERNAME_INPUT';
+Type value '${APP_CLIENT_PASSWORD}' to 'signInPage.PASSWORD_INPUT';
+Click on item 'signInPage.SIGN_IN_BUTTON';
+
+#FOR link url expected
+#file:SiignIn_links_to_validate.csv
+wait for '3' seconds;
+execute js 'general.close_close_close_CLOSE' '//body';
+Optional Click on item "$link";
+wait for '3' seconds;
+Optional Get value from URL 'https://.*?/(.*)' to save 'SAVED.value';
+Optional Validate value '$url' equals 'SAVED.value';
+Optional Validate element "$expected" is visible;;
+#END FOR
+Report message "SAVED.target"
+

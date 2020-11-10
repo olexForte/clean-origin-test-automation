@@ -1,4 +1,8 @@
 
+SIGN_IN_LINK = //a[.='Sign In']
+
+FOOTER_LINK_BY_TEXT = (//div[@class='footer content']//a[text()='$PARAMETER1'])[1]
+
 CLOSE_MODAL_DIALOG = //img[@alt="Close"]
 
 CLOSE_CHAT_DIALOG =  //div[@class='olark-top-bar-button']

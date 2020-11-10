@@ -1,0 +1,4 @@
+
+USERNAME_INPUT = //input[@id="email-login"]
+PASSWORD_INPUT = //input[@id="pass-login"]
+SIGN_IN_BUTTON = //span[.='Sign In']
