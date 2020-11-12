@@ -21,7 +21,7 @@ CREDIT_CARD_EXP_MON = //frame//input[@id="expiration-month"]
 CREDIT_CARD_EXP_YEAR = //frame//input[@id="expiration-year"]
 CREDIT_CARD_CVV = //frame//input[@id="cvv"]
 
-PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER = (//button[@class="action primary checkout"])[4]
+PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER = //div[@class='payment-method-title field choice']/label/span[text()='Wire Transfer']
 
 CHECKOUT_USERNAME_FIELD = //input[@id='customer-email']
 CHECKOUT_STREET_ADDRESS_FIELD = //legend[contains(.,'Street Address')]/following::div[1]//input[@class='input-text']

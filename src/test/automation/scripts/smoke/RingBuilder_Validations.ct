@@ -35,7 +35,7 @@ Optional Save element text 'engagementPage.RING_SHAPE_SELECT' to 'SAVED.ringShap
 Save value 'Round' to 'SAVED.ringShape' if empty;
 Save element text 'engagementPage.RING_PRONG_SELECT' to 'SAVED.ringProng';
 Save element text 'engagementPage.RING_SIZE_SELECT' to 'SAVED.ringSize';
-Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice';
+Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice'  and 'REMOVE:CA';
 
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
@@ -62,7 +62,7 @@ Click on item 'diamondsPage.VIEW_DIAMOND_BY_PARAMETERS_LOCATOR:saved.Diamond.sha
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 
 Save element text 'diamondsPage.DIAMOND_NAME_LABEL' to 'SAVED.diamondName';
-Save element text 'diamondsPage.DIAMOND_PRICE_LABEL' to 'SAVED.diamondPrice';
+Save element text 'diamondsPage.DIAMOND_PRICE_LABEL' to 'SAVED.diamondPrice' and 'REMOVE:CA';
 
 Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
 
@@ -78,7 +78,6 @@ Save element text 'diamondsPage.RING_TOTAL_PRICE_IN_CREATE_YOUR_RING_FORM' to 'S
 
 Optional Save entity 'engagementPage.SELECTED_RING_DETAILS_ENTYTY_LOCATOR' to 'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
 Optional Save entity 'engagementPage.SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR' to 'saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
-
 
 Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.diamondPriceOnTopPanel';
 Optional Validate value 'SAVED.ringPrice' equals 'SAVED.ringPriceOnTopPanel';
