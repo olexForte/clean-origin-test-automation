@@ -12,7 +12,7 @@ CURRENT_RING_FILTER_ITEM = (//ol[@class='items'])[1]/li[contains(.,'$PARAMETER1'
 RING_METAL_FILTER_ITEM = //div[contains(@option-label,'$PARAMETER1')]
 RING_COLLECTION_FILTER_ITEM = //div[@class='filter-options-title'][.='Ring Collection']/following-sibling::div[1][@class='filter-options-content']//li[contains(.,'$PARAMETER1')]
 
-RING_METAL_FILTER_ITEM_BY_INDEX = (//div[@option-label])[$PARAMETER1]
+RING_METAL_FILTER_ITEM_BY_INDEX = (//input[contains(@id,'metal_typeFilter_option')])[$PARAMETER1]
 RING_COLLECTION_FILTER_ITEM_BY_INDEX = (//div[@class='filter-options-title'][.='Ring Collection']/following-sibling::div[1][@class='filter-options-content']//li)[$PARAMETER1]
 
 RING_PRODUCT_ITEM = //a[@class='product-item-link'][contains(text(),'$PARAMETER1')]

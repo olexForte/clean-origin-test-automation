@@ -286,7 +286,13 @@ public enum KeywordEnum {
         public AbstractKeyword getKeyword(){
             return new ValidateEngagementFilterKeyword();
         }
+    },
+    GET_ITEMS_FROM_ADMIN{
+        public AbstractKeyword getKeyword(){
+            return new GetItemsFromAdminByRequestKeyword();
+        }
     }
+
     ;
 
     public AbstractKeyword getKeyword(){
