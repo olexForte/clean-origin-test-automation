@@ -56,8 +56,7 @@ SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR = {"parent":"//div[@id='details-list' an
 "CutGrade" : ".//div[text()='Cut Grade']/following-sibling::div[1]",\
 "Color" : ".//div[text()='Color']/following-sibling::div[1]",\
 "Culet" : ".//div[text()='Culet']/following-sibling::div[1]",\
-"Clarity" : ".//div[text()='Clarity']/following-sibling::div[1]",\
-"Fluorescence" : ".//div[text()='Fluorescence']/following-sibling::div[1]"}
+"Clarity" : ".//div[text()='Clarity']/following-sibling::div[1]"}
 
 RESET_FILTERS = //a[contains(.,'Reset Filters')]
 

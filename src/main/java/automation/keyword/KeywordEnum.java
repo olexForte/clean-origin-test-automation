@@ -265,6 +265,11 @@ public enum KeywordEnum {
             return new FillDataFormKeyword();
         }
     },
+    GET_VALUE_FROM_VARIABLE{
+        public AbstractKeyword getKeyword(){
+            return new GetValueFromSavedKeyword();
+        }
+    },
 
     //application specific
     SET_DIAMONDS_FILTER{
