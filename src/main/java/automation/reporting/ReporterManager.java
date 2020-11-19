@@ -353,7 +353,7 @@ public class ReporterManager {
     public void passWithScreenshot(String details) {
         String screenshotFile;
         String message = "<pre>" + details + "</pre>";
-        logger.error(details);
+        logger.info(details);
         try {
             if (DriverProvider.isDriverActive()) {
                 screenshotFile = takeScreenshot(DriverProvider.getCurrentDriver());

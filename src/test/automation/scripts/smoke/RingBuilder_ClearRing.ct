@@ -1,0 +1,35 @@
+#Ringbuilder - Clear rings
+
+Save value 'Deanna Solitaire Ring' to 'saved.TYPE_OF_RING';
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+
+Click on item 'mainPage.BUILD_YOU_RING_BUTTON';
+
+# Random ring
+Click on item 'engagementPage.RING_PRODUCT_ITEM:saved.TYPE_OF_RING';
+
+Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA_BY_VALUE';
+
+Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
+
+Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '10';
+
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+
+Click on item 'diamondsPage.VIEW_DIAMOND_BY_PARAMETERS_LOCATOR:saved.Diamond.shape:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade:saved.Diamond.price';
+Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+
+Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
+
+Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+
+Optional Click on item 'generalPage.CLEAR_RING_LINK';
+
+Validate element 'generalPage.MY_CUSTOM_RING_PANEL' is invisible;
+
+

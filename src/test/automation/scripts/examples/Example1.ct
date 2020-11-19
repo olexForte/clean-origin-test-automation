@@ -1,18 +1,46 @@
+#Ringbuilder - Change Diamond
 
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 
-Send GET request 'apiEndpoints.ADMIN_URL' with headers '' and save results to 'SAVED.apiResponse';
-Save API response cookie 'admin' from 'saved.apiResponse' to 'saved.adminCookie';
-Save API response cookie '__cfduid' from 'saved.apiResponse' to 'saved.uidCookie';
-Save API response value 'apiRequests.FORM_KEY_JPATH' from HTML 'saved.apiResponse' to 'saved.formKey';
-Send POST request 'apiEndpoints.ADMIN_URL' with data 'apiRequests.AUTHORIZATION:saved.formKey' with headers 'apiRequests.COOKIES:saved.adminCookie:saved.uidCookie' and save results to 'SAVED.apiResponse';
-Save API response header 'Location' from 'saved.apiResponse' to 'saved.LOCATION';
-Save all cookies from API response 'saved.apiResponse' to 'saved.allCookies';
-Send GET request 'saved.LOCATION' with cookies 'saved.allCookies' and save results to 'SAVED.apiResponse';
-#Send redirected POST request 'apiEndpoints.ADMIN_URL' 'apiEndpoints.ADMIN_URL' with data 'apiRequests.AUTHORIZATION:saved.formKey' with headers 'apiRequests.COOKIES:saved.adminCookie:saved.uidCookie' and save results to 'SAVED.apiResponse'
-Save API response cookie 'admin' from 'saved.apiResponse' to 'saved.adminCookie';
-Save API response cookie '__cfduid' from 'saved.apiResponse' to 'saved.uidCookie';
+Hover over item "mainPage.NAVIGATION_MENU_ITEM:ENGAGEMENT";
+Click on item "mainPage.NAVIGATION_MENU_LINK:New Arrivals";
+
+Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:2';
+
+# save ring
+
+Click on item 'generalPage.ADD_TO_WISHLIST';
+
+Type value '${APP_CLIENT_USER}' to 'signInPage.USERNAME_INPUT';
+Type value '${APP_CLIENT_PASSWORD}' to 'signInPage.PASSWORD_INPUT';
+Click on item 'signInPage.SIGN_IN_BUTTON';
+# Wishlist
+# validate ring
+
+Save element text 'userPage.PRODUCT_ITEM_INFO:1' to 'SAVED.data' and 'REGEXP_REMOVE:\\s';
+
+Click on item 'userPage.SHARE_WISHLIST_BUTTON';
+
+Type value 'testautotestauto@mailinator.com' to 'userPage.EMAISL_TEXTAREA';
+
+Type value 'testautotestauto' to 'userPage.MESSAGE_TEXTAREA';
 debug
-Send GET request 'apiEndpoints.ADMIN_PRODUCT_SEARCH_URL:apiRequests.FILTER_FOR_HARTS_AND_ARROWS_DIAMONDS' with headers 'apiRequests.COOKIES:saved.adminCookie:saved.uidCookie' and save results to 'SAVED.data'
+Click on item 'userPage.SHARE_WITH_LIST_OF_EMAIL_BUTTON';
+
+Open page 'https://www.mailinator.com/v3/#/#inboxpane';
+Type value 'testautotestauto' to '//input[@id="inbox_field"]';
+Click on item '//button[@id="go_inbox"]';
+
+Save element text '//tr[@ng-repeat="email in emails"]' to 'SAVED.data' and 'TRIM';
+
+Report message 'SAVED.data'
+
+# share list
+
+
+
+
+
 
 
 

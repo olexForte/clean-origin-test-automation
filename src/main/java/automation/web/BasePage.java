@@ -4,6 +4,7 @@ import automation.configuration.ProjectConfiguration;
 import automation.configuration.SessionManager;
 import automation.datasources.FileManager;
 import automation.execution.TestsExecutor;
+import automation.tools.ComparatorTool;
 import org.openqa.selenium.*;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
@@ -577,7 +578,11 @@ public class BasePage {
     public void selectFromDropdown(String xpath, String value, boolean ignoreException) throws Exception {
         try {
             Select dropdown = new Select(findDynamicElement(xpath, ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)), ignoreException ? getShortTimeout() : getTimeout()));
-            dropdown.selectByVisibleText(value);
+            if(value.matches("#\\d+")) // as index
+                dropdown.selectByIndex(Integer.valueOf(value.replace("#","")));
+            else
+                dropdown.selectByVisibleText(value);
+
         }catch (Exception e){
             if(!ignoreException)
                 throw new Exception("Failure selecting value: " + xpath, e);

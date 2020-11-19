@@ -37,6 +37,9 @@ ADD_TO_BAG_BUTTON = //button[@id='product-addtocart-button']
 ADD_TO_RING_BUTTON = //button[@id='add-to-bundle']
 ADD_TO_RING_AND_CREATE_BUTTON = //button[@id="create-and-add-to-bundle"]
 
+CHOSE_ANOTHER_DIAMOND = //button[@id="replace-item-in-bundle"]
+
+
 VIEW_DIAMOND_BY_PARAMETERS_LOCATOR = //td[contains(.,'$PARAMETER1')]\
 /following-sibling::td[contains(.,'$PARAMETER2')]\
 /following-sibling::td[contains(.,'$PARAMETER3')]\

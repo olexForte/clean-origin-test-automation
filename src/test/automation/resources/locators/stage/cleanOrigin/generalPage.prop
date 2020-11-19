@@ -25,3 +25,19 @@ PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER = //div[@class='payment-method-title field
 
 CHECKOUT_USERNAME_FIELD = //input[@id='customer-email']
 CHECKOUT_STREET_ADDRESS_FIELD = //legend[contains(.,'Street Address')]/following::div[1]//input[@class='input-text']
+
+CLEAR_RING_LINK = (//span[@id='clear-all-bundles'])[2]
+
+MY_CUSTOM_RING_PANEL = //div[text()='My Custom Ring']
+
+MY_CUSTOM_RING_PANE_EDIT_RING = //div[@id='ring-step']//a[.='Edit']
+MY_CUSTOM_RING_PANE_VIEW_RING = //div[@id='ring-step']//a[.='View']
+MY_CUSTOM_RING_PANE_REMOVE_RING = //div[@id='ring-step']//a[.='Remove']
+MY_CUSTOM_RING_PANE_VIEW_DIAMOND = (//div[@id='diamond-step']//a[.='View'])[2]
+MY_CUSTOM_RING_PANE_REMOVE_DIAMOND = (//div[@id='diamond-step']//a[.='Remove'])[2]
+
+BASE_PAGE_URL_REGEXP = https://${BASE_URL}(.*)
+
+HEADER_ACCOUNT_LINK = //div[@id="clo-header-account"]//a[contains(.,'$PARAMETER1')]
+
+ADD_TO_WISHLIST = //a[@class='action towishlist']

@@ -31,6 +31,8 @@ RING_NAME_LABEL = //span[@data-ui-id='page-title-wrapper']
 RING_SKU_LABEL = //div[text()='Style Number']/following::div[1]
 
 CHOSE_THIS_SETTING_BUTTON = //button[@id='create-and-add-to-bundle']
+UPDATE_RING_BUTTON = //button[@id="add-to-bundle"]
+CHOSE_DIFFERENT_SETTING_BUTTON = //button[@id="replace-item-in-bundle"]
 
 ADD_TO_BAG_BUTTON = (//div[@class="progress-add-to-cart"])[2]
 #//button[@id="progress-add-to-cart"]
