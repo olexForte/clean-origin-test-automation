@@ -1,0 +1,46 @@
+
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+
+Hover over item "mainPage.NAVIGATION_MENU_ITEM:ENGAGEMENT";
+Click on item "mainPage.NAVIGATION_MENU_LINK:New Arrivals";
+
+Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:2';
+
+Save element text 'engagementPage.RING_NAME_LABEL' to 'SAVED.ringName';
+
+Click on item 'generalPage.ADD_TO_WISHLIST';
+
+Type value '${APP_CLIENT_USER}' to 'signInPage.USERNAME_INPUT';
+Type value '${APP_CLIENT_PASSWORD}' to 'signInPage.PASSWORD_INPUT';
+Click on item 'signInPage.SIGN_IN_BUTTON';
+
+
+Save element text 'userPage.PRODUCT_IN_WISH_LIST_BY_NAME:SAVED.ringName' to 'SAVED.data' and 'REGEXP_REMOVE:\\s';
+
+Validate value 'SAVED.data' contains 'SAVED.ringName';
+
+Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+
+debug
+
+# click on edit button for item
+
+# check item name is visible
+
+# set metal/prong etc. (from RingBuilder test)
+
+# click update wishlist
+
+# check new item is visible
+
+#hover over item 'locator';
+#Click on item 'locator';
+#Type value 'data' to 'locator';
+#Save element text 'locatorORdata' to 'SAVED.data';
+#validate element 'locator' [is visible|is invisible];
+#Validate value 'locatorORdata' equals 'locatorORdataORregexp';
+#Validate value 'locatorORdata' contains 'locatorORdataORregexp';
+
+
