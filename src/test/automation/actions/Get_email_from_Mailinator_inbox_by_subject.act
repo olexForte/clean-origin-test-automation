@@ -1,0 +1,20 @@
+# Action:
+
+# $1 - inbox
+# $2 - part of subject
+# Result
+# $3 - result
+
+Open page 'mailinatorPage.URL';
+Wait for '2' seconds;
+Type value '$1' to 'mailinatorPage.SEARCH_INPUT_FIELD';
+Click on item 'mailinatorPage.SEARCH_INPUT_GO_BUTTON';
+
+Save entity 'mailinatorPage.EMAIL_ROW_ENTITY' to 'saved.data' by value '$2';
+Hover over item 'mailinatorPage.EMAIL_ITEM:saved.data.Subject'; on item 'mailinatorPage.EMAIL_ITEM:saved.data.Subject';
+Click on item 'mailinatorPage.EMAIL_ITEM:saved.data.Subject';
+Wait for '5' seconds;
+Save element text 'mailinatorPage.EMAIL_CONTENT' to '$3'
+
+
+

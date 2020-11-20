@@ -1,12 +1,19 @@
 
-PRODUCT_ITEM_INFO = (//div[@class="product-item-info"])[$PARAMETER1]
+# wishlist items
+WISH_LIST_PRODUCT_ITEM_INFO_BY_INDEX = (//div[@class="product-item-info"])[$PARAMETER1]
 
+PRODUCT_IN_WISH_LIST_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]
+
+PRODUCT_PRICE_IN_WISH_LIST_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]//following::div[1]//span[@class='price']
+
+DELETE_PRODUCT_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]/following::div[@class='product-item-inner']//a[@class='action edit']
+EDIT_PRODUCT_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]/following::div[@class='product-item-inner']//a[@class='btn-remove action delete']
+ADD_TO_BAG_PRODUCT_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]/following::div[@class='product-item-inner']//button[@title='Add to Bag']
+
+# share wishlist process
 SHARE_WISHLIST_BUTTON = //button[contains(.,'Share Wish List')]
-
-EMAISL_TEXTAREA = //textarea[@name="emails"]
-
+EMAILS_TEXTAREA = //textarea[@name="emails"]
 MESSAGE_TEXTAREA = //textarea[@id="message"]
-
 SHARE_WITH_LIST_OF_EMAIL_BUTTON = //button[@title="Share Wish List"]
 
 

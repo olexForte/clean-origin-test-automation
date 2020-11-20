@@ -680,7 +680,7 @@ public class BasePage {
                 return (new Select(elem)).getFirstSelectedOption().getText();
             if (elem.getAttribute("value") != null && !elem.getAttribute("value").equals(""))
                 return elem.getAttribute("value"); //TODO add type validation
-            return elem.getText();
+            return ( elem.getText().equals("") ? elem.getAttribute("innerText") : elem.getText() );
         } catch (Exception e) {
             if(ignoreException)
                 return "";

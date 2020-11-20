@@ -1,0 +1,16 @@
+# Action:
+
+# $1 - inbox
+# $2 - part of subject
+# Result
+# $3 - result
+
+Wait for '5' seconds;
+Open page 'getnadaPage.URL';
+
+Save entity 'getnadaPage.EMAIL_ROW_ENTITY' to 'saved.data' by value '$2';
+Click on item 'getnadaPage.EMAIL_ITEM:saved.data.Subject';
+Save element text 'getnadaPage.EMAIL_CONTENT' to '$3'
+
+
+

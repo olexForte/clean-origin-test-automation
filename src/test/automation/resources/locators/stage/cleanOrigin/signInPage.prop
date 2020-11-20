@@ -2,3 +2,23 @@
 USERNAME_INPUT = //input[@id="email-login"] | //input[@id="email"]
 PASSWORD_INPUT = //input[@id="pass-login"] | //input[@id="pass"]
 SIGN_IN_BUTTON = //span[.='Sign In']
+
+FORGOT_YOUR_PASSWORD_LINK = //a[contains(.,'Forgot Your Password?')]
+
+FORGOT_YOUR_PASSWORD_EMAIL_ADDRESS_FILED = //input[@id="email_address"]
+
+FORGOT_YOUR_PASSWORD_RESET_MY_PASSWORD_BUTTON = //button[.='Reset My Password']
+
+
+CREATE_ACCCOUNT_BUTTON = //span[contains(.,'Create An Account')]
+
+CREATE_ACCOUNT_FIRSTNAME = //input[@id="firstname"]
+CREATE_ACCOUNT_LASTNAME = //input[@id="lastname"]
+CREATE_ACCOUNT_EMAIL = //input[@id="popup-email_address"]
+CREATE_ACCOUNT_PASSWORD = //input[@id="password"]
+CREATE_ACCOUNT_PASSWORD_CONFIRMATION = //input[@id="password-confirmation"]
+
+CREATE_NEW_ACCCOUNT_BUTTON = //button[@title="Create Account"]
+
+EMAIL_TEMPLATE = $PARAMETER1@mailinator.com
+#sopof@tafmail.com

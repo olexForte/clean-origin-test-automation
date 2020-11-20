@@ -1,0 +1,10 @@
+
+URL = https://www.mailinator.com/v3/#/#inboxpane
+EMAIL_ROW_ENTITY = {"parent":"//tr[@ng-repeat='email in emails']", "Subject" : ".//td[4]"}
+
+SEARCH_INPUT_FIELD = //input[@id="inbox_field"]
+SEARCH_INPUT_GO_BUTTON = //button[@id="go_inbox"]
+
+EMAIL_ITEM = //tr[@ng-repeat="email in emails"]//td[contains(.,"$PARAMETER1")]/a[1]
+
+EMAIL_CONTENT = //frame//table[@class="main"]

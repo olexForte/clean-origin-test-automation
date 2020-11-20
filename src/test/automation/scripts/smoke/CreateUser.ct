@@ -1,0 +1,21 @@
+# create new account test
+
+Generate value 'RANDOM.ACCOUNT_NAME:TestUser_10c' to 'saved.ACCOUNT_NAME';
+Generate value 'signInPage.EMAIL_TEMPLATE:saved.ACCOUNT_NAME' to 'saved.ACCOUNT_EMAIL';
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+
+Click on item 'generalPage.SIGN_IN_LINK';
+Click on item 'signInPage.CREATE_ACCCOUNT_BUTTON';
+
+Type value 'saved.ACCOUNT_NAME' to 'signInPage.CREATE_ACCOUNT_FIRSTNAME';
+Type value 'saved.ACCOUNT_NAME' to 'signInPage.CREATE_ACCOUNT_LASTNAME';
+Type value 'saved.ACCOUNT_EMAIL' to 'signInPage.CREATE_ACCOUNT_EMAIL';
+Type value 'Test12#$' to 'signInPage.CREATE_ACCOUNT_PASSWORD';
+Type value 'Test12#$' to 'signInPage.CREATE_ACCOUNT_PASSWORD_CONFIRMATION';
+
+Click on item 'signInPage.CREATE_NEW_ACCCOUNT_BUTTON';
+
+Get email from Mailinator inbox by subject 'saved.ACCOUNT_EMAIL' 'Welcome to Clean Origin' 'saved.EmailContent';
+
+Validate value 'saved.EmailContent' contains 'When you log in to your account, you will be able to do the following';

@@ -58,7 +58,15 @@ public class GenerateValueKeyword  extends AbstractKeyword {
     @Override
     public boolean execute(TestStepsExecutor executor) throws Exception {
 
-        String value = (String)executor.testDataRepository.getData(data);
+        String value;
+        try {
+            value = executor.locatorsRepository.getTarget(data); // process dynamic values
+        } catch (Exception e) {
+            value = null; // process dynamic values
+        }
+        if(value == null)
+            value = (String)executor.testDataRepository.getData(data);
+
         if(target != null && !target.equals("")) {
             String currentValue = (String) executor.testDataRepository.getData(target);
             if ( !ifEmpty || ( currentValue == null || currentValue.equals("") )) {

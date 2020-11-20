@@ -1,0 +1,10 @@
+# Action: get current Getnada email
+
+# Result
+# $1 - result
+
+Open page 'getnadaPage.URL';
+Save element text 'getnadaPage.CURRENT_EMAIL_LABEL' to '$1' and 'TRIM';
+
+
+
