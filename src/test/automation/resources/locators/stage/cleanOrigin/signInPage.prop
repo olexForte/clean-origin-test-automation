@@ -1,3 +1,4 @@
+# Sign in
 
 USERNAME_INPUT = //input[@id="email-login"] | //input[@id="email"]
 PASSWORD_INPUT = //input[@id="pass-login"] | //input[@id="pass"]

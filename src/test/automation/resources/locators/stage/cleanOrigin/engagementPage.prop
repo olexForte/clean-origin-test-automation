@@ -1,4 +1,6 @@
+# Rings page
 
+# PLP
 
 RING_METAL_FILTER_BUTTON = //div[@class='filter-options-title'][.='Metal']
 RING_PRICE_FILTER_BUTTON = //div[@class='filter-options-title'][.='Price']
@@ -17,25 +19,6 @@ RING_COLLECTION_FILTER_ITEM_BY_INDEX = (//div[@class='filter-options-title'][.='
 
 RING_PRODUCT_ITEM = //a[@class='product-item-link'][contains(text(),'$PARAMETER1')]
 RING_PRODUCT_ITEM_BY_INDEX = (//a[@class='product-item-link'])[$PARAMETER1]
-
-
-RING_METAL_SELECT = //label[contains(.,'Metal')]/following-sibling::div[1]/select[1]
-RING_SHAPE_SELECT = //label[contains(.,'Shape')]/following-sibling::div[1]/select[1]
-RING_PRONG_SELECT = //label[contains(.,'Prong')]/following-sibling::div[1]/select[1]
-RING_SIZE_SELECT = //label[contains(.,'Ring Size')]/following-sibling::div[1]/select[1]
-
-RING_PRICE_LABEL = //div[@class='product-info-price']//span[@class='price']
-
-RING_NAME_LABEL = //span[@data-ui-id='page-title-wrapper']
-
-RING_SKU_LABEL = //div[text()='Style Number']/following::div[1]
-
-CHOSE_THIS_SETTING_BUTTON = //button[@id='create-and-add-to-bundle']
-UPDATE_RING_BUTTON = //button[@id="add-to-bundle"]
-CHOSE_DIFFERENT_SETTING_BUTTON = //button[@id="replace-item-in-bundle"]
-
-ADD_TO_BAG_BUTTON = (//div[@class="progress-add-to-cart"])[2]
-#//button[@id="progress-add-to-cart"]
 
 SELECTED_RING_DETAILS_ENTYTY_LOCATOR = {"parent":"//div[@id='details-list' and @data-collection='Ring']",\
 "StyleNumber" : ".//div[text()='Style Number']/following-sibling::div[1]",\
@@ -70,3 +53,24 @@ RING_ITEMS_IDS = //div[@data-role='priceBox']
 #//div[@class='product-item-info']
 
 NEXT_BUTTON = (//a[@class='action  next'])[2]
+
+
+# PDP
+
+RING_METAL_SELECT = //label[contains(.,'Metal')]/following-sibling::div[1]/select[1]
+RING_SHAPE_SELECT = //label[contains(.,'Shape')]/following-sibling::div[1]/select[1]
+RING_PRONG_SELECT = //label[contains(.,'Prong')]/following-sibling::div[1]/select[1]
+RING_SIZE_SELECT = //label[contains(.,'Ring Size')]/following-sibling::div[1]/select[1]
+
+RING_PRICE_LABEL = //div[@class='product-info-price']//span[@class='price']
+
+RING_NAME_LABEL = //span[@data-ui-id='page-title-wrapper']
+
+RING_SKU_LABEL = //div[text()='Style Number']/following::div[1]
+
+CHOSE_THIS_SETTING_BUTTON = //button[@id='create-and-add-to-bundle']
+UPDATE_RING_BUTTON = //button[@id="add-to-bundle"]
+CHOSE_DIFFERENT_SETTING_BUTTON = //button[@id="replace-item-in-bundle"]
+
+ADD_TO_BAG_BUTTON = (//div[@class="progress-add-to-cart"])[2]
+#//button[@id="progress-add-to-cart"]

@@ -1,3 +1,4 @@
+# Magento Admin page
 
 NAVIGATION_MENU_ITEM = //ul[@id='nav']//span[.='$PARAMETER1']
 

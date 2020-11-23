@@ -1,11 +1,14 @@
-
+# data for API requests
 AUTHORIZATION = login[username]=${ADMIN_USER};login[password]=${ADMIN_PASSWORD};form_key=$PARAMETER1
 
+# template of Cookies objects
 COOKIES = {"Cookie":"admin=$PARAMETER1;__cfduid=$PARAMETER2"}
 COOKIES_WITH_FORM_KEY_AND_ADMIN = {"Cookie":"admin=$PARAMETER1;form_key=$PARAMETER2"}
 COOKIES_WITH_FORM_KEY = {"Cookie":"admin=$PARAMETER1,form_key=$PARAMETER2;__cfduid=$PARAMETER3"}
 
+# HtmlPath query to find FORM_KEY
 FORM_KEY_JPATH = **.findAll {it.@name=='form_key'}.@value
 
+# filter for Arrows&Diamonds search
 FILTER_FOR_HARTS_AND_ARROWS_DIAMONDS = ?namespace=product_listing&sorting%5Bfield%5D=created_at&sorting%5Bdirection%5D=desc&search=&filters%5Bplaceholder%5D=true&filters%5Battribute_set_id%5D=9&filters%5Bqty%5D%5Bfrom%5D=1&filters%5Bqty%5D%5Bto%5D=1&filters%5Bstatus%5D=1&paging%5BpageSize%5D=20&paging%5Bcurrent%5D=1&isAjax=true
 

@@ -1,3 +1,4 @@
+# Locators for special UI links (Validate Links tests)
 
 MENU_ITEM_4CDIAMONDS = //a[contains(.,'4 C')][contains(.,'s of Diamonds')]
 MENU_ITEM_LAB_GROWN_VS_MINED = //a[contains(.,'Lab Grown vs. Mined')]

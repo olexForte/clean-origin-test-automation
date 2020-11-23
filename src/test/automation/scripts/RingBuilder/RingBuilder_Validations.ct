@@ -1,39 +1,30 @@
-# Test: Check that New Diamonds (created today) can be used in RingBuilder
-
-Generate value 'RANDOM.curdate:CURRENT_DATE:MM-dd-yyyy' to 'saved.CURRENT_DATE' and 'REPLACE:-:%2F';
-Get list of items from Admin by request 'newDiamondsTest.FILTER_TO_GET_NEW_DIAMONDS:saved.CURRENT_DATE' to 'saved.DATA_FROM_ADMIN';
-Get value from saved 'saved.DATA_FROM_ADMIN' TEXT by 'newDiamondsTest.FIND_FIRST_ENTITY_SKU_REGEXP' and save to 'saved.DIAMOND_ID';
-
+#Test: Ringbuilder E2E test with validation between steps
 
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
-
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
-
 Click on item 'mainPage.BUILD_YOU_RING_BUTTON';
 
-Type value 'saved.DIAMOND_ID' to 'mainPage.SEARCH_INPUT_FIELD';
-Click on item 'mainPage.SEARCH_INPUT_FIELD_BUTTON';
-
-
+# generate random numbers
+Generate value 'RANDOM.metal:min_max:1:6' to 'SAVED.metal';
+Generate value 'RANDOM.ring:min_max:1:6' to 'SAVED.ringCollection';
 Calculate value 'RANDOM.ringIndex:1d' plus '1' to 'saved.ringIndex';
+Generate value 'RANDOM.diamondIndex:min_max:1:6' to 'SAVED.diamondIndex';
 
-Save element text 'diamondsPage.DIAMOND_NAME_LABEL' to 'SAVED.diamondName';
-Save element text 'diamondsPage.DIAMOND_PRICE_LABEL' to 'SAVED.diamondPrice' and 'REMOVE:CA';
+# set metal filters
+Click on item 'engagementPage.RING_METAL_FILTER_BUTTON';
+Click on item 'engagementPage.RING_METAL_FILTER_ITEM_BY_INDEX:SAVED.ringCollection';
 
-Click on item 'diamondsPage.ADD_TO_RING_AND_CREATE_BUTTON';
+Click on item 'engagementPage.RING_COLLECTION_FILTER_BUTTON';
+Click on item 'engagementPage.RING_COLLECTION_FILTER_ITEM_BY_INDEX:SAVED.metal';
 
-Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
-Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
-
-debug
-
-# Random ring
+# Select Random ring
 Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:saved.ringIndex';
-#wait for '5' seconds;
+
 Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA';
 
+# select required fields on PDP page
 Save element text 'engagementPage.RING_NAME_LABEL' to 'SAVED.ringName';
 Save element text 'engagementPage.RING_METAL_SELECT' to 'SAVED.ringMetal' and 'REGEXP_REMOVE:( \+.*)' ;
 Optional Save element text 'engagementPage.RING_SHAPE_SELECT' to 'SAVED.ringShape';
@@ -48,24 +39,45 @@ Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
 Optional Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
 
-#Wait for '5' seconds;
 Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 
-debug
+# select diamond from first page
+Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position 'saved.diamondIndex';
 
-Save element text 'diamondsPage.RING_NAME_IN_CREATE_YOUR_RING_FORM' to 'SAVED.ringNameOnTopPanel';
-Save element text 'diamondsPage.RING_PRICE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.ringPriceOnTopPanel';
-Save element text 'diamondsPage.DIAMON_PRICE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.diamondPriceOnTopPanel';
-Save element text 'diamondsPage.DIAMOND_WEIGHT_IN_CREATE_YOUR_RING_FORM' to 'SAVED.diamondWeightOnTopPanel';
-Save element text 'diamondsPage.DIAMOND_SHAPE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.diamondShapeOnTopPanel';
-Save element text 'diamondsPage.RING_TOTAL_PRICE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.ringTotalOnTopPanel';
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+# save entity
+Hover over item 'diamondsPage.VIEW_DIAMOND_BY_PARAMETERS_LOCATOR:saved.Diamond.shape:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade:saved.Diamond.price';
 
+Save element text 'diamondsPage.DIAMOND_SPEC_ON_PLP' to 'SAVED.diamondSpecData';
+# open saved entity
+Click on item 'diamondsPage.VIEW_DIAMOND_BY_PARAMETERS_LOCATOR:saved.Diamond.shape:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade:saved.Diamond.price';
+Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+
+Save element text 'diamondsPage.DIAMOND_NAME_LABEL' to 'SAVED.diamondName';
+Save element text 'diamondsPage.DIAMOND_PRICE_LABEL' to 'SAVED.diamondPrice' and 'REMOVE:CA';
+
+Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
+
+Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+
+# record Custom Ring panel values
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.ringNameOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_PRICE' to 'SAVED.ringPriceOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_PRICE' to 'SAVED.diamondPriceOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.diamondWeightOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_SHAPE' to 'SAVED.diamondShapeOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_TOTAL_PRICE' to 'SAVED.ringTotalOnTopPanel';
+
+# save Ring and Diamond details from Details page before checkout
 Optional Save entity 'engagementPage.SELECTED_RING_DETAILS_ENTYTY_LOCATOR' to 'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
 Optional Save entity 'engagementPage.SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR' to 'saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
 
+# validate Prices
 Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.diamondPriceOnTopPanel';
 Optional Validate value 'SAVED.ringPrice' equals 'SAVED.ringPriceOnTopPanel';
 Optional Validate value 'SAVED.ringName' equals 'SAVED.ringNameOnTopPanel';
@@ -73,13 +85,14 @@ Optional Validate value 'SAVED.ringName' equals 'SAVED.ringNameOnTopPanel';
 Calculate value 'saved.ringPrice' plus 'saved.diamondPrice' to 'saved.expectedFullPrice';
 Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.ringTotalOnTopPanel';
 
-
+# todo add validation
 #Optional Validate value  'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' equals 'SAVED.ringMetal';
 #Optional Validate value  'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' equals 'SAVED.ringShape';
 #Optional Validate value  'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' equals 'SAVED.ringProng';
 #Optional Validate value  'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' equals 'SAVED.ringSize';
 #Optional Validate value  'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' equals 'SAVED.ringName';
 
+# open checkout page
 Click on item 'engagementPage.ADD_TO_BAG_BUTTON';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
@@ -88,6 +101,7 @@ Optional Click on item 'engagementPage.ADD_TO_BAG_BUTTON';
 Wait for '10' seconds;
 Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 
+# save details for Ring and Diamond from Checkout page
 Save element text 'checkoutpage.first_item_in_checkout_info' to 'SAVED.diamondInfoOnCheckoutPage' and 'REMOVE:,';
 Save element text 'checkoutpage.second_item_in_checkout_info' to 'SAVED.ringInfoOnCheckoutPage' and 'REMOVE:,';
 
@@ -96,10 +110,12 @@ Save element text 'checkoutpage.CART_TOTAL_LABEL' to 'SAVED.orderTotal';
 Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.orderSubtotal';
 Optional Validate value 'SAVED.orderTotal' equals 'SAVED.orderSubtotal';
 
+# Checkout
 Click on item 'generalPage.CHECKOUT_BUTTON';
 Wait for '20' seconds;
 Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 
+# Validate expected data on Left product description panel
 Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
 Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
 Save value 'smokeData.DEFAULT_CHECKOUT_RING_DATA_TEMPLATE:saved.RING_DETAILS_FROM_RINGBUILDER_PAGE.StyleNumber:saved.ringName:saved.ringPrice:saved.ringSize:saved.ringMetal:saved.ringShape:saved.ringProng:saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE.SKU' to 'saved.RING_EXPECTED_DATA' and 'REMOVE:,';
@@ -117,7 +133,7 @@ Click on item 'generalPage.NEXT_BUTTON_CHECKOUT_PAGE';
 Wait for '20' seconds;
 
 Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
-#debug
+# TODO pay by credit card
 #Type value 'general.DEFAULT_VISA_CARD_NUMBER' to 'generalPage.CREDIT_CARD_NUMBER';
 #Type value 'general.DEFAULT_VISA_CARD_EXP_MON' to 'generalPage.CREDIT_CARD_EXP_MON';
 #Type value 'general.DEFAULT_VISA_CARD_EXP_YEAR' to 'generalPage.CREDIT_CARD_EXP_YEAR';
@@ -125,8 +141,14 @@ Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
 
 Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
 
+# final validation
 Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
-
 Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
 Report message "Order number" "SAVED.orderNumber"
+
+
+
+
+
+
 

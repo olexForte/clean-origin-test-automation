@@ -1,4 +1,4 @@
-# Test: Validate that all links work for Sighen user
+# Test: Validate that all links work for Signed user
 
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Click on item  'generalPage.SIGN_IN_LINK';

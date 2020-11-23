@@ -1,3 +1,4 @@
+# Signed user page
 
 # wishlist items
 WISH_LIST_PRODUCT_ITEM_INFO_BY_INDEX = (//div[@class="product-item-info"])[$PARAMETER1]

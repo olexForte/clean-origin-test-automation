@@ -1,5 +1,7 @@
+# Test: Validation of diamonds filter
+
 #FOR line
-#file:List_of_filters.csv
+#file:List_of_diamond_filters.csv
 Open page 'urls.DIAMONDS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 execute js 'general.close_close_close_CLOSE' '//body';
 Click on item 'diamondsPage.RESET_FILTERS';

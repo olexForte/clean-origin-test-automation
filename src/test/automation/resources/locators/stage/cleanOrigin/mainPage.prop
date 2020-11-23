@@ -1,3 +1,4 @@
+# Start page
 
 SEARCH_INPUT_FIELD = //input[@id='search']
 SEARCH_INPUT_FIELD_BUTTON =//button[@title='Search']

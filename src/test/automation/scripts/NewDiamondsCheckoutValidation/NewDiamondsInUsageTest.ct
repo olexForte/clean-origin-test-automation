@@ -1,15 +1,15 @@
 # Test: Check that user can buy New Diamonds (created today)
 
+# get first SKU of New diamond
 Generate value 'RANDOM.curdate:CURRENT_DATE:MM-dd-yyyy' to 'saved.CURRENT_DATE' and 'REPLACE:-:%2F';
 Get list of items from Admin by request 'newDiamondsTest.FILTER_TO_GET_NEW_DIAMONDS:saved.CURRENT_DATE' to 'saved.DATA_FROM_ADMIN';
 Get value from saved 'saved.DATA_FROM_ADMIN' TEXT by 'newDiamondsTest.FIND_FIRST_ENTITY_SKU_REGEXP' and save to 'saved.DIAMOND_ID';
 
-
+# open UI
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
-
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
-
+# search for diamond
 Type value 'saved.DIAMOND_ID' to 'mainPage.SEARCH_INPUT_FIELD';
 Click on item 'mainPage.SEARCH_INPUT_FIELD_BUTTON';
 
@@ -47,24 +47,17 @@ Wait for '3' seconds;
 
 Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
 Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
-debug
+
 Validate value 'SAVED.productsInCartOverview' similar 'SAVED.productsInCartOverview';
 
 Click on item 'generalPage.NEXT_BUTTON_CHECKOUT_PAGE';
 Wait for '20' seconds;
 
-
 Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
-#debug
-#Type value 'general.DEFAULT_VISA_CARD_NUMBER' to 'generalPage.CREDIT_CARD_NUMBER';
-#Type value 'general.DEFAULT_VISA_CARD_EXP_MON' to 'generalPage.CREDIT_CARD_EXP_MON';
-#Type value 'general.DEFAULT_VISA_CARD_EXP_YEAR' to 'generalPage.CREDIT_CARD_EXP_YEAR';
-#Type value 'general.DEFAULT_VISA_CARD_CVV' to 'generalPage.CREDIT_CARD_CVV';
-
 Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
 
+# final validation
 Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
-
 Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
 Report message "Order number" "SAVED.orderNumber"
 

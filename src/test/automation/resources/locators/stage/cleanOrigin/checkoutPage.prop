@@ -1,3 +1,4 @@
+# final checkout page
 
 FIRST_ITEM_IN_CHECKOUT_INFO = (//div[@class='builder-info'])[1]
 SECOND_ITEM_IN_CHECKOUT_INFO = (//div[@class='builder-info'])[2]

@@ -1,4 +1,4 @@
-# create new account test
+#test: Create new account
 
 Generate value 'RANDOM.ACCOUNT_NAME:TestUser_10c' to 'saved.ACCOUNT_NAME';
 Generate value 'signInPage.EMAIL_TEMPLATE:saved.ACCOUNT_NAME' to 'saved.ACCOUNT_EMAIL';

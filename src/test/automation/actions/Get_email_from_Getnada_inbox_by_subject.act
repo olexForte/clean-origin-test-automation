@@ -5,7 +5,7 @@
 # Result
 # $3 - result
 
-Wait for '5' seconds;
+Wait for '7' seconds;
 Open page 'getnadaPage.URL';
 
 Save entity 'getnadaPage.EMAIL_ROW_ENTITY' to 'saved.data' by value '$2';

@@ -1,4 +1,4 @@
-#Ringbuilder - Change Diamond
+#Ringbuilder - Edit ring
 
 Save value 'Deanna Solitaire Ring' to 'saved.TYPE_OF_RING';
 
@@ -23,7 +23,7 @@ Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice'  and 'R
 
 Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
 
-Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '1';
+Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '10';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
@@ -39,12 +39,12 @@ Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
-Save element text 'diamondsPage.RING_NAME_IN_CREATE_YOUR_RING_FORM' to 'SAVED.ringNameOnTopPanel';
-Save element text 'diamondsPage.RING_PRICE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.ringPriceOnTopPanel';
-Save element text 'diamondsPage.DIAMON_PRICE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.diamondPriceOnTopPanel';
-Save element text 'diamondsPage.DIAMOND_WEIGHT_IN_CREATE_YOUR_RING_FORM' to 'SAVED.diamondWeightOnTopPanel';
-Save element text 'diamondsPage.DIAMOND_SHAPE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.diamondShapeOnTopPanel';
-Save element text 'diamondsPage.RING_TOTAL_PRICE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.ringTotalOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.ringNameOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_PRICE' to 'SAVED.ringPriceOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_PRICE' to 'SAVED.diamondPriceOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.diamondWeightOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_SHAPE' to 'SAVED.diamondShapeOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_TOTAL_PRICE' to 'SAVED.ringTotalOnTopPanel';
 
 Optional Save entity 'engagementPage.SELECTED_RING_DETAILS_ENTYTY_LOCATOR' to 'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
 Optional Save entity 'engagementPage.SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR' to 'saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
@@ -57,30 +57,20 @@ Calculate value 'saved.ringPrice' plus 'saved.diamondPrice' to 'saved.expectedFu
 Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.ringTotalOnTopPanel';
 
 # Edit process
-Click on item 'generalPage.MY_CUSTOM_RING_PANE_VIEW_DIAMOND';
 
-Click on item 'diamondsPage.CHOSE_ANOTHER_DIAMOND';
+Click on item 'generalPage.MY_CUSTOM_RING_PANE_EDIT_RING';
 
-wait for '3' seconds;
-Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '2';
+Select dropdown value '#2' in 'engagementPage.RING_METAL_SELECT';
+Select dropdown value 'Standard' in 'engagementPage.RING_PRONG_SELECT';
+Select dropdown value '6' in 'engagementPage.RING_SIZE_SELECT';
 
-Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
-Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.newRingPrice'  and 'REMOVE:CA';
 
-Click on item 'diamondsPage.VIEW_DIAMOND_BY_PARAMETERS_LOCATOR:saved.Diamond.shape:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade:saved.Diamond.price';
-Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+Click on item 'engagementPage.UPDATE_RING_BUTTON';
 
-Save element text 'diamondsPage.DIAMOND_NAME_LABEL' to 'SAVED.diamondName';
-Save element text 'diamondsPage.DIAMOND_PRICE_LABEL' to 'SAVED.diamondPrice' and 'REMOVE:CA';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.newRingNameOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_PRICE' to 'SAVED.newRingPriceOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_TOTAL_PRICE' to 'SAVED.ringTotalOnTopPanel';
 
-debug
-Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
-
-Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
-Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
-
-Save element text 'diamondsPage.DIAMON_PRICE_IN_CREATE_YOUR_RING_FORM' to 'SAVED.newDiamondPriceOnTopPanel';
-Save element text 'diamondsPage.DIAMOND_WEIGHT_IN_CREATE_YOUR_RING_FORM' to 'SAVED.newDiamondWeightOnTopPanel';
-
-Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.newDiamondPriceOnTopPanel';
-Optional Validate value 'saved.Diamond.weight' equals 'SAVED.newDiamondWeightOnTopPanel';
+Optional Validate value 'SAVED.newRingPrice' equals 'SAVED.newRingPriceOnTopPanel>';
+Optional Validate value 'SAVED.ringName' equals 'SAVED.newRingNameOnTopPanel';

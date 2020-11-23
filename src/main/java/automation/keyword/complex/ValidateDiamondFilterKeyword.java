@@ -59,7 +59,7 @@ public class ValidateDiamondFilterKeyword extends AbstractKeyword {
         if(target != null && !target.equals(""))
             iMaxPage = Integer.valueOf(target);
 
-        executor.page.scrollToElement(executor.locatorsRepository.getTarget("diamondsPage.FOOTER"));
+        executor.page.scrollToElement(executor.locatorsRepository.getTarget("generalPage.FOOTER"));
 
         boolean result = true;
         while( iCurrentPage < iMaxPage){
