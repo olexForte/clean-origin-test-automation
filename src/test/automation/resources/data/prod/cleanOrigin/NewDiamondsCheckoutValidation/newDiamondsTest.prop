@@ -1,0 +1,24 @@
+# filters[entity_id][from]
+# filters[entity_id][to]
+# filters[attribute_set_id]=9
+# &filters[qty][from]=1
+# &filters[qty][to]=1
+# &filters[created_at][from]=11%2F10%2F2020
+# &filters[created_at][to]=11%2F10%2F2020
+# &filters[status]=1
+# &search=
+FILTER_TO_GET_NEW_DIAMONDS = {"filters[status]":"1", \
+"filters[attribute_set_id]":"9",\
+"filters[qty][from]":"1",\
+"filters[qty][to]":"1",\
+"filters[created_at][from]":"$PARAMETER1",\
+"filters[created_at][to]":"$PARAMETER1"}
+
+FILTER_TO_GET_NEW_RINGS = {"filters[status]":"1", \
+"filters[attribute_set_id]":"10",\
+"filters[badges]":"5528"}
+
+#filters[badges]	"" - new
+#filters[attribute_set_id]	"10" = rings
+
+FIND_FIRST_ENTITY_SKU_REGEXP = .*"sku":\\S?"(.*?)",.*

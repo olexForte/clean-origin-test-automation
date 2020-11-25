@@ -1,0 +1,45 @@
+#Test: Neckless add to cart
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Hover over item 'PLPPDP.jewelry_tab';
+Click on item 'PLPpdp.Diamond_Bracelets';
+
+Click on item 'PlpPdp.Bracelets_on_plp';
+
+#Click on item '//*[@id="attribute201"]';
+select dropdown value '#2' in 'plppdp.bracelets_settings';
+
+Save element text 'PlpPdp.Bracelests_name:SAVED.ringName' to 'SAVED.data';
+
+Save element text 'PlpPdp.Bracelets_shipping_date:SAVED.ringName' to 'SAVED.data2';
+
+Save element text 'PlpPdp.Bracelets_price:SAVED.ringName' to 'SAVED.data4';
+
+Click on item 'PlpPdp.Bracelets_add_to_cart';
+
+Click on item 'PlpPdp.Bracelets_go_to_shopping_cart';
+
+Save element text 'PlpPdp.Bracelets_name_cart:SAVED.ringName' to 'SAVED.data1';
+
+Save element text 'PLPPDP.BRACELETS_shipping_cart_date:SAVED.ringName' to 'SAVED.data3';
+
+Save element text 'PLPPDP.BRACELETS_CART_PRICE:SAVED.ringName' to 'SAVED.data5';
+
+Validate value 'SAVED.data1' equals 'SAVED.data';
+
+Validate value 'SAVED.data2' equals 'SAVED.data3';
+
+Validate value 'SAVED.data4' equals 'SAVED.data5';
+
+Wait for '5' seconds
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+# Magento Admin page
+
+NAVIGATION_MENU_ITEM = //ul[@id='nav']//span[.='$PARAMETER1']
+
+FILTERS_BUTTON = //button[.='Filters']
+
+APPLY_FILTERS_BUTTON = //span[.='Apply Filters']
+
+CLEAR_FILTERS_BUTTON = //button[@class='action-tertiary action-clear']
+
+NUMBER_OF_RECORDS = //span[.='records found']/parent::div[1]
+

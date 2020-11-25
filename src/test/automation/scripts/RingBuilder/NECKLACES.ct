@@ -1,0 +1,40 @@
+#Test: Neckless add to cart
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Hover over item 'plppdp.jewelry_tab';
+Click on item 'plppdp.diamond_pendants';
+
+Click on item 'plppdp.necklaces_on_plp';
+
+select dropdown value '#2' in 'plppdp.necklaces_setting';
+
+Save element text 'PlpPdp.NECKLACES_name:SAVED.ringName' to 'SAVED.data';
+
+Save element text 'PlpPdp.NECKLACES_shipping_date:SAVED.ringName' to 'SAVED.data2';
+
+Click on item 'PLPPDP.NECKLACES_ADD_TO_CART';
+
+Validate element 'PlpPdp.NECKLACES_add_to_cart_message' is visible;
+
+Click on item 'PlpPdp.NECKLACES_go_to_shopping_cart';
+
+Save element text 'PlpPdp.NECKLACES_name_cart:SAVED.ringName' to 'SAVED.data1';
+
+Save element text 'PlpPdp.NECKLACES_shipping_cart_date:SAVED.ringName' to 'SAVED.data3';
+
+Validate value 'SAVED.data1' equals 'SAVED.data';
+
+Validate value 'SAVED.data2' equals 'SAVED.data3';
+
+Wait for '5' seconds
+
+
+
+
+
+
+
+
+
+
