@@ -1,0 +1,18 @@
+#Studs_Earrings
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+
+Hover over item "mainPage.NAVIGATION_MENU_ITEM:JEWELRY";
+Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Stud Earrings:2';
+
+Generate value 'RANDOM.field:min_max:1:8' to 'SAVED.randomindex';
+
+Save element text 'STUDSEARRINGSPAGE.STUDS_EARRINGS_TABLE_ITEM_BY_INDEX:SAVED.randomindex' to 'SAVED.data';
+Save element text 'STUDSEARRINGSPAGE.STUDS_EARRINGS_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex' to 'SAVED.price';
+Click on item 'STUDSEARRINGSPAGE.STUDS_EARRINGS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
+
+Save element text 'studsEarringsPage.EARRING_PRICE_LABEL' to 'SAVED.PDPprice';
+#Save element text 'locatorORdata' to 'SAVED.data' [and 'TRIM|UP|LOW|REMOVE:what|REPLACE:what:with|REGEXP_REMOVE:what|'];
+#Save element text 'studsEarringsPage.EARRING_METAL_SELECT' to 'SAVED.ringMetal' and 'REGEXP_REMOVE:( \+.*)' ;
+
+Validate value 'SAVED.price' equals 'SAVED.PDPprice'

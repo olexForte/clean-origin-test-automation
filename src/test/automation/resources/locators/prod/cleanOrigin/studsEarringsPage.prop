@@ -1,0 +1,9 @@
+
+STUDS_EARRINGS_TABLE_ITEM_BY_INDEX=(//div[@class='carat-table show-desktop']//a[@class='carat'])[$PARAMETER1]
+STUDS_EARRINGS_TABLE_ITEM_PRICE_BY_INDEX=(//div[@class='carat-table show-desktop']//a[@class='carat']/span[@class='carat-price'])[$PARAMETER1]
+EARRING_NAME_LABEL=//span[@data-ui-id='page-title-wrapper']
+EARRING_PRICE_LABEL=//div[@class='product-info-price']//span[@class='price']
+CARAT_SIZE_SELECT=//label[contains(.,'Carat Size')]/following-sibling::div[1]/select[1]
+DIAMOND_COLOR_SELECT=//label[contains(.,'Diamond Color')]/following-sibling::div[1]/select[1]
+EARRING_METAL_SELECT=//label[contains(.,'Metal')]/following-sibling::div[1]/select[1]
+EARRING_SKU_LABEL=//div[text()='Style Number']/following::div[1]
