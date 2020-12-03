@@ -1,9 +1,0 @@
-
-ADMIN_URL = https://${CLIENT_USER}:${CLIENT_PASSWORD}@${BASE_PAGE}/admin_11zu69
-ADMIN_URL_AFTER_REDIRECT = https://${CLIENT_USER}:${CLIENT_PASSWORD}@${BASE_PAGE}/admin_11zu69/admin/
-ADMIN_PRODUCT_SEARCH_URL = https://${CLIENT_USER}:${CLIENT_PASSWORD}@${BASE_PAGE}/admin_11zu69/mui/index/render/$PARAMETER1
-ADMIN_PRODUCT_SEARCH_BY_NAME_URL =https://${CLIENT_USER}:${CLIENT_PASSWORD}@${BASE_PAGE}/admin_11zu69/mui/index/render/?namespace=product_listing&sorting%5Bfield%5D=created_at&sorting%5Bdirection%5D=desc&filters%5Bplaceholder%5D=true&paging%5BpageSize%5D=20&paging%5Bcurrent%5D=1&search=$PARAMETER1&isAjax=true
-
-#ADMIN_PRODUCT_SEARCH_BY_ID_URL = https://${CLIENT_USER}:${CLIENT_PASSWORD}@${BASE_PAGE}/admin_11zu69/mui/index/render/?namespace=product_listing&filters%5Bplaceholder%5D=true&filters%5Bentity_id%5D%5Bfrom%5D=$PARAMETER1&filters%5Bentity_id%5D%5Bto%5D=$PARAMETER1&search=&sorting%5Bfield%5D=created_at&sorting%5Bdirection%5D=desc&paging%5BpageSize%5D=20&paging%5Bcurrent%5D=1&isAjax=true
-#ADMIN_PRODUCT_SEARCH_BY_ID_URL = https://${CLIENT_USER}:${CLIENT_PASSWORD}@${BASE_PAGE}/admin_11zu69/mui/index/render/?namespace=product_listing&filters%5Bplaceholder%5D=true&filters%5Bentity_id%5D%5Bfrom%5D=84255&filters%5Bentity_id%5D%5Bto%5D=84255&search=&sorting%5Bfield%5D=created_at&sorting%5Bdirection%5D=desc&paging%5BpageSize%5D=20&paging%5Bcurrent%5D=1&isAjax=true
-ADMIN_PRODUCT_SEARCH_BY_ID_URL = https://${CLIENT_USER}:${CLIENT_PASSWORD}@${BASE_PAGE}/admin_11zu69/mui/index/render/?namespace=product_listing&search=&filters[placeholder]=true&filters[entity_id][from]=$PARAMETER1&filters[entity_id][to]=$PARAMETER1&paging[pageSize]=20&paging[current]=1&sorting[field]=created_at&sorting[direction]=desc&isAjax=true

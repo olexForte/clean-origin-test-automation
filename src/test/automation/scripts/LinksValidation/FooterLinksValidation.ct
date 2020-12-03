@@ -1,7 +1,7 @@
 # Test: Validate that all footer links work
 
 #FOR link url expected
-#file:Footer_links_to_validate1.csv
+#file:Footer_links_to_validate.csv
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 wait for '3' seconds;
 execute js 'general.close_close_close_CLOSE' '//body';

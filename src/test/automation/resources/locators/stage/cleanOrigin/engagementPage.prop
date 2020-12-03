@@ -14,7 +14,8 @@ CURRENT_RING_FILTER_ITEM = (//ol[@class='items'])[1]/li[contains(.,'$PARAMETER1'
 RING_METAL_FILTER_ITEM = //div[contains(@option-label,'$PARAMETER1')]
 RING_COLLECTION_FILTER_ITEM = //div[@class='filter-options-title'][.='Ring Collection']/following-sibling::div[1][@class='filter-options-content']//li[contains(.,'$PARAMETER1')]
 
-RING_METAL_FILTER_ITEM_BY_INDEX = (//div[@class='swatch-option color '])[$PARAMETER1]
+RING_METAL_FILTER_ITEM_BY_INDEX =  (//label[contains(@for,'metal_typeFilter_option_')])[$PARAMETER1]
+ #(//div[@class='swatch-option color '])[$PARAMETER1]
 RING_COLLECTION_FILTER_ITEM_BY_INDEX = (//div[@class='filter-options-title'][.='Ring Collection']/following-sibling::div[1][@class='filter-options-content']//li)[$PARAMETER1]
 
 RING_PRODUCT_ITEM = //a[@class='product-item-link'][contains(text(),'$PARAMETER1')]
@@ -24,7 +25,6 @@ SELECTED_RING_DETAILS_ENTYTY_LOCATOR = {"parent":"//div[@id='details-list' and @
 "StyleNumber" : ".//div[text()='Style Number']/following-sibling::div[1]",\
 "Collection" : ".//div[text()='Collection']/following-sibling::div[1]",\
 "GemstoneShape" : ".//div[text()='Gemstone Shape']/following-sibling::div[1]",\
-"GemstoneType" : ".//div[text()='Gemstone Type']/following-sibling::div[1]",\
 "SettingType" : ".//div[text()='Setting Type']/following-sibling::div[1]",\
 "RingWidth" : ".//div[text()='Ring Width']/following-sibling::div[1]",\
 "CompatibleCaratRange" : ".//div[text()='Compatible Carat Range']/following-sibling::div[1]"}
