@@ -8,5 +8,5 @@ APPLY_FILTERS_BUTTON = //span[.='Apply Filters']
 
 CLEAR_FILTERS_BUTTON = //button[@class='action-tertiary action-clear']
 
-NUMBER_OF_RECORDS = //span[.='records found']/parent::div[1]
+NUMBER_OF_RECORDS = (//span[.='records found']/parent::div[1])[2]
 

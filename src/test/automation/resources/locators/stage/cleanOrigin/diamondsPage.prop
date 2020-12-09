@@ -21,7 +21,7 @@ SCROLLER_LOWER = .//div[@class='noUi-handle noUi-handle-lower']
 
 RESET_FILTERS = //a[.='Reset Filters']
 
-TOTAL_NUMBER_OF_RESULTS = (//p[@id='toolbar-amount')[1]/span[3] | (//p[@id='toolbar-amount'])[1]/span[1]
+TOTAL_NUMBER_OF_RESULTS =  (//p[@id='toolbar-amount']/span)[1]
 
 NEXT_BUTTON = (//a[@class='action  next'])[2]
 
