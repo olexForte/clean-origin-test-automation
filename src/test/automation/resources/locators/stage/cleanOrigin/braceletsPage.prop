@@ -1,0 +1,14 @@
+# PLP
+BRACELETES_TABLE_ITEM_BY_INDEX=(//li[@class="item product product-item"])[$PARAMETER1]
+BRACELETES_TABLE_ITEM_PRICE_BY_INDEX=(//li[@class="item product product-item"]//span[@class='price'])[$PARAMETER1]
+
+# PDP
+BRACELET_NAME_LABEL=//span[@data-ui-id='page-title-wrapper']
+BRACELET_PRICE_LABEL=//div[@class='product-info-price']//span[@class='price']
+CARAT_SIZE_SELECT=//label[contains(.,'Carat Size')]/following-sibling::div[1]/select[1]
+DIAMOND_COLOR_SELECT=//label[contains(.,'Diamond Color')]/following-sibling::div[1]/select[1]
+BRACELET_METAL_SELECT=//label[contains(.,'Metal')]/following-sibling::div[1]/select[1]
+BRACELET_SKU_LABEL=//div[text()='Style Number']/following::div[1]
+
+
+ADD_TO_BAG = //button[@title='Add to Bag']

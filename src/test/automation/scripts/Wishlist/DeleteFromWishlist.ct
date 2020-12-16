@@ -9,7 +9,7 @@ Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:2';
 
 Save element text 'engagementPage.RING_NAME_LABEL' to 'SAVED.ringName';
 
-Click on item 'generalPage.ADD_TO_WISHLIST';
+Click on item 'wishlistPage.ADD_TO_WISHLIST';
 
 Type value '${APP_CLIENT_USER}' to 'signInPage.USERNAME_INPUT';
 Type value '${APP_CLIENT_PASSWORD}' to 'signInPage.PASSWORD_INPUT';

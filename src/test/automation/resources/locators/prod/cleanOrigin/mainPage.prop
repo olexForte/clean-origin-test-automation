@@ -3,11 +3,13 @@
 SEARCH_INPUT_FIELD = //input[@id='search']
 SEARCH_INPUT_FIELD_BUTTON =//button[@title='Search']
 
-BUILD_YOU_RING_BUTTON = //a[.='Build Your Ring']|//a[.='BROWSE ENGAGEMENT RINGS']
+BUILD_YOU_RING_BUTTON = //a[.='Build Your Ring']
 
 NAVIGATION_MENU_ITEM = //li[@class="nav-item dropdown"][contains(.,"$PARAMETER1")]
 
 NAVIGATION_MENU_LINK = //span[.="$PARAMETER1"] | //a[.="$PARAMETER1"]
 # //span[@class="link-label"][contains(.,'$PARAMETER1')] |
+
 NAVIGATION_MENU_LINK_BY_INDEX = (//a[.="$PARAMETER1"])[$PARAMETER2]
+
 OPEN_CART_ICON = //a[@class="action showcart"]

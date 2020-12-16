@@ -1,0 +1,52 @@
+#Studs_Earrings
+
+#Bracelets
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+
+Hover over item "mainPage.NAVIGATION_MENU_ITEM:JEWELRY";
+Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Pendants:2';
+
+Generate value 'RANDOM.field:min_max:1:8' to 'SAVED.randomindex';
+
+Hover over item 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
+Save element text 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex' to 'SAVED.data';
+Save element text 'necklessPage.NECKLESS_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex' to 'SAVED.price';
+Click on item 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
+
+Fill data form '{"Metal":"14K White Gold"}';
+
+Save element text 'necklessPage.NECKLESS_NAME_LABEL' to 'SAVED.name';
+Save element text 'necklessPage.NECKLESS_PRICE_LABEL' to 'SAVED.PDPprice';
+Save element text 'necklessPage.NECKLESS_METAL_SELECT' to 'SAVED.metal' and 'REGEXP_REMOVE:( \+.*)' ;
+
+Validate value 'SAVED.price' equals 'SAVED.PDPprice';
+
+click on item 'necklessPage.ADD_TO_BAG';
+
+Click on item 'mainPage.OPEN_CART_ICON';
+
+Wait for '10' seconds;
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
+
+Save element text 'checkoutpage.CART_SUBTOTAL_LABEL' to 'SAVED.orderSubtotal';
+Save element text 'checkoutpage.CART_TOTAL_LABEL' to 'SAVED.orderTotal';
+Optional Validate value 'SAVED.orderTotal' equals 'SAVED.orderSubtotal';
+Optional Validate value 'SAVED.PDPprice' equals 'SAVED.orderSubtotal';
+
+Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartDetails' and 'REMOVE:,';
+Optional Validate value 'SAVED.productsInCartDetails' contains 'SAVED.metal';
+Optional Validate value 'SAVED.productsInCartDetails' contains 'SAVED.name';
+
+Click on item 'generalPage.CHECKOUT_BUTTON';
+Wait for '20' seconds;
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
+
+Wait for '3' seconds;
+
+Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
+Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
+
+Optional Validate value 'SAVED.productsInCartOverview' contains 'SAVED.metal';
+Optional Validate value 'SAVED.productsInCartOverview' contains 'SAVED.name';
+
