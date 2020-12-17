@@ -10,7 +10,8 @@ Click on item 'signInPage.SIGN_IN_BUTTON';
 #file:SiignIn_links_to_validate.csv
 wait for '3' seconds;
 execute js 'general.close_close_close_CLOSE' '//body';
-Click on item 'generalPage.HEADER_ACCOUNT_LINK:est';
+#Click on item 'generalPage.HEADER_ACCOUNT_LINK:est';
+Open page 'urls.USER_PAGE_URL:${CLIENT_USER}:${CLIENT_PASSWORD}' no cleanup;
 Optional Click on item "$link";
 wait for '3' seconds;
 Optional Get value from URL 'generalPage.BASE_PAGE_URL_REGEXP' to save 'SAVED.value';

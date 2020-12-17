@@ -79,8 +79,8 @@ Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
-Save element text 'diamondsPage.MY_CUSTOM_RING_PANE_DIAMOND_PRICE' to 'SAVED.newDiamondPriceOnTopPanel';
-Save element text 'diamondsPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.newDiamondWeightOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_PRICE' to 'SAVED.newDiamondPriceOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.newDiamondWeightOnTopPanel';
 
 Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.newDiamondPriceOnTopPanel';
 Optional Validate value 'saved.Diamond.weight' equals 'SAVED.newDiamondWeightOnTopPanel';

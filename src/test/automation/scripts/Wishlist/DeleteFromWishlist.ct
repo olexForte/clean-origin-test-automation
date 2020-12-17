@@ -23,20 +23,10 @@ Validate value 'SAVED.data' contains 'SAVED.ringName';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
-debug
-
 # click on delete button for item
-
+Click on item 'userPage.DELETE_PRODUCT_BY_NAME:SAVED.ringName';
 # check message is visible
-
+Validate element 'userPage.SUCCESS_MESSAGE: has been removed from your Wish List.' is visible;
 # check item is invisible
-
-#hover over item 'locator';
-#Click on item 'locator';
-#Type value 'data' to 'locator';
-#Save element text 'locatorORdata' to 'SAVED.data';
-#validate element 'locator' [is visible|is invisible];
-#Validate value 'locatorORdata' equals 'locatorORdataORregexp';
-#Validate value 'locatorORdata' contains 'locatorORdataORregexp';
-
+Validate element 'userPage.PRODUCT_IN_WISH_LIST_BY_NAME:SAVED.ringName' is invisible;
 

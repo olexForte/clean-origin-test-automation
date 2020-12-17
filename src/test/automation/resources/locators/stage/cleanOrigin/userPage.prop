@@ -17,4 +17,4 @@ EMAILS_TEXTAREA = //textarea[@name="emails"]
 MESSAGE_TEXTAREA = //textarea[@id="message"]
 SHARE_WITH_LIST_OF_EMAIL_BUTTON = //button[@title="Share Wish List"]
 
-
+SUCCESS_MESSAGE = //div[@role="alert"][contains(.,"PARAMETER1")]

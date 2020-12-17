@@ -26,6 +26,8 @@ Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 debug
 
 # click on edit button for item
+# click on delete button for item
+Click on item 'userPage.EDIT_PRODUCT_BY_NAME:SAVED.ringName';
 
 # check item name is visible
 

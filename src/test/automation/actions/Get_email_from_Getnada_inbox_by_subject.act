@@ -5,9 +5,9 @@
 # Result
 # $3 - result
 
-Wait for '7' seconds;
+Wait for '10' seconds;
 Open page 'getnadaPage.URL';
-
+debug
 Save entity 'getnadaPage.EMAIL_ROW_ENTITY' to 'saved.data' by value '$2';
 Click on item 'getnadaPage.EMAIL_ITEM:saved.data.Subject';
 Save element text 'getnadaPage.EMAIL_CONTENT' to '$3'
