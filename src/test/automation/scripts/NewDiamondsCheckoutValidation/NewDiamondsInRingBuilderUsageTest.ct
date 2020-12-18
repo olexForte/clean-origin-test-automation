@@ -105,20 +105,20 @@ Save value 'smokeData.DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE:saved.expectedFullP
 Optional Validate value 'SAVED.productsInCartOverview' contains 'saved.RING_EXPECTED_DATA';
 Optional Validate value 'SAVED.productsInCartOverview' contains 'saved.DIAMOND_EXPECTED_DATA';
 
-Fill data form 'smokeData.DEFAULT_CHECKOUT_DATA';
-Type value 'smokeData.DEFAULT_CHECKOUT_DATA.Email' to 'generalPage.CHECKOUT_USERNAME_FIELD';
-Type value 'smokeData.DEFAULT_CHECKOUT_DATA.StreetAddress' to 'generalPage.CHECKOUT_STREET_ADDRESS_FIELD';
+#Fill data form 'smokeData.DEFAULT_CHECKOUT_DATA';
+#Type value 'smokeData.DEFAULT_CHECKOUT_DATA.Email' to 'generalPage.CHECKOUT_USERNAME_FIELD';
+#Type value 'smokeData.DEFAULT_CHECKOUT_DATA.StreetAddress' to 'generalPage.CHECKOUT_STREET_ADDRESS_FIELD';
 
-Wait for '3' seconds;
+#Wait for '3' seconds;
 
-Click on item 'generalPage.NEXT_BUTTON_CHECKOUT_PAGE';
-Wait for '20' seconds;
+#Click on item 'generalPage.NEXT_BUTTON_CHECKOUT_PAGE';
+#Wait for '20' seconds;
 
-Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
-Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
+#Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
+#Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
 
 # final validation
-Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
-Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
-Report message "Order number" "SAVED.orderNumber"
+#Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
+#Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
+#Report message "Order number" "SAVED.orderNumber"
 

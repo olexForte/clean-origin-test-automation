@@ -11,9 +11,11 @@ Save element text 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_BY_INDEX:SAVED.ra
 Save element text 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex' to 'SAVED.price';
 Click on item 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
 
+Optional Fill data form '{"Metal":"14K White Gold"}';
+
 Save element text 'studsEarringsPage.EARRING_NAME_LABEL' to 'SAVED.name';
 Save element text 'studsEarringsPage.EARRING_PRICE_LABEL' to 'SAVED.PDPprice';
-Save element text 'studsEarringsPage.EARRING_METAL_SELECT' to 'SAVED.metal' and 'REGEXP_REMOVE:( \+.*)' ;
+Optional Save element text 'studsEarringsPage.EARRING_METAL_SELECT' to 'SAVED.metal' and 'REGEXP_REMOVE:( \+.*)' ;
 Save element text 'studsEarringsPage.CARAT_SIZE_SELECT' to 'SAVED.size' and 'REGEXP_REMOVE:( \+.*)' ;
 
 Validate value 'SAVED.price' equals 'SAVED.PDPprice';

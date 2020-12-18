@@ -72,5 +72,5 @@ Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.newRingN
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_PRICE' to 'SAVED.newRingPriceOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_TOTAL_PRICE' to 'SAVED.ringTotalOnTopPanel';
 
-Optional Validate value 'SAVED.newRingPrice' equals 'SAVED.newRingPriceOnTopPanel>';
+Optional Validate value 'SAVED.newRingPrice' equals 'SAVED.newRingPriceOnTopPanel';
 Optional Validate value 'SAVED.ringName' equals 'SAVED.newRingNameOnTopPanel';

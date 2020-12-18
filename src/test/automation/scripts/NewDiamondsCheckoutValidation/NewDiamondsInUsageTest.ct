@@ -39,25 +39,22 @@ Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
 Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
 
-Fill data form 'smokeData.DEFAULT_CHECKOUT_DATA';
-Type value 'smokeData.DEFAULT_CHECKOUT_DATA.Email' to 'generalPage.CHECKOUT_USERNAME_FIELD';
-Type value 'smokeData.DEFAULT_CHECKOUT_DATA.StreetAddress' to 'generalPage.CHECKOUT_STREET_ADDRESS_FIELD';
+#Fill data form 'smokeData.DEFAULT_CHECKOUT_DATA';
+#Type value 'smokeData.DEFAULT_CHECKOUT_DATA.Email' to 'generalPage.CHECKOUT_USERNAME_FIELD';
+#Type value 'smokeData.DEFAULT_CHECKOUT_DATA.StreetAddress' to 'generalPage.CHECKOUT_STREET_ADDRESS_FIELD';
 
-Wait for '3' seconds;
-
-Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
-Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
+#Wait for '3' seconds;
 
 Validate value 'SAVED.productsInCartOverview' similar 'SAVED.productsInCartOverview';
 
-Click on item 'generalPage.NEXT_BUTTON_CHECKOUT_PAGE';
-Wait for '20' seconds;
+#Click on item 'generalPage.NEXT_BUTTON_CHECKOUT_PAGE';
+#Wait for '20' seconds;
 
-Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
-Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
+#Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
+#Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
 
 # final validation
-Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
-Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
-Report message "Order number" "SAVED.orderNumber"
+#Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
+#Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
+#Report message "Order number" "SAVED.orderNumber"
 

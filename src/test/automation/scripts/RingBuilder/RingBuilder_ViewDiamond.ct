@@ -61,7 +61,7 @@ Click on item 'generalPage.MY_CUSTOM_RING_PANE_VIEW_DIAMOND';
 
 Click on item 'diamondsPage.CHOSE_ANOTHER_DIAMOND';
 
-wait for '3' seconds;
+wait for '5' seconds;
 Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '2';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';

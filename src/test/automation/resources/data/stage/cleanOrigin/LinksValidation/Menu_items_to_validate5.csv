@@ -1,3 +1,4 @@
+JEWELRY|mainPage.NAVIGATION_MENU_LINK:JEWELRY|ethical-jewelry/|//h1[contains(.,'Jewelry')]
 WEDDING|mainPage.NAVIGATION_MENU_LINK:WEDDING|wedding-rings/|//h1[contains(.,'Wedding Rings')]
 WEDDING|mainPage.NAVIGATION_MENU_LINK:Eternity Bands|wedding/eternity-bands/|//h1[contains(.,'Eternity Bands')]
 WEDDING|mainPage.NAVIGATION_MENU_LINK:Anniversary Bands|wedding/anniversary-bands/|//h1[contains(.,'Anniversary Bands')]
@@ -6,7 +7,6 @@ WEDDING|mainPage.NAVIGATION_MENU_LINK:Diamond Stud Earrings|diamond-stud-earring
 WEDDING|mainPage.NAVIGATION_MENU_LINK:Diamond Bracelets|jewelry/bracelets/|//h1[contains(.,'Diamond Bracelets')]
 WEDDING|menuItems.MENU_ITEM_WOMANS_WEDDING_BAND|wedding/wedding-bands/|//h1[contains(.,'Wedding Bands')]
 WEDDING|menuItems.MENU_ITEM_MANS_WEDDING_BAND|wedding/mens-wedding-bands/|//h1[contains(.,'Men')][contains(.,'s Wedding Bands')]
-JEWELRY|mainPage.NAVIGATION_MENU_LINK:JEWELRY|ethical-jewelry/|//h1[contains(.,'Jewelry')]
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_ETERNITY_BANDS|wedding/eternity-bands/|//h1[contains(.,'Eternity Bands')]
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_ANNIVERSARY_BANDS|wedding/anniversary-bands/|//h1[contains(.,'Anniversary Bands')]
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_STACKABLE_BANDS|jewelry/stackable-bands/|//h1[contains(.,'Stackable Bands')]

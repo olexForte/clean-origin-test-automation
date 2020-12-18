@@ -123,11 +123,14 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
     private boolean checkDataCorrespondToDataFilter(String allData, RingFilter filter) {
         RingFilter.RingCollection collection = RingFilter.RingCollection.valueFor(allData.replaceFirst(".*ring_collection\":\"(.*?)\".*","$1"));
         RingFilter.RingMetal metal = RingFilter.RingMetal.idFor(allData.replaceFirst(".*metal_type\":\"(.*?)\".*","$1"));
-        String price = allData.replaceFirst(".*price\":\"(.*?)\".*","$1");
+        String price = null;
+        if (allData.contains("price"))
+            price = allData.replaceFirst(".*price\":\"(.*?)\".*","$1");
 //"type_id": "configurable",
         boolean result = true; //todo  ((metal != null) && filter.isMetalsInFilter(metal.name())) || allData.contains("\"configurable\"");
         result = result && (collection != null && filter.isCollectionsInFilter(collection.name()));
-        result = result && filter.isPriceInFilterRange(price);
+        if(price != null)
+         result = result && filter.isPriceInFilterRange(price);
 
         if(!result)
             LOGGER.error("Ring does not match filter: " + collection + " " + metal + " " + price + "\n" + allData);
@@ -155,7 +158,8 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
         String size = executor.page.getText(executor.page.findDynamicElement(executor.locatorsRepository.getTarget("engagementPage.RING_SIZE_SELECT")), true);
         String price = executor.page.getText(executor.page.findDynamicElement(executor.locatorsRepository.getTarget("engagementPage.RING_PRICE_LABEL")), true);
 
-        result = result && filter.isMetalsInFilter(metal);
+        if (!metal.equals("Select Option"))
+            result = result && filter.isMetalsInFilter(metal);
         //result = result && filter.isCollectionsInFilter(shape);
         result = result && filter.isPriceInFilterRange(price);
         if(size == null || size.equals("") ||  prong == null || prong.equals("")) {
