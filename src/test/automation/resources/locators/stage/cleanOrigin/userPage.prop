@@ -7,8 +7,8 @@ PRODUCT_IN_WISH_LIST_BY_NAME = //li[@data-row='product-item']//strong[@class='pr
 
 PRODUCT_PRICE_IN_WISH_LIST_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]//following::div[1]//span[@class='price']
 
-DELETE_PRODUCT_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]/following::div[@class='product-item-inner']//a[@class='action edit']
-EDIT_PRODUCT_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]/following::div[@class='product-item-inner']//a[@class='btn-remove action delete']
+EDIT_PRODUCT_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]/following::div[@class='product-item-inner']//a[@class='action edit']
+DELETE_PRODUCT_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]/following::div[@class='product-item-inner']//a[@class='btn-remove action delete']
 ADD_TO_BAG_PRODUCT_BY_NAME = //li[@data-row='product-item']//strong[@class='product-item-name'][contains(.,'$PARAMETER1')]/following::div[@class='product-item-inner']//button[@title='Add to Bag']
 
 # share wishlist process
