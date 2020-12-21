@@ -146,9 +146,9 @@ Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
 #Type value 'general.DEFAULT_VISA_CARD_EXP_YEAR' to 'generalPage.CREDIT_CARD_EXP_YEAR';
 #Type value 'general.DEFAULT_VISA_CARD_CVV' to 'generalPage.CREDIT_CARD_CVV';
 
-#Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
+Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
 
-# final validation
+#final validation
 Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
 Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
 Report message "Order number" "SAVED.orderNumber"
