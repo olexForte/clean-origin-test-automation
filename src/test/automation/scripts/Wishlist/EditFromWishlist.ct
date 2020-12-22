@@ -23,26 +23,17 @@ Validate value 'SAVED.data' contains 'SAVED.ringName';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
-debug
-
 # click on edit button for item
 # click on delete button for item
 Click on item 'userPage.EDIT_PRODUCT_BY_NAME:SAVED.ringName';
 
 # check item name is visible
-
+Fill data form '{"Metal":"14K Yellow Gold"}';
 # set metal/prong etc. (from RingBuilder test)
 
+Click on item 'engagementPage.UPDATE_WISHLIST';
 # click update wishlist
 
-# check new item is visible
-
-#hover over item 'locator';
-#Click on item 'locator';
-#Type value 'data' to 'locator';
-#Save element text 'locatorORdata' to 'SAVED.data';
-#validate element 'locator' [is visible|is invisible];
-#Validate value 'locatorORdata' equals 'locatorORdataORregexp';
-#Validate value 'locatorORdata' contains 'locatorORdataORregexp';
-
+Save element text 'userPage.DETAILS_BY_NAME:SAVED.ringName' to 'SAVED.details';
+Validate value 'saved.details' contains '14K Yellow Gold';
 

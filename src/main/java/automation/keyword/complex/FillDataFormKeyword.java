@@ -61,6 +61,7 @@ public class FillDataFormKeyword extends AbstractKeyword {
             try {
                 if(fieldValue != null && !fieldValue.equals(""))
                     setFieldValue(executor.page, fieldLabel, fieldValue);
+                executor.page.sleepFor(1000);
             }catch (Exception e){
                 System.out.println();
             }

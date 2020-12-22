@@ -59,3 +59,5 @@ CHOSE_DIFFERENT_SETTING_BUTTON = //button[@id="replace-item-in-bundle"]
 
 ADD_TO_BAG_BUTTON = (//div[@class="progress-add-to-cart"])[2]
 #//button[@id="progress-add-to-cart"]
+
+UPDATE_WISHLIST = //a/span[.='Update Wish List']

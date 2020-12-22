@@ -20,8 +20,8 @@ FooterLinksValidation
 DiamondFiltersValidation
 RingFiltersValidation
 
-NewDiamondsInRingBuilderUsageTest
-NewDiamondsInUsageTest
+#NewDiamondsInRingBuilderUsageTest
+#NewDiamondsInUsageTest
 
 ShareWishlist
 DeleteFromWishlist
