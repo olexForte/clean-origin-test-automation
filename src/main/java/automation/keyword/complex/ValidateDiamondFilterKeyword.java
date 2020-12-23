@@ -4,6 +4,7 @@ import automation.annotations.KeywordRegexp;
 import automation.entities.application.DiamondsFilter;
 import automation.execution.TestStepsExecutor;
 import automation.keyword.AbstractKeyword;
+import automation.tools.ComparatorTool;
 
 import java.util.HashMap;
 import java.util.List;
@@ -122,7 +123,7 @@ public class ValidateDiamondFilterKeyword extends AbstractKeyword {
                 result = result && filter.isCutInFilterRange(currentDiamond.get("grade").toUpperCase().replace(" ","_"));
 
             if(!currentDiamond.get("price").equals(""))
-                result = result && filter.isPriceInFilterRange(currentDiamond.get("price").replace("$", "").replace(",", ""));
+                result = result && filter.isPriceInFilterRange(ComparatorTool.getFloatValue(currentDiamond.get("price")));//currentDiamond.get("price").replace("$", "").replace(",", ""));
 
             if (!result) {
                 LOGGER.error("Diamond does not match filter: " + currentDiamond.toString());

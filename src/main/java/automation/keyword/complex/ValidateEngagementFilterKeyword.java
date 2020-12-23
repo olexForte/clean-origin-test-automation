@@ -4,6 +4,7 @@ import automation.annotations.KeywordRegexp;
 import automation.entities.application.RingFilter;
 import automation.execution.TestStepsExecutor;
 import automation.keyword.AbstractKeyword;
+import automation.tools.ComparatorTool;
 import io.restassured.response.Response;
 import org.openqa.selenium.WebElement;
 
@@ -129,8 +130,10 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
 //"type_id": "configurable",
         boolean result = true; //todo  ((metal != null) && filter.isMetalsInFilter(metal.name())) || allData.contains("\"configurable\"");
         result = result && (collection != null && filter.isCollectionsInFilter(collection.name()));
-        if(price != null)
-         result = result && filter.isPriceInFilterRange(price);
+        if(price != null) {
+            price = ComparatorTool.getFloatValue(price);
+            result = result && filter.isPriceInFilterRange(price);
+        }
 
         if(!result)
             LOGGER.error("Ring does not match filter: " + collection + " " + metal + " " + price + "\n" + allData);
@@ -157,6 +160,7 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
         String prong = executor.page.getText(executor.page.findDynamicElement(executor.locatorsRepository.getTarget("engagementPage.RING_PRONG_SELECT")), true);
         String size = executor.page.getText(executor.page.findDynamicElement(executor.locatorsRepository.getTarget("engagementPage.RING_SIZE_SELECT")), true);
         String price = executor.page.getText(executor.page.findDynamicElement(executor.locatorsRepository.getTarget("engagementPage.RING_PRICE_LABEL")), true);
+        price = ComparatorTool.getFloatValue(price);
 
         if (!metal.equals("Select Option"))
             result = result && filter.isMetalsInFilter(metal);

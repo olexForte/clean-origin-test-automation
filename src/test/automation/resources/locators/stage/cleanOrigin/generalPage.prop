@@ -44,8 +44,7 @@ MY_CUSTOM_RING_PANE_REMOVE_RING = //div[@id='ring-step']//a[.='Remove']
 MY_CUSTOM_RING_PANE_VIEW_DIAMOND = (//div[@id='diamond-step']//a[.='View'])[2]
 MY_CUSTOM_RING_PANE_REMOVE_DIAMOND = (//div[@id='diamond-step']//a[.='Remove'])[2]
 
-BASE_PAGE_URL_REGEXP = .*\.com/(.*)
-#https://${BASE_URL}(.*)
+BASE_PAGE_URL_REGEXP = https://.*${BASE_URL}(.*)
 
 HEADER_ACCOUNT_LINK = //div[@id="clo-header-account"]//a[contains(.,'$PARAMETER1')]
 

@@ -59,9 +59,9 @@ public class FillDataFormKeyword extends AbstractKeyword {
             String fieldValue = field.getValue();
 
             try {
+                executor.page.sleepFor(1500);
                 if(fieldValue != null && !fieldValue.equals(""))
                     setFieldValue(executor.page, fieldLabel, fieldValue);
-                executor.page.sleepFor(1000);
             }catch (Exception e){
                 System.out.println();
             }
