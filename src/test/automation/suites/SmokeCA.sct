@@ -1,12 +1,12 @@
 
-RingBuilder_ValidationsShort
+RingBuilder_Validations
 RingBuilder_ViewDiamond
 RingBuilder_ClearRing
 RingBuilder_EditRing
 
-Bracelets_e2e
-Neckless_e2e
-Earings_e2e
+Bracelets_e2e_CA
+Neckless_e2e_CA
+Earings_e2e_CA
 
 LinksValidation1
 LinksValidation2
@@ -20,9 +20,9 @@ FooterLinksValidation
 DiamondFiltersValidation
 RingFiltersValidation
 
-#NewDiamondsInRingBuilderUsageTest
-#NewDiamondsInUsageTest
+NewDiamondsInRingBuilderUsageTest
+NewDiamondsInUsageTest
 
 ShareWishlist
 DeleteFromWishlist
-#ResetMyPassword
+ResetMyPassword

@@ -3,5 +3,5 @@
 URL = https://getnada.com/
 CURRENT_EMAIL_LABEL = //span/a/button
 EMAIL_ROW_ENTITY = {"parent":"//tr[contains(@class,'text-left')]", "Subject" : ".//td[1]"}
-EMAIL_ITEM = //tr[contains(@class,'text-left')]//td[contains(.,"$PARAMETER1")]
+EMAIL_ITEM = //tr[contains(@class,'text-left')]//td[contains(.,"$PARAMETER1")]/a
 EMAIL_CONTENT = //frame//table[@class="wrapper"]

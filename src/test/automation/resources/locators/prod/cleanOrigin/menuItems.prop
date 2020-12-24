@@ -3,7 +3,7 @@
 MENU_ITEM_4CDIAMONDS = //a[contains(.,'4 C')][contains(.,'s of Diamonds')]
 MENU_ITEM_LAB_GROWN_VS_MINED = //a[contains(.,'Lab Grown vs. Mined')]
 
-MENU_ITEM_WARRANTY = //a[contains(.,'Lifetime Warranty')]
+MENU_ITEM_WARRANTY = //a[contains(.,'Lifetime Manufacturer')]
 
 MENU_ITEM_WOMANS_WEDDING_BAND = //a[contains(.,'Women')][contains(.,'s Wedding Bands')]
 MENU_ITEM_MANS_WEDDING_BAND = //a[contains(.,'Men')][contains(.,'s Wedding Bands')]

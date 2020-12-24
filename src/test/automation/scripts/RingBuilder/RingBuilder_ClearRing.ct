@@ -14,7 +14,7 @@ Click on item 'engagementPage.RING_PRODUCT_ITEM:saved.TYPE_OF_RING';
 Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA_BY_VALUE';
 
 Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
-
+Wait for '5' seconds;
 Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '10';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';

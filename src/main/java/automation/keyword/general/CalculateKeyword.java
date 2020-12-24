@@ -3,6 +3,7 @@ package automation.keyword.general;
 import automation.annotations.KeywordRegexp;
 import automation.execution.TestStepsExecutor;
 import automation.keyword.AbstractKeyword;
+import automation.tools.ComparatorTool;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
@@ -15,7 +16,7 @@ import java.util.regex.Pattern;
  */
 public class CalculateKeyword extends AbstractKeyword {
 
-    @KeywordRegexp("Calculate value 'saved.val1' [plus|minus|div|mod] 'saved.value2' [[plus|minus|div|mod] 'saved.value2'] to 'saved.result';")
+    @KeywordRegexp("Calculate value 'saved.val1' [plus|minus|div|mod|round] 'saved.value2' [[plus|minus|div|mod] 'saved.value2'] to 'saved.result';")
     static String LABEL =     "calculate value";
 
     private ArrayList<String> operands = new ArrayList<String>();
@@ -26,13 +27,14 @@ public class CalculateKeyword extends AbstractKeyword {
     static String DIV_OPERATOR = "div";
     static String MOD_OPERATOR = "mod";
     static String TO_OPERATOR = "to";
+    static String ROUND_OPERATOR = "round";
 
     @Override
     public AbstractKeyword generateFromLine(String line) {
         if(prepareLine(line).toLowerCase().matches(LABEL.toLowerCase()+".*")){
             CalculateKeyword result = (CalculateKeyword)super.generateFromLine(line);
 
-            Pattern p =  Pattern.compile(" (plus|minus|div|mod|to) ");
+            Pattern p =  Pattern.compile(" (plus|minus|div|mod|to|round)");
             Matcher matcher = p.matcher(line);
             while(matcher.find()) {
                 result.operators.add(matcher.group(0).trim());
@@ -74,6 +76,10 @@ public class CalculateKeyword extends AbstractKeyword {
             if(operator.equals(TO_OPERATOR)){
                 executor.testDataRepository.setData(operands.get(operationNumber+1), String.format("%.2f", result));
             }
+            if(operator.equals(ROUND_OPERATOR)){
+                curOperand = toValue((String)executor.testDataRepository.getData(operands.get(operationNumber)), result);
+                result = Math.round(Math.round(curOperand));
+            }
         }
 
         return true;
@@ -92,7 +98,7 @@ public class CalculateKeyword extends AbstractKeyword {
             float percents = Float.valueOf(string.replace("%", "").replace(",","").trim());
             return (result/100)*percents;
         } else{
-            return Float.valueOf(string.replace("$", "").replace(",","").trim());
+            return Float.valueOf(ComparatorTool.getFloatValue(string));
         }
     }
 }

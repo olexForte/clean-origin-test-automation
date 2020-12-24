@@ -22,7 +22,7 @@ Save element text 'engagementPage.RING_SIZE_SELECT' to 'SAVED.ringSize';
 Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice'  and 'REMOVE:CA';
 
 Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
-
+Wait for '5' seconds;
 Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '10';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';

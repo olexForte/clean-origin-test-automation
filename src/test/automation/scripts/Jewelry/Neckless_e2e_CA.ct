@@ -1,26 +1,30 @@
+#Studs_Earrings
+
 #Bracelets
 
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 
 Hover over item "mainPage.NAVIGATION_MENU_ITEM:JEWELRY";
-Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Bracelets:2';
+Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Pendants:2';
 
 Generate value 'RANDOM.field:min_max:1:8' to 'SAVED.randomindex';
-debug
-Save element text 'braceletsPage.BRACELETES_TABLE_ITEM_BY_INDEX:SAVED.randomindex' to 'SAVED.data';
-Save element text 'braceletsPage.BRACELETES_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex' to 'SAVED.price';
 
-Click on item 'braceletsPage.BRACELETES_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
+Hover over item 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
+Save element text 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex' to 'SAVED.data';
+Save element text 'necklessPage.NECKLESS_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex' to 'SAVED.price';
+Click on item 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
 
 Optional Fill data form '{"Metal":"14K White Gold"}';
 
-Optional Save element text 'braceletsPage.BRACELET_METAL_SELECT' to 'SAVED.metal' and 'REGEXP_REMOVE:( \+.*)' ;
-Save element text 'braceletsPage.BRACELET_NAME_LABEL' to 'SAVED.name';
-Save element text 'braceletsPage.BRACELET_PRICE_LABEL' to 'SAVED.PDPprice';
+Save element text 'necklessPage.NECKLESS_NAME_LABEL' to 'SAVED.name';
+Save element text 'necklessPage.NECKLESS_PRICE_LABEL' to 'SAVED.PDPprice';
+Optional Save element text 'necklessPage.NECKLESS_METAL_SELECT' to 'SAVED.metal' and 'REGEXP_REMOVE:( \+.*)' ;
 
+Calculate value 'SAVED.price' round '0' to 'SAVED.price';
+Calculate value 'SAVED.PDPprice' round '0' to 'SAVED.PDPprice';
 Validate value 'SAVED.price' equals 'SAVED.PDPprice';
 
-click on item 'braceletsPage.ADD_TO_BAG';
+click on item 'necklessPage.ADD_TO_BAG';
 
 Click on item 'mainPage.OPEN_CART_ICON';
 
@@ -31,6 +35,7 @@ Save element text 'checkoutpage.CART_SUBTOTAL_LABEL' to 'SAVED.orderSubtotal';
 Save element text 'checkoutpage.CART_TOTAL_LABEL' to 'SAVED.orderTotal';
 Optional Validate value 'SAVED.orderTotal' equals 'SAVED.orderSubtotal';
 
+Calculate value 'SAVED.orderSubtotal' round '0' to 'SAVED.orderSubtotal';
 Optional Validate value 'SAVED.PDPprice' equals 'SAVED.orderSubtotal';
 
 Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartDetails' and 'REMOVE:,';
@@ -48,3 +53,4 @@ Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.p
 
 Optional Validate value 'SAVED.productsInCartOverview' contains 'SAVED.metal';
 Optional Validate value 'SAVED.productsInCartOverview' contains 'SAVED.name';
+

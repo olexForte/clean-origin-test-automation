@@ -18,6 +18,8 @@ Optional Save element text 'braceletsPage.BRACELET_METAL_SELECT' to 'SAVED.metal
 Save element text 'braceletsPage.BRACELET_NAME_LABEL' to 'SAVED.name';
 Save element text 'braceletsPage.BRACELET_PRICE_LABEL' to 'SAVED.PDPprice';
 
+Calculate value 'SAVED.price' round '0' to 'SAVED.price';
+Calculate value 'SAVED.PDPprice' round '0' to 'SAVED.PDPprice';
 Validate value 'SAVED.price' equals 'SAVED.PDPprice';
 
 click on item 'braceletsPage.ADD_TO_BAG';
@@ -31,6 +33,7 @@ Save element text 'checkoutpage.CART_SUBTOTAL_LABEL' to 'SAVED.orderSubtotal';
 Save element text 'checkoutpage.CART_TOTAL_LABEL' to 'SAVED.orderTotal';
 Optional Validate value 'SAVED.orderTotal' equals 'SAVED.orderSubtotal';
 
+Calculate value 'SAVED.orderSubtotal' round '0' to 'SAVED.orderSubtotal';
 Optional Validate value 'SAVED.PDPprice' equals 'SAVED.orderSubtotal';
 
 Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartDetails' and 'REMOVE:,';
