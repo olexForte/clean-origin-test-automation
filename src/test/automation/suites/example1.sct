@@ -3,4 +3,20 @@
 #CheckImport
 #Example1
 
-RingBuilder_Validations
+#RingBuilder_Validations
+
+#DiamondFiltersValidation
+#RingFiltersValidation
+
+#Earings_e2e
+#Bracelets_e2e
+#Neckless_e2e
+
+#Bracelets_e2e_CA
+#Neckless_e2e_CA
+#Earings_e2e_CA
+#RingBuilder_ViewDiamond
+
+#NewDiamondsInUsageTest
+
+DeleteFromWishlist

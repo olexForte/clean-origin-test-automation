@@ -7,7 +7,7 @@ LEARN|mainPage.NAVIGATION_MENU_LINK:Hearts & Arrows|hearts-and-arrows/|//h1[cont
 LEARN|mainPage.NAVIGATION_MENU_LINK:Perfect Fit|perfect-fit-collection/|//h1[contains(.,'Perfect Fit & Clean Origin')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:ENGAGEMENT|engagement-rings/|//h1[contains(.,'Engagement')][contains(.,'Rings')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Start with a Setting|engagement/|//div[contains(.,'Create Your Ring')]
-ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Start with a Diamond|diamonds/?|//h1[contains(.,'Diamonds')]
+ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Start with a Diamond|diamonds/|//h1[contains(.,'Diamonds')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Engagement Rings|engagement/|//h1[contains(.,'Engagement')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Solitaire|engagement/solitaires/|//h1[contains(.,'Solitaires')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Halo|engagement/halo/|//h1[contains(.,'Halo')]
