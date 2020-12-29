@@ -1,8 +1,8 @@
 # Sign in
 
-USERNAME_INPUT = //input[@id="email-login"] | //input[@id="email"]
-PASSWORD_INPUT = //input[@id="pass-login"] | //input[@id="pass"]
-SIGN_IN_BUTTON = //span[.='Sign In']
+USERNAME_INPUT = //input[@id="email"] | //input[@id="email-login"]
+PASSWORD_INPUT = //input[@id="pass"] | //input[@id="pass-login"]
+SIGN_IN_BUTTON = //button[@id="send2"] | //span[.='Sign In']
 
 FORGOT_YOUR_PASSWORD_LINK = //a[contains(.,'Forgot Your Password?')]
 
