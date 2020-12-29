@@ -79,17 +79,19 @@ Optional Save entity 'engagementPage.SELECTED_RING_DETAILS_ENTYTY_LOCATOR' to 's
 Optional Save entity 'engagementPage.SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR' to 'saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
 
 # validate Prices
-Calculate value 'SAVED.diamondPrice' round '0' to 'SAVED.diamondPrice';
-Calculate value 'SAVED.ringPrice' round '0' to 'SAVED.ringPrice';
+Calculate value 'SAVED.ringTotalOnTopPanel' round '0' to 'SAVED.ringTotalOnTopPanel';
 Calculate value 'SAVED.diamondPriceOnTopPanel' round '0' to 'SAVED.diamondPriceOnTopPanel';
 Calculate value 'SAVED.ringPriceOnTopPanel' round '0' to 'SAVED.ringPriceOnTopPanel';
 
+Calculate value 'saved.ringPrice' plus 'saved.diamondPrice' to 'saved.expectedFullPrice';
+Calculate value 'SAVED.expectedFullPrice' round '0' to 'SAVED.expectedFullPrice';
+Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.ringTotalOnTopPanel';
+
+Calculate value 'SAVED.diamondPrice' round '0' to 'SAVED.diamondPrice';
+Calculate value 'SAVED.ringPrice' round '0' to 'SAVED.ringPrice';
 Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.diamondPriceOnTopPanel';
 Optional Validate value 'SAVED.ringPrice' equals 'SAVED.ringPriceOnTopPanel';
-Optional Validate value 'SAVED.ringName' equals 'SAVED.ringNameOnTopPanel';
-
-Calculate value 'saved.ringPrice' plus 'saved.diamondPrice' to 'saved.expectedFullPrice';
-Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.ringTotalOnTopPanel';
+Optional Validate value 'SAVED.ringNameOnTopPanel' contains 'SAVED.ringName';
 
 # todo add validation
 #Optional Validate value  'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' equals 'SAVED.ringMetal';
