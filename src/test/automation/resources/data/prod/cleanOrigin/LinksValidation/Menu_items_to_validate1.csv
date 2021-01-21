@@ -1,4 +1,4 @@
-ABOUT|mainPage.NAVIGATION_MENU_LINK:In The Press|in-the-press/|//h1[contains(.,'In The Press')]
+ABOUT|mainPage.NAVIGATION_MENU_LINK:Press|in-the-press/|//h1[contains(.,'In The Press')]
 ABOUT|mainPage.NAVIGATION_MENU_LINK:ABOUT|our-story/|//h1[contains(.,'Our Story')]
 ABOUT|mainPage.NAVIGATION_MENU_LINK:Our Story|our-story/|//h1[contains(.,'Our Story')]
 ABOUT|mainPage.NAVIGATION_MENU_LINK:Compare|comparison/|//h1[contains(.,'How do we compare?')]

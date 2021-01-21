@@ -1,0 +1,17 @@
+
+# Test: Check that user can search
+
+# open UI
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+
+#FOR search result
+#file:List_of_search_queries.csv
+
+# search for diamond
+Type value '$search' to 'mainPage.SEARCH_INPUT_FIELD';
+Click on item 'mainPage.SEARCH_INPUT_FIELD_BUTTON';
+
+Validate element "$result" is visible;
+
+#END FOR

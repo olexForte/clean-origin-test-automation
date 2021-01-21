@@ -22,7 +22,7 @@ Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
 
-Click on item 'mainPage.OPEN_CART_ICON';
+Click on item 'mainPage.GO_TO_SHOPING_CART_LINK';
 
 
 Wait for '10' seconds;

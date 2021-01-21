@@ -7,7 +7,7 @@ ABOUT|mainPage.NAVIGATION_MENU_LINK:Our Story|our-story/|//h1[contains(.,'Our St
 ABOUT|mainPage.NAVIGATION_MENU_LINK:Compare|comparison/|//h1[contains(.,'How do we compare?')]
 ABOUT|mainPage.NAVIGATION_MENU_LINK:Blog|blog/|//h1[contains(.,'Blog')]
 ABOUT|mainPage.NAVIGATION_MENU_LINK:Reviews|reviews/|//span[contains(@class,'yotpo-logo-title')]
-ABOUT|mainPage.NAVIGATION_MENU_LINK:In The Press|in-the-press/|//h1[contains(.,'In The Press')]
+ABOUT|mainPage.NAVIGATION_MENU_LINK:Press|in-the-press/|//h1[contains(.,'In The Press')]
 ABOUT|mainPage.NAVIGATION_MENU_LINK:Free Shipping|shipping-policy/|//h1[contains(.,'Shipping Policy')]
 ABOUT|mainPage.NAVIGATION_MENU_LINK:100 Day Return Policy|return-policy/|//h1[contains(.,'Return Policy')]
 ABOUT|mainPage.NAVIGATION_MENU_LINK:Independent Lab Certification|independently-certified/|//h1[contains(.,'How We Certify Our Diamonds')]
