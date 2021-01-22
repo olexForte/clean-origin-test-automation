@@ -21,7 +21,7 @@ Click on item 'diamondsPage.ADD_TO_BAG_BUTTON';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
-
+Wait for '3' seconds;
 Click on item 'mainPage.GO_TO_SHOPING_CART_LINK';
 
 

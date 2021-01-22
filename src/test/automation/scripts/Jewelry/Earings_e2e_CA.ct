@@ -24,6 +24,7 @@ Validate value 'SAVED.price' equals 'SAVED.PDPprice';
 
 click on item 'studsEarringsPage.ADD_TO_BAG';
 
+Wait for '3' seconds;
 Click on item 'mainPage.GO_TO_SHOPING_CART_LINK';
 
 Wait for '10' seconds;
