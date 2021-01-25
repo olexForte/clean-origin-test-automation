@@ -42,6 +42,8 @@ public class ReporterManager {
     //marker of failed item
     public static final String MARKER_OF_FAILED_ITEM = "----";
 
+    private static String IMAGES_SUBFOLDER = "img";
+
     ReporterManager(){
     }
 
@@ -315,7 +317,7 @@ public class ReporterManager {
         try {
             if (DriverProvider.isDriverActive()) {
                 screenshotFile = takeScreenshot(DriverProvider.getCurrentDriver());
-                message = message + "<br><img style=\"max-width: 100%;height: auto;max-height: 100%;width: auto;\" src=\"" + screenshotFile + "\"></img><br>";
+                message = message + "<br><img style=\"max-width: 100%;height: auto;max-height: 100%;width: auto;\" src=\"" + IMAGES_SUBFOLDER + File.separator + screenshotFile + "\"></img><br>";
             }
 
         } catch (Exception e){
@@ -357,7 +359,7 @@ public class ReporterManager {
         try {
             if (DriverProvider.isDriverActive()) {
                 screenshotFile = takeScreenshot(DriverProvider.getCurrentDriver());
-                message = message + "<br><a href=\"" + screenshotFile + File.separator + "\" target=_blank alt>"
+                message = message + "<br><a href=\"" + IMAGES_SUBFOLDER + File.separator + screenshotFile + "\" target=_blank alt>"
                         + "SCREENSHOT" + "</a><br>";
             }
         } catch (Exception e){
@@ -511,7 +513,8 @@ public class ReporterManager {
      */
     public static String takeScreenshot(WebDriver driver, String name){
         String filename = name.contains(".png") ? name : name + "screen.png";
-        String screenshotLocation = FileManager.OUTPUT_DIR + File.separator + filename;
+
+        String screenshotLocation = FileManager.OUTPUT_DIR + File.separator + IMAGES_SUBFOLDER + File.separator + filename;
 
         //SessionManager.addScreenshotNameToSession(screenshotLocation);
 
