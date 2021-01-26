@@ -13,6 +13,7 @@ Save element text 'braceletsPage.BRACELETES_TABLE_ITEM_PRICE_BY_INDEX:SAVED.rand
 Click on item 'braceletsPage.BRACELETES_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
 
 Optional Fill data form '{"Metal":"14K White Gold"}';
+Optional Fill data form '{"Metal":"14K Yellow Gold"}';
 
 Optional Save element text 'braceletsPage.BRACELET_METAL_SELECT' to 'SAVED.metal' and 'REGEXP_REMOVE:( \+.*)' ;
 Save element text 'braceletsPage.BRACELET_NAME_LABEL' to 'SAVED.name';

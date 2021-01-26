@@ -15,6 +15,7 @@ Save element text 'necklessPage.NECKLESS_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomi
 Click on item 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
 
 Optional Fill data form '{"Metal":"14K White Gold"}';
+Optional Fill data form '{"Metal":"14K Yellow Gold"}';
 
 Save element text 'necklessPage.NECKLESS_NAME_LABEL' to 'SAVED.name';
 Save element text 'necklessPage.NECKLESS_PRICE_LABEL' to 'SAVED.PDPprice';
