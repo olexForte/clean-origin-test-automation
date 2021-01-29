@@ -17,3 +17,4 @@ JEWELRY|menuItems.MENU_ITEM_JEWELRY_READY_TO_SHIP_STUDS|diamond-stud-earrings/|/
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_DIAMOND_PENDANTS|jewelry/diamond-pendants/|//h1[contains(.,'Diamond Pendants')]
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_DIAMOND_EARINGS|jewelry/diamond-earrings/|//h1[contains(.,'Diamond Earrings')]
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_TENNIS_BRACELETS|jewelry/bracelets/|//h1[contains(.,'Diamond Bracelets')]
+ABOUT|mainPage.NAVIGATION_MENU_LINK:Financing with Affirm|financing-options/|//h1[contains(.,'Our Financing Options')]

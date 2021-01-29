@@ -493,7 +493,7 @@ public class ReporterManager {
                         "window.scrollBy(0, " + windowH + "); return window.pageYOffset"));
 
                  filename = SessionManager.getSessionID() + "_" + String.valueOf(System.currentTimeMillis()) + "screen.png";
-                 screenshotLocation = FileManager.OUTPUT_DIR + File.separator + filename;
+                 screenshotLocation = FileManager.OUTPUT_DIR + File.separator + IMAGES_SUBFOLDER + File.separator + filename;
                  file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                 FileUtils.copyFile(file, new File(screenshotLocation));
                 fileNames.add(filename);
