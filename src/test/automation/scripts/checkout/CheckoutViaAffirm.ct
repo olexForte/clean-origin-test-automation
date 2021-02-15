@@ -1,0 +1,77 @@
+# Checkout random Neckless via Affirm
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+
+Hover over item "mainPage.NAVIGATION_MENU_ITEM:JEWELRY";
+Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Pendants:2';
+
+Generate value 'RANDOM.field:min_max:1:8' to 'SAVED.randomindex';
+
+Hover over item 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
+Save element text 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex' to 'SAVED.data';
+Save element text 'necklessPage.NECKLESS_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex' to 'SAVED.price';
+Click on item 'necklessPage.NECKLESS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
+
+Optional Fill data form '{"Metal":"14K White Gold"}';
+Optional Fill data form '{"Metal":"14K Yellow Gold"}';
+
+Save element text 'necklessPage.NECKLESS_NAME_LABEL' to 'SAVED.name';
+Save element text 'necklessPage.NECKLESS_PRICE_LABEL' to 'SAVED.PDPprice';
+Optional Save element text 'necklessPage.NECKLESS_METAL_SELECT' to 'SAVED.metal' and 'REGEXP_REMOVE:( \+.*)' ;
+
+Validate value 'SAVED.price' equals 'SAVED.PDPprice';
+
+Click on item 'necklessPage.ADD_TO_BAG';
+
+Wait for '3' seconds;
+Click on item 'mainPage.GO_TO_SHOPING_CART_LINK';
+
+Wait for '10' seconds;
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
+
+Save element text 'checkoutpage.CART_SUBTOTAL_LABEL' to 'SAVED.orderSubtotal';
+Save element text 'checkoutpage.CART_TOTAL_LABEL' to 'SAVED.orderTotal';
+Optional Validate value 'SAVED.orderTotal' equals 'SAVED.orderSubtotal';
+Optional Validate value 'SAVED.PDPprice' equals 'SAVED.orderSubtotal';
+
+Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartDetails' and 'REMOVE:,';
+Optional Validate value 'SAVED.productsInCartDetails' contains 'SAVED.metal';
+Optional Validate value 'SAVED.productsInCartDetails' contains 'SAVED.name';
+
+# Checkout
+Click on item 'generalPage.CHECKOUT_BUTTON';
+
+Wait for '20' seconds;
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
+
+Fill data form 'smokeData.DEFAULT_CHECKOUT_DATA';
+Type value 'smokeData.DEFAULT_CHECKOUT_DATA.Email' to 'generalPage.CHECKOUT_USERNAME_FIELD';
+Type value 'smokeData.DEFAULT_CHECKOUT_DATA.StreetAddress' to 'generalPage.CHECKOUT_STREET_ADDRESS_FIELD';
+
+Wait for '3' seconds;
+Click on item 'generalPage.NEXT_BUTTON_CHECKOUT_PAGE';
+
+Wait for '10' seconds;
+Click on item 'generalPage.AFFIRM_PAYMENT_OPTION';
+Click on item 'generalPage.CONTINUE_WITH_AFFIRM_BUTTON';
+
+Wait for '10' seconds;
+Type value '9282020918' to 'affirmCheckout.MOBILE_NUMBER_FIELD';
+Click on item 'affirmCheckout.SUBMIT_BUTTON';
+
+Wait for '5' seconds;
+Type value '1234' to 'affirmCheckout.PIN_FIELD';
+
+Wait for '10' seconds;
+Click on item 'affirmCheckout.SELECT_PAYMENT_PLAN';
+Click on item 'affirmCheckout.AUTOPAY_TOGGLE';
+Click on item 'affirmCheckout.CONTINUE_BUTTON';
+Click on item 'affirmCheckout.CONFIRM_DISCLOSURE_CHECKBOX';
+Click on item 'affirmCheckout.CONTINUE_BUTTON';
+
+Wait for '15' seconds;
+
+# Final validation
+Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
+Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
+Report message "Order number" "SAVED.orderNumber"

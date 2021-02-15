@@ -2,7 +2,7 @@ LEARN|menuItems.MENU_ITEM_4CDIAMONDS|diamonds-4cs/|//h1[contains(.,'The 4 C')][c
 LEARN|mainPage.NAVIGATION_MENU_LINK:Lab Grown Diamonds|about-lab-created-diamonds/|//h1[contains(.,'Lab Grown Diamonds')]
 LEARN|mainPage.NAVIGATION_MENU_LINK:Mined Diamonds|about-mined-diamonds/|//h1[contains(.,'Mined Diamonds')]
 LEARN|mainPage.NAVIGATION_MENU_LINK:Conflict-Free Diamonds|conflict-free-diamonds/|//h1[contains(.,'Conflict Free Diamonds')]
-LEARN|menuItems.MENU_ITEM_LAB_GROWN_VS_MINED|blog/spot-lab-grown-diamond/|//h1[contains(.,'Can You Spot A Lab-Grown Diamond?')]
+LEARN|menuItems.MENU_ITEM_LAB_GROWN_VS_MINED|blog/spot-lab-grown-diamond/|//h1[contains(.,'Can You Spot a Lab-Grown Diamond?')]
 LEARN|mainPage.NAVIGATION_MENU_LINK:Diamond Shapes|diamond-shapes/|//h1[contains(.,'Diamond Shapes')]
 LEARN|mainPage.NAVIGATION_MENU_LINK:Round Diamonds|round-diamonds/|//h1[contains(.,'Round Diamonds')]
 LEARN|mainPage.NAVIGATION_MENU_LINK:Princess Diamonds|princess-diamonds/|//h1[contains(.,'Princess-Cut Diamonds')]

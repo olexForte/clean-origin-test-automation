@@ -6,7 +6,7 @@ Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
-Click on item 'mainPage.BUILD_YOU_RING_BUTTON';
+Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
 
 Optional Click on item 'engagementPage.RESET_FILTERS';
 execute js 'general.close_close_close_CLOSE' '//body';

@@ -1,0 +1,9 @@
+# Affirm checkout page
+
+MOBILE_NUMBER_FIELD = //frame//*[@id='shell-container']//input[@name='phone']
+SUBMIT_BUTTON = //frame//button[@data-testid='submit-button']
+PIN_FIELD = //frame//input[@aria-label='PIN']
+SELECT_PAYMENT_PLAN = //frame//div[@data-test="payment-plan"]//span[contains(.,'3 months')]
+AUTOPAY_TOGGLE = //frame//input[@id="autopay-toggle"]
+CONTINUE_BUTTON = //frame//button[@id="confirm-submit"]
+CONFIRM_DISCLOSURE_CHECKBOX = //frame//input[@id="confirm-disclosure-checkbox"]
