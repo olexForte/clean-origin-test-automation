@@ -9,7 +9,7 @@ Hover over item "mainPage.NAVIGATION_MENU_ITEM:$menuitem";
 Optional Click on item "$link";
 wait for '3' seconds;
 Optional Get value from URL 'generalPage.BASE_PAGE_URL_REGEXP' to save 'SAVED.value';
-Optional Validate value '$url' equals 'SAVED.value';
+Optional Validate value 'SAVED.value' contains '$url';
 Optional Validate element "$expected" is visible;;
 #END FOR
 #Report message "SAVED.target"

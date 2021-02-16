@@ -1,0 +1,50 @@
+# Remove random Bracelet from cart
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+
+Hover over item "mainPage.NAVIGATION_MENU_ITEM:JEWELRY";
+Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Bracelets:2';
+
+Generate value 'RANDOM.field:min_max:1:8' to 'SAVED.randomindex';
+
+Save element text 'braceletsPage.BRACELETES_TABLE_ITEM_BY_INDEX:SAVED.randomindex' to 'SAVED.data';
+Save element text 'braceletsPage.BRACELETES_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex' to 'SAVED.price';
+
+Click on item 'braceletsPage.BRACELETES_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
+
+Optional Fill data form '{"Metal":"14K White Gold"}';
+Optional Fill data form '{"Metal":"14K Yellow Gold"}';
+
+Optional Save element text 'braceletsPage.BRACELET_METAL_SELECT' to 'SAVED.metal' and 'REGEXP_REMOVE:( \+.*)' ;
+
+Save element text 'braceletsPage.BRACELET_NAME_LABEL' to 'SAVED.name' and 'REMOVE: ';
+Save element text 'braceletsPage.BRACELET_PRICE_LABEL' to 'SAVED.PDPprice';
+
+Validate value 'SAVED.price' equals 'SAVED.PDPprice';
+
+Click on item 'braceletsPage.ADD_TO_BAG';
+
+Wait for '3' seconds;
+
+Click on item 'mainPage.GO_TO_SHOPING_CART_LINK';
+
+Wait for '10' seconds;
+
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
+
+Save element text 'checkoutpage.CART_SUBTOTAL_LABEL' to 'SAVED.orderSubtotal';
+Save element text 'checkoutpage.CART_TOTAL_LABEL' to 'SAVED.orderTotal';
+Optional Validate value 'SAVED.orderTotal' equals 'SAVED.orderSubtotal';
+Optional Validate value 'SAVED.PDPprice' equals 'SAVED.orderSubtotal';
+
+Save element text 'checkoutPage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartDetails' and 'REMOVE:,';
+Optional Validate value 'SAVED.productsInCartDetails' contains 'SAVED.metal';
+Optional Validate value 'SAVED.productsInCartDetails' contains 'SAVED.name';
+
+Click on item 'checkoutPage.REMOVE_ITEM:SAVED.name';
+
+Wait for '3' seconds;
+
+Optional Validate value 'checkoutPage.SHOPPING_CART_EMPTY_MESSAGE' contains 'Your shopping bag is empty.';
+Optional Click on item 'checkoutPage.CONTINUE_SHOPPING_LINK';
+Optional Validate element "mainPage.BUILD_YOUR_RING_BUTTON" is visible;

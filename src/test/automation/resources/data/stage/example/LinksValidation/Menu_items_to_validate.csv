@@ -49,7 +49,7 @@ ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Three-Stone|engagement/three-stone-enga
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Vintage|engagement/vintage/|//h1[contains(.,'Vintage')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Bridal Sets|bridal-sets/|//h1[contains(.,'Bridal Sets')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:White Gold|engagement/?metal_type[0]=14K+White+Gold&metal_type[1]=18K+White+Gold|//span[@class='filter-value'][contains(.,'14K White Gold')]/following::span[contains(.,'18K White Gold')]
-ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Rose Gold|engagement/?metal_type[0]=14K+Rose+Gold&metal_type[1]=18K+Rose+Gold|//span[@class='filter-value'][contains(.,'18K Rose Gold')]
+ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Rose Gold|engagement/?metal_type=14K+Rose+Gold|//span[@class='filter-value'][contains(.,'18K Rose Gold')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Yellow Gold|engagement/?metal_type[0]=14K+Yellow+Gold&metal_type[1]=18K+Yellow+Gold|//span[@class='filter-value'][contains(.,'14K Yellow Gold')]/following::span[contains(.,'18K Yellow Gold')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Platinum|engagement/?metal_type=Platinum|//span[@class='filter-value'][contains(.,'Platinum')]
 ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:Nouveau Collection|engagement/nouveau-collection/|//h1[contains(.,'The Nouveau Collection')]

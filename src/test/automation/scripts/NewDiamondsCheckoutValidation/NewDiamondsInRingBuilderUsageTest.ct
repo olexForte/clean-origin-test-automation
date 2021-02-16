@@ -9,7 +9,7 @@ Get value from saved 'saved.DATA_FROM_ADMIN' TEXT by 'newDiamondsTest.FIND_FIRST
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
-Click on item 'mainPage.BUILD_YOU_RING_BUTTON';
+Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
 
 Type value 'saved.DIAMOND_ID' to 'mainPage.SEARCH_INPUT_FIELD';
 Click on item 'mainPage.SEARCH_INPUT_FIELD_BUTTON';

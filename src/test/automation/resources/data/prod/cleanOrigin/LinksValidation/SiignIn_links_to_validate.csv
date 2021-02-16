@@ -6,4 +6,4 @@
 //li//a[.='Newsletter']|newsletter/manage/|//h1[contains(.,'Newsletter Subscription')]
 //li//a[.='Store Credit']|amstorecredit/|//h1[contains(.,'Store Credit & Refunds')]
 (//div[@id='clo-footer-nav']//a[.='Track Your Order'])[1]|sales/order/history/|//h1[contains(.,'My Orders')]
-//li//a[.='Log Out']|customer/account/logoutSuccess/|//h1[contains(.,'You are signed out')]
+//li//a[.='Log Out']|customer/account/logoutSuccess/|//a[.='Sign In']

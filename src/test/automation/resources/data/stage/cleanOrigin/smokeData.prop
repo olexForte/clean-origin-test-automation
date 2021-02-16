@@ -4,7 +4,7 @@ RING_BUILDER_EXAMPLE_DATA_BY_VALUE = {"Metal":"14K Yellow Gold", "Shape":"Round"
 
 ALL_DIAMONDS_FILTER_DATA = {"Attribute Set":"Diamonds", "Status":"Enabled", "Quantity->from":"1", "Quantity->to":"1"}
 
-DEFAULT_CHECKOUT_DATA = { "Email":"autotest@clear.com", "First Name": "Tester", "Last Name":"Tester", "StreetAddress":"5320 N Sheridan 1411", "City":"Chicago", "State/Province":"Illinois", "Zip/Postal Code":"60640", "Phone Number": "7734958072"}
+DEFAULT_CHECKOUT_DATA = { "Email":"autotest@clear.com", "First Name": "Tester", "Last Name":"Tester", "StreetAddress":"5320 N Sheridan 1411", "City":"Chicago", "State/Province":"Illinois", "Zip/Postal Code":"60640", "Phone Number": "9282020918"}
 
 DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE = Your Custom Ring\
  Qty 1\
