@@ -10,7 +10,7 @@ WEDDING|menuItems.MENU_ITEM_MANS_WEDDING_BAND|wedding/mens-wedding-bands/|//h1[c
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_ETERNITY_BANDS|wedding/eternity-bands/|//h1[contains(.,'Eternity Bands')]
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_ANNIVERSARY_BANDS|wedding/anniversary-bands/|//h1[contains(.,'Anniversary Bands')]
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_STACKABLE_BANDS|jewelry/stackable-bands/|//h1[contains(.,'Stackable Bands')]
-ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:New Arrivals|engagement/new/|//h1[contains(.,'New Arrivals')]
+ENGAGEMENT|mainPage.NAVIGATION_MENU_LINK:New Arrivals|new/|//h1[contains(.,'New Arrivals')]
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_NEW_ARRIVALS|jewelry/new/|//h1[contains(.,'New Arrivals')]
 WEDDING|menuItems.MENU_ITEM_WEDDING_NEW_ARRIVALS|wedding/new/|//h1[contains(.,'New Arrivals')]
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_READY_TO_SHIP_STUDS|diamond-stud-earrings/|//h1[contains(.,'Diamond')][contains(.,'Stud Earrings')]
