@@ -24,6 +24,8 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
 
     Integer expectedNumberOfDiamonds = -1;
     String MARKER_OF_EXPECTED_NUMBER_REGEXP = ".*return (\\d+).*";
+    Boolean API_VALIDATION_REQUIRED = false;
+    String API_VALIDATION_MARKER = "with api validation";
 
     @Override
     public AbstractKeyword generateFromLine(String line) {
@@ -39,6 +41,8 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
 
             if(line.matches(MARKER_OF_EXPECTED_NUMBER_REGEXP))
                 result.expectedNumberOfDiamonds = Integer.valueOf(line.replaceAll(MARKER_OF_EXPECTED_NUMBER_REGEXP, "$1"));
+            if(line.contains(API_VALIDATION_MARKER))
+                result.API_VALIDATION_REQUIRED = true;
             return result;
         }
         return null;
@@ -68,7 +72,8 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
                 WebElement ring = executor.page.findElementsIgnoreException(executor.locatorsRepository.getTarget("engagementPage.RING_ITEMS_IDS"), 1).get(i);
                 String ringID = ring.getAttribute("data-product-id");
                 LOGGER.info("Ring ID: " + ringID);
-                result = result && validateItemMatchesFilterUsingAPI(executor, authorizedCookies, ringID, filter);
+                if (API_VALIDATION_REQUIRED)
+                    result = result && validateItemMatchesFilterUsingAPI(executor, authorizedCookies, ringID, filter);
 
                 if(executor.page.isElementDisplayedRightNow(executor.locatorsRepository.getTarget("generalPage.CLOSE_MODAL_DIALOG"), 0))
                     executor.page.clickOnElement(executor.locatorsRepository.getTarget("generalPage.CLOSE_MODAL_DIALOG"), true);

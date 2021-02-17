@@ -11,7 +11,7 @@ RING_PRICE_FILTER_TO = //input[@id="price-to"]
 
 CURRENT_RING_FILTER_ITEM = (//ol[@class='items'])[1]/li[contains(.,'$PARAMETER1')]
 
-RING_METAL_FILTER_ITEM = //div[contains(@option-label,'$PARAMETER1')]
+RING_METAL_FILTER_ITEM = //li[@class='item'][contains(.,'$PARAMETER1')]
 RING_COLLECTION_FILTER_ITEM = //div[@class='filter-options-title'][.='Ring Collection']/following-sibling::div[1][@class='filter-options-content']//li[contains(.,'$PARAMETER1')]
 
 RING_METAL_FILTER_ITEM_BY_INDEX =  (//label[contains(@for,'metal_typeFilter_option_')])[$PARAMETER1]
