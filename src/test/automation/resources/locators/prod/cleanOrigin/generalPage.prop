@@ -53,3 +53,6 @@ HEADER_ACCOUNT_LINK = //div[@id="clo-header-account"]//a[contains(.,'$PARAMETER1
 ADD_TO_WISHLIST = //a[@class='action towishlist']
 
 FOOTER = //footer
+
+ACTIVE_DROPDOWN_ITEM = //div[@class='nav-wrap']//li[@class="nav-item dropdown active"]
+CHAT_BUTTON = //div[@class='olark-button-focus-wrapper']
