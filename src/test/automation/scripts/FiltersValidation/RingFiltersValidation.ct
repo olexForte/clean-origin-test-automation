@@ -12,6 +12,6 @@ Optional Click on item 'engagementPage.RESET_FILTERS';
 execute js 'general.close_close_close_CLOSE' '//body';
 Set engagement filter '$line';
 
-Validate engagement filter '$line';
+Validate engagement filter '$line' from first page;
 #END FOR
 
