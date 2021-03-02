@@ -8,6 +8,7 @@ Get value from saved 'saved.DATA_FROM_ADMIN' TEXT by 'newDiamondsTest.FIND_FIRST
 # Open UI
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 
 Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
 
@@ -60,7 +61,7 @@ Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_PRICE' to 'SAVED.diam
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.diamondWeightOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_SHAPE' to 'SAVED.diamondShapeOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_TOTAL_PRICE' to 'SAVED.ringTotalOnTopPanel';
-
+debug
 Optional Save entity 'engagementPage.SELECTED_RING_DETAILS_ENTYTY_LOCATOR' to 'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
 Optional Save entity 'engagementPage.SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR' to 'saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
 

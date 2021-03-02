@@ -7,6 +7,8 @@ CLOSE_MODAL_DIALOG = //img[@alt="Close"]
 
 CLOSE_CHAT_DIALOG = //div[@class='olark-launch-button-wrapper']
 
+CLOSE_PROMO_BANNER_DIALOG = //div[@class='popup-dialog']//img[@aria-label='Popup Close Button']
+
 CHECKOUT_BUTTON = //button[@class="action primary checkout"]
 
 LOADING_IMAGE = //img[@alt="Loading..."]
@@ -35,16 +37,16 @@ MY_CUSTOM_RING_PANEL = //div[text()='My Custom Ring']
 # top form Create your ring
 MY_CUSTOM_RING_PANE_RING_PRICE = //div[@class="builder-price ring-price"]
 MY_CUSTOM_RING_PANE_RING_NAME = //div[@class="ring-name"]
-MY_CUSTOM_RING_PANE_DIAMOND_PRICE = (//div[@class='builder-price diamond-price'])[2]
-MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT = (//div[@class="diamond-carat d-inline-block"])[2]
-MY_CUSTOM_RING_PANE_DIAMOND_SHAPE = (//div[@class="diamond-shape d-inline-block"])[2]
+MY_CUSTOM_RING_PANE_DIAMOND_PRICE = (//div[@class='builder-price diamond-price'])[1]
+MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT = (//div[@class="diamond-carat d-inline-block"])[1]
+MY_CUSTOM_RING_PANE_DIAMOND_SHAPE = (//div[@class="diamond-shape d-inline-block"])[1]
 MY_CUSTOM_RING_PANE_TOTAL_PRICE = //div[@class="builder-price ring-total-price"]
 
 MY_CUSTOM_RING_PANE_EDIT_RING = //div[@id='ring-step']//a[.='Edit']
 MY_CUSTOM_RING_PANE_VIEW_RING = //div[@id='ring-step']//a[.='View']
 MY_CUSTOM_RING_PANE_REMOVE_RING = //div[@id='ring-step']//a[.='Remove']
-MY_CUSTOM_RING_PANE_VIEW_DIAMOND = (//div[@id='diamond-step']//a[.='View'])[2]
-MY_CUSTOM_RING_PANE_REMOVE_DIAMOND = (//div[@id='diamond-step']//a[.='Remove'])[2]
+MY_CUSTOM_RING_PANE_VIEW_DIAMOND = (//div[@id='diamond-step']//a[.='View'])[1]
+MY_CUSTOM_RING_PANE_REMOVE_DIAMOND = (//div[@id='diamond-step']//a[.='Remove'])[1]
 
 BASE_PAGE_URL_REGEXP = (.*)
 
