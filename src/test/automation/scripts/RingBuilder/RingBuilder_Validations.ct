@@ -2,6 +2,7 @@
 
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 Wait for '3' seconds;
 Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
 

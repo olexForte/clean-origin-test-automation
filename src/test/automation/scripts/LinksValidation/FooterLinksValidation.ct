@@ -5,6 +5,7 @@
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 wait for '3' seconds;
 execute js 'general.close_close_close_CLOSE' '//body';
+Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 Optional Click on item "generalPage.FOOTER_LINK_BY_TEXT:$link";
 wait for '3' seconds;
 Optional Open next tab

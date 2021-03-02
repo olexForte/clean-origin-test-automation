@@ -56,7 +56,7 @@ public class ValidateDiamondFilterKeyword extends AbstractKeyword {
         List<HashMap<String, String>> allDiamondsOnPage;
 
         int iCurrentPage = 0;
-        int iMaxPage = 3;
+        int iMaxPage = 0;
         if(target != null && !target.equals(""))
             iMaxPage = Integer.valueOf(target);
 
@@ -87,12 +87,12 @@ public class ValidateDiamondFilterKeyword extends AbstractKeyword {
             }
 
             result = result && validateFilterWasAppliedToEntities(allDiamondsOnPage, filter);
-            if(executor.page.isElementDisplayedRightNow(executor.locatorsRepository.getTarget("diamondsPage.NEXT_BUTTON"), 0)) {
+            /*if(executor.page.isElementDisplayedRightNow(executor.locatorsRepository.getTarget("diamondsPage.NEXT_BUTTON"), 0)) {
                 if(executor.page.isElementDisplayedRightNow(executor.locatorsRepository.getTarget("generalPage.CLOSE_MODAL_DIALOG"), 0))
                     executor.page.clickOnElement(executor.locatorsRepository.getTarget("generalPage.CLOSE_MODAL_DIALOG"), true);
                 executor.page.clickOnElement(executor.locatorsRepository.getTarget("diamondsPage.NEXT_BUTTON"));
             } else
-                break;
+                break;*/
         }
 
         if(result) {
