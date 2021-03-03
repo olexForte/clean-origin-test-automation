@@ -7,7 +7,7 @@ Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 
-Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
+Click on item 'mainPage.START_WITH_A_SETTINGS_BUTTON';
 
 # Random ring
 Click on item 'engagementPage.RING_PRODUCT_ITEM:saved.TYPE_OF_RING';
