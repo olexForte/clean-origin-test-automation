@@ -1,7 +1,6 @@
 #Studs_Earrings
 
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
-
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 
 Hover over item "mainPage.NAVIGATION_MENU_ITEM:JEWELRY";

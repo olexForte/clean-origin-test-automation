@@ -3,7 +3,7 @@
 SEARCH_INPUT_FIELD = //input[@id='search']
 SEARCH_INPUT_FIELD_BUTTON =//button[@title='Search']
 
-BUILD_YOUR_RING_BUTTON = //a[.='Build Your Ring']
+BUILD_YOUR_RING_BUTTON = //a[.='Start with a Diamond']
 SHOP_NOW_BUTTON = //a[.='SHOP NOW']
 START_WITH_A_SETTINGS_BUTTON = //a[.='Start with a Setting']
 START_WITH_A_DIAMOND_BUTTON = //a[.='Start with a Diamond']
