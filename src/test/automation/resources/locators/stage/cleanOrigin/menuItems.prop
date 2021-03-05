@@ -6,6 +6,7 @@ MENU_ITEM_LAB_GROWN_VS_MINED = //a[contains(.,'Lab Grown vs. Mined')]
 MENU_ITEM_WARRANTY = //a[contains(.,'Lifetime Manufacturer')]|//a[contains(.,'Lifetime Warranty')]
 MENU_ITEM_FAQ = //div[@class='nav-flex-col']//a[contains(.,'Frequently Asked Questions')]|//div[@class='nav-flex-col']//a[contains(.,'FAQs')]
 MENU_ITEM_RESIZING = //div[@class='nav-flex-col']//a[contains(.,'Resizing Credit')]|//div[@class='nav-flex-col']//a[contains(.,'Free Resizing')]
+MENU_ITEM_IN_THE_PRESS = //div[@class='nav-flex-col']//a[contains(.,'Press')]|//div[@class='nav-flex-col']//a[contains(.,'In The Press')]
 
 MENU_ITEM_WOMANS_WEDDING_BAND = //a[contains(.,'Women')][contains(.,'s Wedding Bands')]
 MENU_ITEM_MANS_WEDDING_BAND = //a[contains(.,'Men')][contains(.,'s Wedding Bands')]
