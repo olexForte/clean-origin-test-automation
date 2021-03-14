@@ -24,7 +24,7 @@ Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice'  and 'R
 
 Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
 Wait for '5' seconds;
-Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '1';
+Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '2';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';

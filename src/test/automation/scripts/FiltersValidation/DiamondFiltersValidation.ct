@@ -5,6 +5,7 @@
 Open page 'urls.DIAMONDS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 execute js 'general.close_close_close_CLOSE' '//body';
+Wait for '3' seconds;
 Click on item 'diamondsPage.RESET_FILTERS';
 execute js 'general.close_close_close_CLOSE' '//body';
 Wait for '3' seconds;

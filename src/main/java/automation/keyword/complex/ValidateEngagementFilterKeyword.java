@@ -1,6 +1,7 @@
 package automation.keyword.complex;
 
 import automation.annotations.KeywordRegexp;
+import automation.datasources.RandomDataGenerator;
 import automation.entities.application.RingFilter;
 import automation.execution.TestStepsExecutor;
 import automation.keyword.AbstractKeyword;
@@ -28,7 +29,7 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
     Boolean API_VALIDATION_REQUIRED = false;
     String API_VALIDATION_MARKER = "with api validation";
     String PAGES_VALIDATION_MARKER = "from first page";
-    String ITEMS_VALIDATION_MARKER = "for one item";
+    String ITEMS_VALIDATION_MARKER = "for random number of items";
     Boolean PAGES_VALIDATION = false;
     Boolean ITEMS_VALIDATION = false;
 
@@ -82,7 +83,10 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
             executor.page.waitForPageToLoad();
             int numOfItemsOnPage;
             if (ITEMS_VALIDATION) {
-                numOfItemsOnPage = 1;
+                String random = RandomDataGenerator.getRandomNumber(executor.page.findElementsIgnoreException(executor.locatorsRepository.getTarget("engagementPage.RING_ITEMS_LINKS"), 1).size());
+                int randomToInt = (Integer.parseInt(random));
+                if (randomToInt > 10) { randomToInt = 7; }
+                numOfItemsOnPage = randomToInt;
                 LOGGER.info("Verifying " + numOfItemsOnPage + " item(s) on the page");
             } else {
                 numOfItemsOnPage = executor.page.findElementsIgnoreException(executor.locatorsRepository.getTarget("engagementPage.RING_ITEMS_LINKS"), 1).size();
