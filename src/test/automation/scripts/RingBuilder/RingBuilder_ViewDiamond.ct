@@ -5,8 +5,9 @@ Save value 'Deanna Solitaire Ring' to 'saved.TYPE_OF_RING';
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 
-Click on item 'mainPage.BUILD_YOU_RING_BUTTON';
+Click on item 'mainPage.START_WITH_A_SETTINGS_BUTTON';
 
 # Random ring
 Click on item 'engagementPage.RING_PRODUCT_ITEM:saved.TYPE_OF_RING';
@@ -23,7 +24,7 @@ Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice'  and 'R
 
 Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
 Wait for '5' seconds;
-Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '1';
+Save entity 'diamondsPage.DIAMONDS_TABLE_STRUCTURE' to 'saved.Diamond' by position '2';
 
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
@@ -83,4 +84,3 @@ Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_PRICE' to 'SAVED.newD
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.newDiamondWeightOnTopPanel';
 
 Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.newDiamondPriceOnTopPanel';
-Optional Validate value 'saved.Diamond.weight' equals 'SAVED.newDiamondWeightOnTopPanel';

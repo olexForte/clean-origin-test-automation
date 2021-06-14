@@ -3,7 +3,17 @@
 SEARCH_INPUT_FIELD = //input[@id='search']
 SEARCH_INPUT_FIELD_BUTTON =//button[@title='Search']
 
-BUILD_YOU_RING_BUTTON = //a[.='Build Your Ring']
+BUILD_YOUR_RING_BUTTON = //a[.='Build Your Ring']|//a[.='START WITH A DIAMOND']|//a[.='START WITH A SETTING']
+SHOP_NOW_BUTTON = //a[.='SHOP NOW']
+START_WITH_A_SETTINGS_BUTTON = //a[.='Start with a Setting']
+START_WITH_A_DIAMOND_BUTTON = //a[.='Start with a Diamond']
+READ_ALL_REVIEWS_BUTTON = //a[.='Read All Reviews']
+EARRINGS_LINK = //h5[.='Earrings']
+NECKLACES_LINK = //h5[.='Necklaces']
+RINGS_LINK = //h5[.='Rings']
+SHOP_ALL_STUDS_BUTTON = //a[.='SHOP ALL STUDS']
+WHY_LAB_READ_MORE_BUTTON = (//a[@class='action secondary'][contains(.,'Read More')])[1]
+FIND_RING_SIZE_READ_MORE_BUTTON = (//a[@class='action secondary'][contains(.,'Read More')])[2]
 
 NAVIGATION_MENU_ITEM = //li[@class="nav-item dropdown"][contains(.,"$PARAMETER1")]
 

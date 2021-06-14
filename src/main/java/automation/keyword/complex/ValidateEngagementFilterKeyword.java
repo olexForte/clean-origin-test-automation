@@ -1,11 +1,13 @@
 package automation.keyword.complex;
 
 import automation.annotations.KeywordRegexp;
+import automation.datasources.RandomDataGenerator;
 import automation.entities.application.RingFilter;
 import automation.execution.TestStepsExecutor;
 import automation.keyword.AbstractKeyword;
 import automation.tools.ComparatorTool;
 import io.restassured.response.Response;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
 
 import java.util.HashMap;
@@ -24,6 +26,13 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
 
     Integer expectedNumberOfDiamonds = -1;
     String MARKER_OF_EXPECTED_NUMBER_REGEXP = ".*return (\\d+).*";
+    Boolean API_VALIDATION_REQUIRED = false;
+    String API_VALIDATION_MARKER = "with api validation";
+    String PAGES_VALIDATION_MARKER = "from first page";
+    String ITEMS_VALIDATION_MARKER = "for random number of items";
+    Boolean PAGES_VALIDATION = false;
+    Boolean ITEMS_VALIDATION = false;
+
 
     @Override
     public AbstractKeyword generateFromLine(String line) {
@@ -39,6 +48,12 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
 
             if(line.matches(MARKER_OF_EXPECTED_NUMBER_REGEXP))
                 result.expectedNumberOfDiamonds = Integer.valueOf(line.replaceAll(MARKER_OF_EXPECTED_NUMBER_REGEXP, "$1"));
+            if(line.contains(API_VALIDATION_MARKER))
+                result.API_VALIDATION_REQUIRED = true;
+            if(line.contains(PAGES_VALIDATION_MARKER))
+                result.PAGES_VALIDATION = true;
+            if(line.contains(ITEMS_VALIDATION_MARKER))
+                result.ITEMS_VALIDATION = true;
             return result;
         }
         return null;
@@ -50,9 +65,15 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
         RingFilter filter = new RingFilter(allFields);
 
         Map<String,String> authorizedCookies = executor.api.loginToAdminAndGetCookies(executor.locatorsRepository.getTarget("apiEndpoints.ADMIN_URL"));
-
+        int iMaxPage;
         int iCurrentPage = 0;
-        int iMaxPage = 2; // todo
+        if (PAGES_VALIDATION) {
+            iMaxPage = 1;
+            LOGGER.info("Verifying " + iMaxPage + " page(s)");
+        } else {
+            iMaxPage = 2; // todo
+        }
+
         if(target != null && !target.equals(""))
             iMaxPage = Integer.valueOf(target);
 
@@ -60,15 +81,26 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
         while( iCurrentPage < iMaxPage){
             iCurrentPage++;
             executor.page.waitForPageToLoad();
-            int numOfItemsOnPage = executor.page.findElementsIgnoreException(executor.locatorsRepository.getTarget("engagementPage.RING_ITEMS_LINKS"), 1).size();
+            int numOfItemsOnPage;
+            if (ITEMS_VALIDATION) {
+                String random = RandomDataGenerator.getRandomNumber(executor.page.findElementsIgnoreException(executor.locatorsRepository.getTarget("engagementPage.RING_ITEMS_LINKS"), 1).size());
+                int randomToInt = (Integer.parseInt(random));
+                if (randomToInt > 10) { randomToInt = 7; }
+                numOfItemsOnPage = randomToInt;
+                LOGGER.info("Verifying " + numOfItemsOnPage + " item(s) on the page");
+            } else {
+                numOfItemsOnPage = executor.page.findElementsIgnoreException(executor.locatorsRepository.getTarget("engagementPage.RING_ITEMS_LINKS"), 1).size();
+            }
 
-            for( int i = 0 ; i < numOfItemsOnPage;i++){
+
+            for( int i = 0 ; i < numOfItemsOnPage; i++){
                 boolean result = true;
                 LOGGER.info("Check Ring " + i);
                 WebElement ring = executor.page.findElementsIgnoreException(executor.locatorsRepository.getTarget("engagementPage.RING_ITEMS_IDS"), 1).get(i);
                 String ringID = ring.getAttribute("data-product-id");
                 LOGGER.info("Ring ID: " + ringID);
-                result = result && validateItemMatchesFilterUsingAPI(executor, authorizedCookies, ringID, filter);
+                if (API_VALIDATION_REQUIRED)
+                    result = result && validateItemMatchesFilterUsingAPI(executor, authorizedCookies, ringID, filter);
 
                 if(executor.page.isElementDisplayedRightNow(executor.locatorsRepository.getTarget("generalPage.CLOSE_MODAL_DIALOG"), 0))
                     executor.page.clickOnElement(executor.locatorsRepository.getTarget("generalPage.CLOSE_MODAL_DIALOG"), true);
@@ -150,7 +182,17 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
             executor.page.clickOnElement(executor.locatorsRepository.getTarget("generalPage.CLOSE_CHAT_DIALOG"), true);
 
         executor.page.hoverElement(ringLink,true);
-        ringLink.click();
+        if(executor.page.isElementDisplayedRightNow(executor.locatorsRepository.getTarget("generalPage.ACTIVE_DROPDOWN_ITEM"), 0))
+            executor.page.hoverElement(executor.locatorsRepository.getTarget("generalPage.CHAT_BUTTON"), false);
+
+        executor.page.hoverElement(ringLink,true);
+
+        try {
+            ringLink.click();
+        }
+        catch(ElementClickInterceptedException e) {
+            executor.page.clickOnElementUsingJS(ringLink);
+        }
         executor.page.waitForPageToLoad();
 
         String sku = executor.page.getText(executor.page.findDynamicElement(executor.locatorsRepository.getTarget("engagementPage.RING_SKU_LABEL")), true);

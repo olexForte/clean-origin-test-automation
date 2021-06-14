@@ -1,15 +1,13 @@
-# Test: Validate that all footer links work
+# Test: Validate that all home page buttons work
 
 #FOR link url expected
-#file:Footer_links_to_validate.csv
+#file:Home_page_items_to_validate.csv
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 wait for '3' seconds;
 execute js 'general.close_close_close_CLOSE' '//body';
-Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
-Optional Click on item "generalPage.FOOTER_LINK_BY_TEXT:$link";
+Optional Click on item "$link";
 wait for '3' seconds;
-Optional Open next tab
-#Optional Get value from URL 'https://.*?/(.*)' to save 'SAVED.value';
+debug
 Optional Get value from URL 'generalPage.BASE_PAGE_URL_REGEXP' to save 'SAVED.value';
 Optional Validate value 'SAVED.value' contains '$url';
 Optional Validate element "$expected" is visible;;

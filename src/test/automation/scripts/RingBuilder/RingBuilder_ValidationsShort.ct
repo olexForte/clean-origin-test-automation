@@ -3,7 +3,7 @@
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Wait for '3' seconds;
-Click on item 'mainPage.BUILD_YOU_RING_BUTTON';
+Click on item 'mainPage.START_WITH_A_SETTINGS_BUTTON';
 
 # generate random numbers
 Generate value 'RANDOM.metal:min_max:1:6' to 'SAVED.metal';

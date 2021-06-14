@@ -1,6 +1,7 @@
 # Test: Validate that all links work for Signed user
 
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 Click on item  'generalPage.SIGN_IN_LINK';
 Type value '${APP_CLIENT_USER}' to 'signInPage.USERNAME_INPUT';
 Type value '${APP_CLIENT_PASSWORD}' to 'signInPage.PASSWORD_INPUT';
@@ -15,7 +16,7 @@ Open page 'urls.USER_PAGE_URL:${CLIENT_USER}:${CLIENT_PASSWORD}' no cleanup;
 Optional Click on item "$link";
 wait for '3' seconds;
 Optional Get value from URL 'generalPage.BASE_PAGE_URL_REGEXP' to save 'SAVED.value';
-Optional Validate value '$url' equals 'SAVED.value';
+Optional Validate value 'SAVED.value' contains '$url';
 Optional Validate element "$expected" is visible;;
 #END FOR
 Report message "SAVED.target"

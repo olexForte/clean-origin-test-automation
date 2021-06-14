@@ -5,12 +5,13 @@
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 wait for '3' seconds;
 execute js 'general.close_close_close_CLOSE' '//body';
+Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 Hover over item "mainPage.NAVIGATION_MENU_ITEM:$menuitem";
 Optional Click on item "$link";
 wait for '3' seconds;
 debug
 Optional Get value from URL 'generalPage.BASE_PAGE_URL_REGEXP' to save 'SAVED.value';
-Optional Validate value '$url' equals 'SAVED.value';
+Optional Validate value 'SAVED.value' contains '$url';
 Optional Validate element "$expected" is visible;;
 #END FOR
 Report message "SAVED.target"

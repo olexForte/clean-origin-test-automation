@@ -338,7 +338,7 @@ public class ReporterManager {
             if (DriverProvider.isDriverActive()) {
                 ArrayList<String> screenshotFiles = takeScreenshotFinal(DriverProvider.getCurrentDriver());
                 for (String screenshotFile: screenshotFiles) {
-                    message = message + "<br><img style=\"max-width: 100%;height: auto;max-height: 100%;width: auto;\" src=\"" + screenshotFile + "\"></img><br>";
+                    message = message + "<br><img style=\"max-width: 100%;height: auto;max-height: 100%;width: auto;\" src=\"" + IMAGES_SUBFOLDER + File.separator + screenshotFile + "\"></img><br>";
                 }
             }
 
@@ -478,8 +478,8 @@ public class ReporterManager {
             //take first screen
             String windowH = String.valueOf(((JavascriptExecutor) driver).executeScript(
                     "window.scroll(0, 0); return window.innerHeight"));
-            String filename = SessionManager.getSessionID() + "_" + String.valueOf(System.currentTimeMillis()) + "screen.png";
-            String screenshotLocation = FileManager.OUTPUT_DIR + File.separator + filename;
+            String filename = SessionManager.getSessionID() + "_" + String.valueOf(System.currentTimeMillis()) + "screen.jpg";
+            String screenshotLocation = FileManager.OUTPUT_DIR + File.separator + IMAGES_SUBFOLDER + File.separator + filename;
             File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
             FileUtils.copyFile(file, new File(screenshotLocation));
             fileNames.add(filename);
@@ -492,7 +492,7 @@ public class ReporterManager {
                  currentOffset = String.valueOf(((JavascriptExecutor) driver).executeScript(
                         "window.scrollBy(0, " + windowH + "); return window.pageYOffset"));
 
-                 filename = SessionManager.getSessionID() + "_" + String.valueOf(System.currentTimeMillis()) + "screen.png";
+                 filename = SessionManager.getSessionID() + "_" + String.valueOf(System.currentTimeMillis()) + "screen.jpg";
                  screenshotLocation = FileManager.OUTPUT_DIR + File.separator + IMAGES_SUBFOLDER + File.separator + filename;
                  file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
                 FileUtils.copyFile(file, new File(screenshotLocation));
@@ -512,7 +512,7 @@ public class ReporterManager {
      * @return
      */
     public static String takeScreenshot(WebDriver driver, String name){
-        String filename = name.contains(".png") ? name : name + "screen.png";
+        String filename = name.contains(".jpg") ? name : name + "screen.jpg";
 
         String screenshotLocation = FileManager.OUTPUT_DIR + File.separator + IMAGES_SUBFOLDER + File.separator + filename;
 

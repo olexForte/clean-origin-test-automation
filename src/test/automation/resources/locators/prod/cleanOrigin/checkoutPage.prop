@@ -12,3 +12,8 @@ CART_SUBTOTAL_LABEL = //span[@data-th='Subtotal']
 CART_TOTAL_LABEL = //td[@data-th='Order Total']//span
 
 THANK_YOU_LABEL = //h1[contains(.,'Thank you for your purchase!')]
+
+REMOVE_ITEM = //a[contains(translate(text(),' ',''),"$PARAMETER1")]/ancestor::tr/following-sibling::tr[1]/td/div/a[2]/span
+
+SHOPPING_CART_EMPTY_MESSAGE = //p[contains(.,'Your shopping bag is empty.')]
+CONTINUE_SHOPPING_LINK = //div[@class="cart-empty"]//a[contains(.,'here')]

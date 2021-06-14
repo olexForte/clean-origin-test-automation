@@ -1056,6 +1056,13 @@ public class BasePage {
         ((JavascriptExecutor) driver()).executeScript("if (arguments[0].getBoundingClientRect().y > window.innerHeight) {arguments[0].scrollIntoView(); window.scrollBy(0,-450);}", element);
         sleepFor(1000);
     }
+/*
+    public void scrollByElement(String offset) {
+        waitForPageToLoad();
+        LOGGER.info("Scroll by " + offset);
+        ((JavascriptExecutor) driver()).executeScript("window.scrollBy(0,"+offset+");}");
+        sleepFor(1000);
+    }*/
 
     /**
      * scroll page to element by xPath
@@ -1471,14 +1478,14 @@ public class BasePage {
             if(isOptional)
                 return false;
             else
-                throw new Exception("Failure clicking on element - element not visible: " + element.toString());
+                throw new Exception("Failure hovering on element - element not visible: " + element.toString());
             waitForPageToLoad();
             return true;
         } catch (Exception e) {
             if(isOptional)
                 return false;
             else
-                throw new Exception("Failure clicking on element: " + element.toString(), e);
+                throw new Exception("Failure hovering on element: " + element.toString(), e);
         }
 
     }

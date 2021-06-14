@@ -4,6 +4,7 @@
 # open UI
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 
 #FOR search result
 #file:List_of_search_queries.csv
