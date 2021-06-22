@@ -1,6 +1,6 @@
 //a[.='Dashboard']|customer/account/|//h1[contains(.,'Dashboard')]
 //li//a[.='Information']|customer/account/edit/|//h1[contains(.,'Edit Account Information')]
-//li//a[.='Address Book']|customer/address/|//h1[contains(.,'Address Book')]
+//li//a[.='Address Book']|customer/address/|//h1[contains(.,'Add New Address')]
 //li//a[.='My Orders']|sales/order/history/|//h1[contains(.,'My Orders')]
 //li//a[.='My Wishlist']|wishlist/|//h1[contains(.,'Wishlist')]
 //li//a[.='Newsletter']|newsletter/manage/|//h1[contains(.,'Newsletter Subscription')]

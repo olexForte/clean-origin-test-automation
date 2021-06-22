@@ -10,3 +10,27 @@ CLEAR_FILTERS_BUTTON = //button[@class='action-tertiary action-clear']
 
 NUMBER_OF_RECORDS = (//span[.='records found']/parent::div[1])[2]
 
+# managers page
+EDIT_MANAGER_BUTTON = //td[contains(.,'$PARAMETER1')]/following::td[1]/a[.='Edit']
+
+
+ADD_TIME_TO_MANAGER_BUTTON = //span[.='Add Time']
+
+LAST_DATE_TIME_PICKER = (//button[@class='ui-datepicker-trigger v-middle'])[last()]
+
+# date picker on Add Time dialog
+SELECT_MONTH = //select[@class='ui-datepicker-month']
+SELECT_YEAR = //select[@class='ui-datepicker-year']
+SELECT_DAY_BUTTON = //td[@data-handler='selectDay'][.='$PARAMETER']
+SELECT_HOURS = //select[@class='ui-timepicker-select'][@data-unit='hour']
+SELECT_MINUTES = //select[@class='ui-timepicker-select'][@data-unit='minute']
+CLOSE_ADD_TIME_DIALOG_BUTTON = //button[.='Close']
+
+GO_TODAY_BUTTON = //button[.='Go Today']
+
+SAVE_MANAGER_BUTTON = //button[@id='save']
+
+
+# appointments page
+APPOINTMENTS_TABLE_ITEM_BY_NAME = //td[ ./a[.='$PARAMETER1']]/following::td[contains(.,'$PARAMETER2')]")
+#//td[ ./a[.='Halyna Sokal']]/following::td[contains(.,'asdasd')]")

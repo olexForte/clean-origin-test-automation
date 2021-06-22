@@ -13,6 +13,8 @@ CHECKOUT_BUTTON = //button[@class="action primary checkout"]
 
 LOADING_IMAGE = //img[@alt="Loading..."]
 
+STORE_PICKUP_OPTION = //td[contains(.,'Store Pickup')]
+
 NEXT_BUTTON_CHECKOUT_PAGE = //button[@class="button action continue primary"]
 
 CREDIT_CARD_PAYMENT_OPTION = //input[@id='braintree']

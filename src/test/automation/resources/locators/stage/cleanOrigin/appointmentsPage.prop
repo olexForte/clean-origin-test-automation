@@ -1,0 +1,34 @@
+
+SCHEDULE_NOW_BUTTON = (//a[.='Schedule Now'])[1]
+
+SCHEDULE_APPOINTMENT_TYPE_BUTTON = //input[contains(@id, 'appointment-option')]/following::label[contains(.,'$PARAMETER1')]
+
+SCHEDULE_APPOINTMENT_NEXT_BUTTON = //button[@class='next-step']
+
+SCHEDULE_APPOINTMENT_CHANGE_TIMEZONE = //span/span[.='Change']
+
+SCHEDULE_APPOINTMENT_CHANGE_TIMEZONE_OPTION = //a[.='$PARAMETER1']
+
+SCHEDULE_APPOINTMENT_DATE = //td/a[.='$PARAMETER']
+
+SCHEDULE_APPOINTMENT_TIME = //input[contains(@value,'$PARAMETER1:00')]/following::label[1]
+
+#validation
+SCHEDULE_APPOINTMENT_DETAILS = //div[@class='virtual-appointment-details-info']
+#45 Minutes
+#10:00 AM, Wednesday, June 16, 2021
+#America/Chicago (GMT-05)
+
+
+CLIENT_FIRSTNAME = //input[@name='firstname']
+CLIENT_LASTNAME = //input[@name='lastname']
+CLIENT_EMAIL = //input[@name='email']
+CLIENT_PHONE = //input[@name='telephone']
+CLIENT_NOTES = //textarea[@name='notes']
+
+ERROR_LABEL_1 = //label[@id='firstname-error'
+ERROR_LABEL_2 =//label[@id='lastname-error'
+ERROR_LABEL_3 =//label[@id='email-error'
+
+SUCCESS_LABEL = //div[.='Your appointment has been successfully saved.']
+

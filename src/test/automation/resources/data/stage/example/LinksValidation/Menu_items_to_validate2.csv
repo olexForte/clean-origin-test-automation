@@ -1,5 +1,5 @@
 LEARN|menuItems.MENU_ITEM_4CDIAMONDS|diamonds-4cs/|//h1[contains(.,'The 4 C')][contains(.,'s of Diamonds')]
-LEARN|mainPage.NAVIGATION_MENU_LINK:Lab Grown Diamonds|about-lab-created-diamonds/|//h1[contains(.,'Lab Grown Diamonds')]
+LEARN|mainPage.NAVIGATION_MENU_LINK:Lab Grown Diamonds|about-lab-created-diamonds/|//h1[contains(.,'Lab Created')][contains(.,'Diamonds')]
 LEARN|mainPage.NAVIGATION_MENU_LINK:Mined Diamonds|about-mined-diamonds/|//h1[contains(.,'Mined Diamonds')]
 LEARN|mainPage.NAVIGATION_MENU_LINK:Conflict-Free Diamonds|conflict-free-diamonds/|//h1[contains(.,'Conflict Free Diamonds')]
 LEARN|menuItems.MENU_ITEM_LAB_GROWN_VS_MINED|diamond-environmental-impact/|//h1[contains(.,'Lab Grown')][contains(.,'vs. Mined')]

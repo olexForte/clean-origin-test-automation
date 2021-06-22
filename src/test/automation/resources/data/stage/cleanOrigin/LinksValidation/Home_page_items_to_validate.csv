@@ -7,5 +7,5 @@ mainPage.EARRINGS_LINK|jewelry/diamond-earrings/|//span[@class='base'][contains(
 mainPage.NECKLACES_LINK|jewelry/diamond-pendants/|//span[@class='base'][contains(.,'Diamond Pendants')]
 mainPage.RINGS_LINK|jewelry/diamond-rings/|//span[@class='base'][contains(.,'Diamond Rings')]
 mainPage.SHOP_ALL_STUDS_BUTTON|diamond-stud-earrings/|//h1[contains(.,'Diamond')]
-mainPage.WHY_LAB_READ_MORE_BUTTON|about-lab-created-diamonds/|//h1[contains(.,'Lab Grown Diamonds')]
+mainPage.WHY_LAB_READ_MORE_BUTTON|about-lab-created-diamonds/|//h1[contains(.,'Lab Created')][contains(.,'Diamonds')]
 mainPage.FIND_RING_SIZE_READ_MORE_BUTTON|find-her-ring-size/|//h1[contains(.,'How To Find Her Ring Size')]

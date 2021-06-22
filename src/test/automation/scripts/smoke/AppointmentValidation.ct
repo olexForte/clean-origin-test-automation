@@ -1,0 +1,75 @@
+#Set up appointment
+
+Login as "${ADMIN_USER}" "${ADMIN_PASSWORD}";
+
+Open page 'urls.ADMIN_MANAGER_APPOINTMENTS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}' no cleanup;
+
+Save value 'Halyna Sokal' to 'SAVED.managerName';
+Generate value 'RANDOM:field:Name_10c' to 'SAVED.userName';
+
+Save value '3 PM' to 'saved.TIME';
+
+Click on item 'magentoMainPage.EDIT_MANAGER_BUTTON:SAVED.managerName';
+
+Click on item 'magentoMainPage.ADD_TIME_TO_MANAGER_BUTTON';
+Click on item 'magentoMainPage.LAST_DATE_TIME_PICKER';
+
+
+#Select dropdown value '2022' in 'magentoMainPage.SELECT_YEAR';
+#Select dropdown value 'Jul' in 'magentoMainPage.SELECT_MONTH';
+#Select dropdown value '3 PM' in 'magentoMainPage.SELECT_HOURS';
+#Select dropdown value '00' in 'magentoMainPage.SELECT_MINUTES';
+#Click on item 'magentoMainPage.SELECT_DAY_BUTTON:saved.DAY';
+
+Click on item 'magentoMainPage.GO_TODAY_BUTTON';
+
+Select dropdown value 'saved.TIME' in 'magentoMainPage.SELECT_HOURS';
+Select dropdown value '00' in 'magentoMainPage.SELECT_MINUTES';
+
+Click on item 'magentoMainPage.CLOSE_ADD_TIME_DIALOG_BUTTON';
+Click on item 'magentoMainPage.SAVE_MANAGER_BUTTON';
+Wait for '5' seconds;
+
+Open page 'urls.APPOINTMENTS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+
+Click on item 'appointmentsPage.SCHEDULE_NOW_BUTTON';
+
+Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_TYPE_BUTTON:Engagement Ring';
+
+Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_NEXT_BUTTON';
+
+#Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_DATE:saved.DAY';
+
+#Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_TIME:saved.TIME';
+
+Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_CHANGE_TIMEZONE';
+Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_CHANGE_TIMEZONE_OPTION:Eastern Time (ET)';
+Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_NEXT_BUTTON';
+
+Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_TIME:3';
+
+Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_NEXT_BUTTON';
+
+Validate element 'APPOINTMENTSPAGE.ERROR_LABEL_1' is visible;
+Validate element 'APPOINTMENTSPAGE.ERROR_LABEL_2' is visible;
+Validate element 'APPOINTMENTSPAGE.ERROR_LABEL_3' is visible;
+
+Type value 'saved.userName' to 'APPOINTMENTSPAGE.CLIENT_FIRSTNAME';
+Type value 'saved.userName' to 'APPOINTMENTSPAGE.CLIENT_LASTNAME';
+Type value 'EMAIL@EMAIL.com' to 'APPOINTMENTSPAGE.CLIENT_EMAIL';
+Type value 'NOTES' to 'APPOINTMENTSPAGE.CLIENT_NOTES';
+Type value '+17734960872' to 'APPOINTMENTSPAGE.CLIENT_PHONE';
+
+Click on item 'APPOINTMENTSPAGE.SCHEDULE_APPOINTMENT_NEXT_BUTTON';
+
+Open page 'urls.ADMIN_SCHEDULED_APPOINTMENTS_URL';
+
+Validate element 'magentoMainPage.APPOINTMENTS_TABLE_ITEM_BY_NAME:saved.managerName:saved.userName' is visible;
+
+
+
+
+
+
+
+

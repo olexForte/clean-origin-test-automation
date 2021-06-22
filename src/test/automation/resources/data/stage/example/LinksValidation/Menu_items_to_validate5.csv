@@ -2,7 +2,7 @@ WEDDING|mainPage.NAVIGATION_MENU_LINK:WEDDING|wedding-rings/|//h1[contains(.,'We
 WEDDING|mainPage.NAVIGATION_MENU_LINK:Eternity Bands|wedding/eternity-bands/|//h1[contains(.,'Eternity Bands')]
 WEDDING|mainPage.NAVIGATION_MENU_LINK:Anniversary Bands|wedding/anniversary-bands/|//h1[contains(.,'Anniversary Bands')]
 WEDDING|mainPage.NAVIGATION_MENU_LINK:Matching Bands|matching-bands/|//h1[contains(.,'Matching Bands')]
-WEDDING|mainPage.NAVIGATION_MENU_LINK:Ready to Ship Studs|diamond-stud-earrings/|//h1[contains(.,'Diamond')][contains(.,'Stud Earrings')]
+WEDDING|mainPage.NAVIGATION_MENU_LINK:Ready to Ship Studs|diamond-stud-earrings/|//h1[contains(.,'Diamond Stud')][contains(.,'Earrings')]
 WEDDING|mainPage.NAVIGATION_MENU_LINK:Tennis Bracelets|jewelry/bracelets/|//h1[contains(.,'Diamond Bracelets')]
 WEDDING|menuItems.MENU_ITEM_WOMANS_WEDDING_BAND|wedding/wedding-bands/|//h1[contains(.,'Wedding Bands')]
 WEDDING|menuItems.MENU_ITEM_MANS_WEDDING_BAND|wedding/mens-wedding-bands/|//h1[contains(.,'Men')][contains(.,'s Wedding Bands')]

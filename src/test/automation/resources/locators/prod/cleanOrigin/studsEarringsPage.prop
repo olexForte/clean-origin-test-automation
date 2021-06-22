@@ -1,7 +1,8 @@
 
 # PLP
 STUDS_EARRINGS_TABLE_ITEM_BY_INDEX=(//div[@class='carat-table show-desktop']//a[@class='carat'])[$PARAMETER1]
-STUDS_EARRINGS_TABLE_ITEM_PRICE_BY_INDEX=(//div[@class='carat-table show-desktop']//a[@class='carat']/span[@class='carat-price'])[$PARAMETER1]
+STUDS_EARRINGS_TABLE_ITEM_PRICE_BY_INDEX=(//div[@class='earring-type-price'])[$PARAMETER1]
+#(//div[@class='carat-table show-desktop']//a[@class='carat']/span[@class='carat-price'])[$PARAMETER1]
 
 # PDP
 EARRING_NAME_LABEL=//span[@data-ui-id='page-title-wrapper']

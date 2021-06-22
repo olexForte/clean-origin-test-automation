@@ -1,5 +1,5 @@
 JEWELRY|menuItems.MENU_ITEM_JEWELRY_TENNIS_BRACELETS|jewelry/bracelets/|//h1[contains(.,'Diamond Bracelets')]
-JEWELRY|menuItems.MENU_ITEM_JEWELRY_READY_TO_SHIP_STUDS|diamond-stud-earrings/|//h1[contains(.,'Diamond')][contains(.,'Stud Earrings')]
+JEWELRY|menuItems.MENU_ITEM_JEWELRY_READY_TO_SHIP_STUDS|diamond-stud-earrings/|//h1[contains(.,'Diamond Stud')][contains(.,'Earrings')]
 JEWELRY|mainPage.NAVIGATION_MENU_LINK:Fashion Pendants|jewelry/diamond-pendants/|//h1[contains(.,'Diamond Pendants')]
 JEWELRY|mainPage.NAVIGATION_MENU_LINK:Fashion Earrings|jewelry/diamond-earrings/|//h1[contains(.,'Diamond Earrings')]
 ABOUT|mainPage.NAVIGATION_MENU_LINK:ABOUT|our-story/|//h1[contains(.,'Our Story')]

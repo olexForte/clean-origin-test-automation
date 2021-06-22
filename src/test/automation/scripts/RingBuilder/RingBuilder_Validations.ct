@@ -4,6 +4,7 @@ Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 Wait for '3' seconds;
+
 Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
 
 # generate random numbers
@@ -13,6 +14,8 @@ Calculate value 'RANDOM.ringIndex:1d' plus '1' to 'saved.ringIndex';
 Generate value 'RANDOM.diamondIndex:min_max:1:6' to 'SAVED.diamondIndex';
 
 # set metal filters
+Wait for '3' seconds;
+
 Click on item 'engagementPage.RING_METAL_FILTER_BUTTON';
 Click on item 'engagementPage.RING_METAL_FILTER_ITEM_BY_INDEX:SAVED.ringCollection';
 
@@ -21,7 +24,7 @@ Click on item 'engagementPage.RING_COLLECTION_FILTER_ITEM_BY_INDEX:SAVED.metal';
 
 # Select Random ring
 Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:saved.ringIndex';
-
+Wait for '3' seconds;
 Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA';
@@ -137,6 +140,7 @@ Type value 'smokeData.DEFAULT_CHECKOUT_DATA.StreetAddress' to 'generalPage.CHECK
 
 Wait for '3' seconds;
 
+Click on item 'generalPage.STORE_PICKUP_OPTION';
 Click on item 'generalPage.NEXT_BUTTON_CHECKOUT_PAGE';
 Wait for '20' seconds;
 
@@ -147,12 +151,12 @@ Click on item 'generalPage.WIRE_TRANSFER_PAYMENT_OPTION';
 #Type value 'general.DEFAULT_VISA_CARD_EXP_YEAR' to 'generalPage.CREDIT_CARD_EXP_YEAR';
 #Type value 'general.DEFAULT_VISA_CARD_CVV' to 'generalPage.CREDIT_CARD_CVV';
 
-Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
-
+#Click on item 'generalPage.PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER';
+#TODO
 #final validation
-Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
-Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
-Report message "Order number" "SAVED.orderNumber"
+#Validate element 'CHECKOUTPAGE.THANK_YOU_LABEL' is visible;
+#Save element text 'checkoutpage.ORDER_NUMBER_ELEMENT' to 'SAVED.orderNumber';
+#Report message "Order number" "SAVED.orderNumber"
 
 
 

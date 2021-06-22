@@ -10,7 +10,8 @@ Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 
-Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
+#Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
+Click on item 'mainPage.BUILD_YOUR_RING_START_WITH_DIAMOND_BUTTON';
 
 Type value 'saved.DIAMOND_ID' to 'mainPage.SEARCH_INPUT_FIELD';
 Click on item 'mainPage.SEARCH_INPUT_FIELD_BUTTON';
@@ -21,7 +22,7 @@ Calculate value 'RANDOM.ringIndex:1d' plus '1' to 'saved.ringIndex';
 Save element text 'diamondsPage.DIAMOND_NAME_LABEL' to 'SAVED.diamondName';
 Save element text 'diamondsPage.DIAMOND_PRICE_LABEL' to 'SAVED.diamondPrice' and 'REMOVE:CA';
 
-Click on item 'diamondsPage.ADD_TO_RING_AND_CREATE_BUTTON';
+Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
 
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';

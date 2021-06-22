@@ -115,9 +115,9 @@ public class ValidateEqualsKeyword extends AbstractKeyword {
             case CONTAINS:
                 result = ComparatorTool.cleanValue(firstValue).contains(ComparatorTool.cleanValue(secondValue));
                 if (result){
-                    executor.reporter.passWithScreenshot("Element  \n First: " + firstValue + " contains: \nSecond: " +  secondValue);
+                    executor.reporter.passWithScreenshot("Element  \n First: " + ComparatorTool.cleanValue(firstValue) + " contains: \nSecond: " +  ComparatorTool.cleanValue(secondValue));
                 }else {
-                    executor.reporter.failWithScreenshot("Elements \n First: " + firstValue + " does not contain: \n Second: " + secondValue);
+                    executor.reporter.failWithScreenshot("Elements \n First: " + ComparatorTool.cleanValue(firstValue) + " does not contain: \n Second: " + ComparatorTool.cleanValue(secondValue));
                     return false;
                 }
                 break;
