@@ -8,9 +8,9 @@ Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Stud Earrings:2';
 
 Generate value 'RANDOM.field:min_max:1:8' to 'SAVED.randomindex';
 
-Save element text 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_BY_INDEX:SAVED.randomindex' to 'SAVED.data';
+#Save element text 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_BY_INDEX:SAVED.randomindex' to 'SAVED.data';
 Save element text 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex' to 'SAVED.price';
-Click on item 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_BY_INDEX:SAVED.randomindex';
+Click on item 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex';
 
 Optional Fill data form '{"Metal":"14K White Gold"}';
 Optional Fill data form '{"Metal":"14K Yellow Gold"}';

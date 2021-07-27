@@ -7,6 +7,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import net.lightbody.bmp.proxy.CaptureType;
 import org.openqa.selenium.Proxy;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -89,6 +90,7 @@ public class DriverProvider {
                 case "chrome_headless": instance.set(getChrome(true, false));break;
                 case "chrome_headless_proxy": instance.set(getChrome(true, true));break;
                 case "selenium4" : instance.set(getSelenium4Driver());break;
+                case "chrome_lambda" : instance.set(getChromeLambdaTest());break;
                 default: instance.set(getChrome(false, false));
 
             }
@@ -188,6 +190,35 @@ public class DriverProvider {
         return new InternetExplorerDriver(caps);
 
     }
+
+    static public RemoteWebDriver getChromeLambdaTest() {
+        String username = "castiel.arhangel619";
+        String accessKey = "34wvDaJvFd0c20TK5dDKAJJABLnx3u12knT52OWjDJM6FlNHkt";
+
+        try {
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("platform", "Windows 10");
+            capabilities.setCapability("browserName", "Chrome");
+            capabilities.setCapability("version", "91.0"); // If this cap isn't specified, it will just get the any available one
+            capabilities.setCapability("resolution","1024x768");
+            capabilities.setCapability("build", "First Test");
+            capabilities.setCapability("name", "Sample Test");
+            capabilities.setCapability("network", true); // To enable network logs
+            capabilities.setCapability("visual", true); // To enable step by step screenshot
+            capabilities.setCapability("video", true); // To enable video recording
+            capabilities.setCapability("console", true); // To capture console logs
+
+            //configure capability to set the job name with Test Case name
+            //String testName = Reporter.getCurrentTestName();
+            //capabilities.setCapability("name", testName);
+
+            return new RemoteWebDriver(new URL("https://"+username+":"+accessKey+"@hub.lambdatest.com/wd/hub"), capabilities);
+
+        } catch (Exception e) {
+            throw new WebDriverException("Unable to launch the browser", e);
+        }
+    }
+
 
     /**
      * Get Chrome driver<br>

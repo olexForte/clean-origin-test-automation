@@ -38,6 +38,7 @@ RING_ITEMS_IDS = //div[@data-role='priceBox']
 #//div[@class='product-item-info']
 
 NEXT_BUTTON = (//a[@class='action  next'])[2]
+PAGE_NUMBER_BUTTON = (//span[text()='$PARAMETER1']/parent::a[@class='page'])[2]
 
 
 # PDP
@@ -53,11 +54,11 @@ RING_NAME_LABEL = //span[@data-ui-id='page-title-wrapper']
 
 RING_SKU_LABEL = //div[text()='Style Number']/following::div[1]
 
-CHOSE_THIS_SETTING_BUTTON = //button[@id='create-and-add-to-bundle']
-UPDATE_RING_BUTTON = //button[@id="add-to-bundle"]
+CHOSE_THIS_SETTING_BUTTON = //button[@id='add-item-to-builder']
+UPDATE_RING_BUTTON = //button[@id='add-item-to-builder']
 CHOSE_DIFFERENT_SETTING_BUTTON = //button[@id="replace-item-in-bundle"]
 
-ADD_TO_BAG_BUTTON = (//div[@class="progress-add-to-cart"])[1]
+ADD_TO_BAG_BUTTON = (//div[@class="step-add-to-cart"])[1]
 #//button[@id="progress-add-to-cart"]
 
 UPDATE_WISHLIST = //a/span[.='Update Wish List']

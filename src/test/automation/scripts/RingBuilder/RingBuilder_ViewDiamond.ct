@@ -10,7 +10,7 @@ Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 Click on item 'mainPage.START_WITH_A_SETTINGS_BUTTON';
 
 # Random ring
-Click on item 'engagementPage.RING_PRODUCT_ITEM:saved.TYPE_OF_RING';
+Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:1';
 
 Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA_BY_VALUE';
 
@@ -18,7 +18,7 @@ Save element text 'engagementPage.RING_NAME_LABEL' to 'SAVED.ringName';
 Save element text 'engagementPage.RING_METAL_SELECT' to 'SAVED.ringMetal' and 'REGEXP_REMOVE:( \+.*)' ;
 Optional Save element text 'engagementPage.RING_SHAPE_SELECT' to 'SAVED.ringShape';
 Save value 'Round' to 'SAVED.ringShape' if empty;
-Save element text 'engagementPage.RING_PRONG_SELECT' to 'SAVED.ringProng';
+#Save element text 'engagementPage.RING_PRONG_SELECT' to 'SAVED.ringProng';
 Save element text 'engagementPage.RING_SIZE_SELECT' to 'SAVED.ringSize';
 Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice'  and 'REMOVE:CA';
 
@@ -40,11 +40,11 @@ Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
-Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.ringNameOnTopPanel';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.ringNameOnTopPanel' and 'REMOVE: 14K Yellow Gold';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_PRICE' to 'SAVED.ringPriceOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_PRICE' to 'SAVED.diamondPriceOnTopPanel';
-Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.diamondWeightOnTopPanel';
-Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_SHAPE' to 'SAVED.diamondShapeOnTopPanel';
+#Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.diamondWeightOnTopPanel';
+#Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_SHAPE' to 'SAVED.diamondShapeOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_TOTAL_PRICE' to 'SAVED.ringTotalOnTopPanel';
 
 Optional Save entity 'engagementPage.SELECTED_RING_DETAILS_ENTYTY_LOCATOR' to 'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
