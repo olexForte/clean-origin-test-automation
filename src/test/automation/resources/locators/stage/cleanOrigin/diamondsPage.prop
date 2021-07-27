@@ -48,7 +48,7 @@ DIAMOND_SPEC_ON_PLP = //div[@class='preview-specs']
 # PDP
 
 ADD_TO_BAG_BUTTON = //button[@id='product-addtocart-button']
-ADD_TO_RING_BUTTON = //button[@id='add-to-bundle']
+ADD_TO_RING_BUTTON = //button[@id='add-item-to-builder']
 ADD_TO_RING_AND_CREATE_BUTTON = //button[@id="create-and-add-to-bundle"]
 
 CHOSE_ANOTHER_DIAMOND = //button[@id="replace-item-in-bundle"]

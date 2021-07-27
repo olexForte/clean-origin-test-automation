@@ -7,7 +7,7 @@ Diamond Stud Earrings|diamond-stud-earrings/|//h1[contains(.,'Diamond Stud')][co
 Our Story|our-story/|//h1[contains(.,'Our Story')]
 Blog|blog/|//h1[contains(.,'Blog')]
 Affiliate Program|affiliate-program/|//h1[contains(.,'Affiliate Program')]
-Lab Grown|about-lab-created-diamonds/|//h1[contains(.,'Lab Created')][contains(.,'Diamonds')]
+Lab Grown|about-lab-created-diamonds/|//h1[contains(.,'Lab Grown')][contains(.,'Diamonds')]
 Reviews|/reviews|//span[contains(@class,'yotpo-logo-title')]
 FAQs|faq/|//h1[contains(.,'Our Frequently Asked Questions')]
 Shipping|shipping-policy/|//h1[contains(.,'Shipping Policy')]

@@ -208,7 +208,7 @@ public class ValidateEngagementFilterKeyword extends AbstractKeyword {
             result = result && filter.isMetalsInFilter(metal);
         //result = result && filter.isCollectionsInFilter(shape);
         result = result && filter.isPriceInFilterRange(price);
-        if(size == null || size.equals("") ||  prong == null || prong.equals("")) {
+        if((size == null || size.equals("")) && (prong == null || prong.equals(""))) {
             result = false;
             LOGGER.error("Ring does not have size/prong " + sku);
         }
