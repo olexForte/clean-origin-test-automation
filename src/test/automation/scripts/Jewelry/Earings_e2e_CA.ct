@@ -18,7 +18,7 @@ Optional Fill data form '{"Metal":"14K Yellow Gold"}';
 Save element text 'studsEarringsPage.EARRING_NAME_LABEL' to 'SAVED.name';
 Save element text 'studsEarringsPage.EARRING_PRICE_LABEL' to 'SAVED.PDPprice';
 Optional Save element text 'studsEarringsPage.EARRING_METAL_SELECT' to 'SAVED.metal' and 'REGEXP_REMOVE:( \+.*)' ;
-Save element text 'studsEarringsPage.CARAT_SIZE_SELECT' to 'SAVED.size' and 'REGEXP_REMOVE:( \+.*)' ;
+Optional Save element text 'studsEarringsPage.CARAT_SIZE_SELECT' to 'SAVED.size' and 'REGEXP_REMOVE:( \+.*)' ;
 
 Calculate value 'SAVED.price' round '0' to 'SAVED.price';
 Calculate value 'SAVED.PDPprice' round '0' to 'SAVED.PDPprice';

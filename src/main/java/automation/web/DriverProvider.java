@@ -196,23 +196,34 @@ public class DriverProvider {
         String accessKey = "34wvDaJvFd0c20TK5dDKAJJABLnx3u12knT52OWjDJM6FlNHkt";
 
         try {
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("platform", "Windows 10");
-            capabilities.setCapability("browserName", "Chrome");
-            capabilities.setCapability("version", "91.0"); // If this cap isn't specified, it will just get the any available one
-            capabilities.setCapability("resolution","1024x768");
-            capabilities.setCapability("build", "First Test");
-            capabilities.setCapability("name", "Sample Test");
-            capabilities.setCapability("network", true); // To enable network logs
-            capabilities.setCapability("visual", true); // To enable step by step screenshot
-            capabilities.setCapability("video", true); // To enable video recording
-            capabilities.setCapability("console", true); // To capture console logs
+            String browser = "chrome";
+            String version = ProjectConfiguration.getConfigProperty("ChromeDriverVersion");
+            String res = ProjectConfiguration.getConfigProperty("Window.size");
 
-            //configure capability to set the job name with Test Case name
-            //String testName = Reporter.getCurrentTestName();
-            //capabilities.setCapability("name", testName);
 
-            return new RemoteWebDriver(new URL("https://"+username+":"+accessKey+"@hub.lambdatest.com/wd/hub"), capabilities);
+            DesiredCapabilities capability = new DesiredCapabilities();
+            capability.setCapability(CapabilityType.BROWSER_NAME, browser);
+            capability.setCapability(CapabilityType.VERSION, version);
+            capability.setCapability("screen_resolution", res);
+            capability.setCapability("network", true);
+            capability.setCapability("video", true);
+            capability.setCapability("console", true);
+            capability.setCapability("visual", "true");
+
+            capability.setCapability("platform", "Windows 10");
+            capability.setCapability("browserName", "Chrome");
+            capability.setCapability("version", "91.0"); // If this cap isn't specified, it will just get the any available one
+            capability.setCapability("resolution","1024x768");
+            capability.setCapability("build", "First Test");
+            capability.setCapability("name", "Sample Test");
+            capability.setCapability("network", true); // To enable network logs
+            capability.setCapability("visual", true); // To enable step by step screenshot
+            capability.setCapability("video", true); // To enable video recording
+            capability.setCapability("console", true); // To capture console logs
+
+            String gridURL = "https://" + username + ":" + accessKey + "@hub.lambdatest.com/wd/hub";
+
+            return new RemoteWebDriver(new URL(gridURL), capability);
 
         } catch (Exception e) {
             throw new WebDriverException("Unable to launch the browser", e);

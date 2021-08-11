@@ -119,16 +119,18 @@ Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 # Validate expected data on Left product description panel
 Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
 Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
+Save element text 'checkoutpage.RING_ITEM_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.ringInCartOverview' and 'REMOVE:,';
+Save element text 'checkoutpage.DIAMOND_ITEM_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.diamondInCartOverview' and 'REMOVE:,';
 Save value 'smokeData.DEFAULT_CHECKOUT_RING_DATA_TEMPLATE:saved.RING_DETAILS_FROM_RINGBUILDER_PAGE.StyleNumber:saved.ringName:saved.ringPrice:saved.ringSize:saved.ringMetal:saved.ringShape:saved.ringProng:saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE.SKU' to 'saved.RING_EXPECTED_DATA' and 'REMOVE:,';
-Save value 'smokeData.DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE:saved.expectedFullPrice:saved.diamondName:saved.diamondPrice:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:,';
+Save value 'smokeData.DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE:saved.diamondName:saved.diamondPrice:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:,';
 
 #To Check Canada
 Save value 'SAVED.productsInCartOverview' to 'SAVED.productsInCartOverview' and 'REMOVE:CA';
 Save value 'saved.RING_EXPECTED_DATA' to 'saved.RING_EXPECTED_DATA' and 'REMOVE:CA';
 Save value 'saved.DIAMOND_EXPECTED_DATA' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:CA';
 
-Optional Validate value 'SAVED.productsInCartOverview' contains 'saved.RING_EXPECTED_DATA';
-Optional Validate value 'SAVED.productsInCartOverview' contains 'saved.DIAMOND_EXPECTED_DATA';
+Optional Validate value 'SAVED.ringInCartOverview' contains 'saved.RING_EXPECTED_DATA';
+Optional Validate value 'SAVED.diamondInCartOverview' contains 'saved.DIAMOND_EXPECTED_DATA';
 
 
 

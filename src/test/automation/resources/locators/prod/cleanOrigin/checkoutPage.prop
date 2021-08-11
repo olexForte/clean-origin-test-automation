@@ -4,6 +4,8 @@ FIRST_ITEM_IN_CHECKOUT_INFO = (//div[@class='builder-info'])[1]
 SECOND_ITEM_IN_CHECKOUT_INFO = (//div[@class='builder-info'])[2]
 
 ITEMS_IN_CART_PRODUCT_DETAILS_PANEL = //div[@class="product-item-details"]
+RING_ITEM_IN_CART_PRODUCT_DETAILS_PANEL = (//div[@class='product-item-details'])[1]
+DIAMOND_ITEM_IN_CART_PRODUCT_DETAILS_PANEL = (//div[@class='product-item-details'])[2]
 
 EXPAND_DETAILS_OF_ITEMS = //div[@aria-expanded='false' and @class='title']
 
