@@ -1,5 +1,6 @@
 package automation.web;
 
+import automation.reporting.ReporterManager;
 import com.browserstack.local.Local;
 import automation.configuration.ProjectConfiguration;
 import automation.configuration.SessionManager;
@@ -192,8 +193,8 @@ public class DriverProvider {
     }
 
     static public RemoteWebDriver getChromeLambdaTest() {
-        String username = "castiel.arhangel619";
-        String accessKey = "34wvDaJvFd0c20TK5dDKAJJABLnx3u12knT52OWjDJM6FlNHkt";
+        String username = "ruslan.levytskyi";
+        String accessKey = "wWJpRHj266Kpt1l4aHi92hyc0rdoEp7WARcW7uEH2CAmcgyLCI";
 
         try {
             String browser = "chrome";
@@ -214,8 +215,8 @@ public class DriverProvider {
             capability.setCapability("browserName", "Chrome");
             capability.setCapability("version", "91.0"); // If this cap isn't specified, it will just get the any available one
             capability.setCapability("resolution","1024x768");
-            capability.setCapability("build", "First Test");
-            capability.setCapability("name", "Sample Test");
+            capability.setCapability("build", "Clean Origin");
+            capability.setCapability("name", ReporterManager.Instance.TEST_NAME.get());
             capability.setCapability("network", true); // To enable network logs
             capability.setCapability("visual", true); // To enable step by step screenshot
             capability.setCapability("video", true); // To enable video recording

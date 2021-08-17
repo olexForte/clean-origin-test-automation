@@ -1,6 +1,7 @@
 package runners;
 
 import com.relevantcodes.extentreports.LogStatus;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
@@ -131,6 +132,14 @@ public class BaseUITest {
             markBSTest(testResult.isSuccess(), sessionID, status);
         }
 
+        if(ProjectConfiguration.getConfigProperty("Driver").toLowerCase().equals("chrome_lambda")) {
+            String sessionID = ((RemoteWebDriver) DriverProvider.getCurrentDriver()).getSessionId().toString();
+            String status = "";
+            if(!testResult.isSuccess())
+                status = ReporterManager.report().getTest().getLogList().stream().filter(l -> l.getLogStatus().equals(LogStatus.FAIL)).findFirst().get().getDetails().replaceAll("<.+?>", "");
+            markLTTest(testResult.isSuccess(), sessionID, status);
+        }
+
         //close driver / stop remote test
         if(driver() != null) {
             BasePage.stopDriver();
@@ -170,6 +179,16 @@ public class BaseUITest {
         putRequest.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
         HttpClientBuilder.create().build().execute(putRequest);
+    }
+
+    /**
+     * Change status of BS test
+     * @param isPassed
+     * @throws Exception possible exception
+     */
+    public static void markLTTest(boolean isPassed, String sessionID, String status) throws Exception {
+        String stts = isPassed ? "passed" : "failed";
+        ((JavascriptExecutor) driver()).executeScript("lambda-status=" + stts);
     }
 
     /**
