@@ -6,6 +6,8 @@ FOOTER_LINK_BY_TEXT = (//div[@class='footer content']//a[text()='$PARAMETER1'])[
 CLOSE_MODAL_DIALOG = //img[@alt="Close"]
 
 CLOSE_CHAT_DIALOG = //div[@class='olark-launch-button-wrapper']
+
+ACCEPT_COOKIES = //button[@id='btn-cookie-allow']
 #//div[@class='olark-top-bar-button']
 
 CHECKOUT_BUTTON = //button[@class="action primary checkout"]

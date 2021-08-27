@@ -8,6 +8,7 @@ Click on item 'mainPage.START_WITH_A_SETTINGS_BUTTON';
 # generate random numbers
 Generate value 'RANDOM.metal:min_max:1:6' to 'SAVED.metal';
 Generate value 'RANDOM.ring:min_max:1:6' to 'SAVED.ringCollection';
+Generate value 'RANDOM.ring:min_max:1:3' to 'SAVED.ringShape';
 Calculate value 'RANDOM.ringIndex:1d' plus '1' to 'saved.ringIndex';
 Generate value 'RANDOM.diamondIndex:min_max:1:6' to 'SAVED.diamondIndex';
 
@@ -17,6 +18,14 @@ Click on item 'engagementPage.RING_METAL_FILTER_ITEM_BY_INDEX:SAVED.ringCollecti
 
 Click on item 'engagementPage.RING_COLLECTION_FILTER_BUTTON';
 Click on item 'engagementPage.RING_COLLECTION_FILTER_ITEM_BY_INDEX:SAVED.metal';
+
+Click on item 'engagementPage.RING_SHAPE_FILTER_BUTTON';
+Click on item 'engagementPage.RING_SHAPE_FILTER_ITEM_BY_INDEX:SAVED.ringShape';
+
+Optional Click on item 'generalPage.ACCEPT_COOKIES';
+
+#Type value 'Perfect Fit Milgrain Petite Ring 18kt White Gold' to 'mainPage.SEARCH_INPUT_FIELD';
+#Click on item 'mainPage.SEARCH_INPUT_FIELD_BUTTON';
 
 # Select Random ring
 Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:saved.ringIndex';

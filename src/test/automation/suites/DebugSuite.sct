@@ -1,52 +1,22 @@
-#expected fail. Note: Passed, but only if executed alone
-#RingBuilder_ValidationsShort_CA
-
-#bug on prod ca: expectedFullPrice and ringTotalOnTopPanel are differ in 1 cent. Good on pro
+#RingBuilder_ValidationsShort
 #RingBuilder_ViewDiamond
-
-#fixed
 #RingBuilder_ClearRing
-
-#fixed
 #RingBuilder_EditRing
-
-#Bracelets_e2e_CA
-#Neckless_e2e_CA
-
-#fixed. Note: Carat Size and Diamond Color are present not in all earings
+#Bracelets_e2e
+#Neckless_e2e
 #Earings_e2e
-
-#expected fail: Blog caption is absent on the Blog page
 #LinksValidation1
-
-#fixed: Lab Created instead of Lab Grown
-#Blog header is absent on the Blog page
 #LinksValidation2
-
 #LinksValidation3
 #LinksValidation4
 #LinksValidation5
-
 #SignedUserLinksValidation
-
-#expected fail: Blog caption is absent on the Blog page
 #FooterLinksValidation
-
 #DiamondFiltersValidation
-
-#expected fail
 #RingFiltersValidation
-
 #NewDiamondsInRingBuilderUsageTest
 #NewDiamondsInUsageTest
-
-#expected fail: no 'Share Whishlist' button
 #ShareWishlist
-
 #DeleteFromWishlist
 #ResetMyPassword
-
-#fixed. Somtimes fails
 #SearchValidation
-
-#fdsef

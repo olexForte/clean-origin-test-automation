@@ -3,6 +3,7 @@
 # PLP
 
 RING_METAL_FILTER_BUTTON = //div[@class='filter-options-title'][.='Metal']
+RING_SHAPE_FILTER_BUTTON = //div[@class='filter-options-title'][.='Shape']
 RING_PRICE_FILTER_BUTTON = //div[@class='filter-options-title'][.='Price']
 RING_COLLECTION_FILTER_BUTTON = //div[@class='filter-options-title'][.='Ring Collection']
 
@@ -15,6 +16,7 @@ RING_METAL_FILTER_ITEM = //li[@class='item'][contains(.,'$PARAMETER1')]
 RING_COLLECTION_FILTER_ITEM = //div[@class='filter-options-title'][.='Ring Collection']/following-sibling::div[1][@class='filter-options-content']//li[contains(.,'$PARAMETER1')]
 
 RING_METAL_FILTER_ITEM_BY_INDEX = (//label[contains(@for,'metal_typeFilter_option_')])[$PARAMETER1]
+RING_SHAPE_FILTER_ITEM_BY_INDEX = (//label[contains(@for,'shapeFilter_option_')])[$PARAMETER1]
 #(//input[contains(@id,'metal_typeFilter_option')])[$PARAMETER1]
 #RING_METAL_FILTER_ITEM_BY_INDEX = (//div[@class='swatch-option color '])[$PARAMETER1]
 RING_COLLECTION_FILTER_ITEM_BY_INDEX = (//div[@class='filter-options-title'][.='Ring Collection']/following-sibling::div[1][@class='filter-options-content']//li)[$PARAMETER1]
