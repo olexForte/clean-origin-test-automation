@@ -2,9 +2,10 @@
 
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
+Click on item 'generalPage.ACCEPT_COOKIES';
 
 Hover over item "mainPage.NAVIGATION_MENU_ITEM:JEWELRY";
-Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Bracelets:2';
+Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Bracelets:1';
 
 Generate value 'RANDOM.field:min_max:1:8' to 'SAVED.randomindex';
 debug
