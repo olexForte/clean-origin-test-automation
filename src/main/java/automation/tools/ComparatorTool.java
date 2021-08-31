@@ -24,7 +24,7 @@ public class ComparatorTool {
                 .replace("$", "")
                 .replace(",","")
                 .trim();
-        return String.format("%.2f", Float.parseFloat(expectedValue));
+        return expectedValue;
     }
 
     /**
