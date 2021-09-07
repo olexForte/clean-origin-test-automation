@@ -55,6 +55,8 @@ Optional Validate value 'SAVED.ringPrice' equals 'SAVED.ringPriceOnTopPanel';
 Optional Validate value 'SAVED.ringName' equals 'SAVED.ringNameOnTopPanel';
 
 Calculate value 'saved.ringPrice' plus 'saved.diamondPrice' to 'saved.expectedFullPrice';
+Calculate value 'saved.expectedFullPrice' round '1' to 'saved.expectedFullPrice';
+Calculate value 'SAVED.ringTotalOnTopPanel' round '1' to 'SAVED.ringTotalOnTopPanel';
 Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.ringTotalOnTopPanel';
 
 # Edit process
