@@ -3,7 +3,7 @@
 SEARCH_INPUT_FIELD = //input[@id='search']
 SEARCH_INPUT_FIELD_BUTTON =//span[@class='icon-search has-value']
 
-BUILD_YOUR_RING_BUTTON = //a[.='Build Your Ring']|//a[.='START WITH A DIAMOND']|//a[.='START WITH A SETTING']|//a[.='Browse Settings']
+BUILD_YOUR_RING_BUTTON = //a[.='Build Your Ring']|//a[.='START WITH A DIAMOND']|//a[.='Start with a Setting']|//a[.='Browse Settings']
 SHOP_NOW_BUTTON = //a[.='SHOP NOW']
 START_WITH_A_SETTINGS_BUTTON = //a[.='Start with a Setting']
 START_WITH_A_DIAMOND_BUTTON = //a[.='Start with a Diamond']
