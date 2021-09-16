@@ -29,9 +29,9 @@ PLACE_ORDER_BUTTON_FOR_WIRED_TRANSFER = //div[@data-payment-label='Wire Transfer
 CHECKOUT_USERNAME_FIELD = //input[@id='customer-email']
 CHECKOUT_STREET_ADDRESS_FIELD = //legend[contains(.,'Street Address')]/following::div[1]//input[@class='input-text']
 
-CLEAR_RING_LINK = (//span[@id='clear-all-bundles'])[2]
+CLEAR_RING_LINK = //a[text()='Clear Ring']
 
-MY_CUSTOM_RING_PANEL = //div[text()='My Custom Ring']
+MY_CUSTOM_RING_PANEL = //a[text()='My Custom Ring']
 
 # top form Create your ring
 MY_CUSTOM_RING_PANE_RING_PRICE = //div[text()='Ring Setting']/following-sibling::div/div[@class='step-price']

@@ -17,7 +17,7 @@ FIND_RING_SIZE_READ_MORE_BUTTON = (//a[@class='action secondary'][contains(.,'Re
 
 NAVIGATION_MENU_ITEM = //li[@class="nav-item dropdown"][contains(.,"$PARAMETER1")]
 
-NAVIGATION_MENU_LINK = //span[.="$PARAMETER1"] | //a[.="$PARAMETER1"]
+NAVIGATION_MENU_LINK = //li[@class='nav-item dropdown active']//span[.="$PARAMETER1"] | //li[@class='nav-item dropdown active']//a[.="$PARAMETER1"]
 # //span[@class="link-label"][contains(.,'$PARAMETER1')] |
 
 NAVIGATION_MENU_LINK_BY_INDEX = (//a[.="$PARAMETER1"])[$PARAMETER2]
