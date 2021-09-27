@@ -5,7 +5,7 @@
 RING_METAL_FILTER_BUTTON = //div[@class='filter-options-title'][.='Metal']
 RING_SHAPE_FILTER_BUTTON = //div[@class='filter-options-title'][.='Shape']
 RING_PRICE_FILTER_BUTTON = //div[@class='filter-options-title'][.='Price']
-RING_COLLECTION_FILTER_BUTTON = //div[@class='filter-options-title'][.='Ring Collection']
+RING_COLLECTION_FILTER_BUTTON = //div[@class='filter-options-title'][.='Ring Style']
 
 RING_PRICE_FILTER_FROM = //input[@id="price-from"]
 RING_PRICE_FILTER_TO = //input[@id="price-to"]
@@ -19,7 +19,7 @@ RING_METAL_FILTER_ITEM_BY_INDEX = (//label[contains(@for,'metal_typeFilter_optio
 RING_SHAPE_FILTER_ITEM_BY_INDEX = (//label[contains(@for,'shapeFilter_option_')])[$PARAMETER1]
 #(//input[contains(@id,'metal_typeFilter_option')])[$PARAMETER1]
 #RING_METAL_FILTER_ITEM_BY_INDEX = (//div[@class='swatch-option color '])[$PARAMETER1]
-RING_COLLECTION_FILTER_ITEM_BY_INDEX = (//div[@class='filter-options-title'][.='Ring Collection']/following-sibling::div[1][@class='filter-options-content']//li)[$PARAMETER1]
+RING_COLLECTION_FILTER_ITEM_BY_INDEX = (//div[@class='filter-options-title'][.='Ring Style']/following-sibling::div[1][@class='filter-options-content']//li)[$PARAMETER1]
 
 RING_PRODUCT_ITEM = //a[@class='product-item-link'][contains(text(),'$PARAMETER1')]
 RING_PRODUCT_ITEM_BY_INDEX = (//a[@class='product-item-link'])[$PARAMETER1]
