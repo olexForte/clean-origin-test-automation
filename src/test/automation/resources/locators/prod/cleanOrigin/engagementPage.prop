@@ -35,6 +35,8 @@ RESET_FILTERS = //a[contains(.,'Reset Filters')]
 RING_ITEMS_LINKS = //a[@class='product-item-link']
 RING_ITEMS_IDS = //div[@data-role='priceBox']
 
+RING_QUANTITY_ON_PLP = //span[@class='toolbar-number']
+
 #//a[@class="product photo product-item-photo"]
  #//a[@class='product-item-link']
 #//div[@class='product-item-info']

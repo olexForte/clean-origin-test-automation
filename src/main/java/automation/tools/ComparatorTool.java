@@ -21,6 +21,7 @@ public class ComparatorTool {
     public static String getFloatValue(String floatValue) {
         String expectedValue = floatValue
                 .replace("CA$", "")
+                .replace("A$", "")
                 .replace("$", "")
                 .replace(",","")
                 .trim();

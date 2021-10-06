@@ -9,7 +9,7 @@ Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
 # generate random numbers
 Generate value 'RANDOM.metal:min_max:1:6' to 'SAVED.metal';
 Generate value 'RANDOM.ring:min_max:1:6' to 'SAVED.ringCollection';
-Calculate value 'RANDOM.ringIndex:1d' plus '1' to 'saved.ringIndex';
+Save element text 'engagementPage.RING_QUANTITY_ON_PLP' to 'SAVED.ringIndex';
 Generate value 'RANDOM.diamondIndex:min_max:1:6' to 'SAVED.diamondIndex';
 
 # set metal filters

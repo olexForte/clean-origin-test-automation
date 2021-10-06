@@ -1,6 +1,7 @@
 
 RING_BUILDER_EXAMPLE_DATA = {"Metal":"#2", "Shape":"#2", "Prong":"#1", "Ring Size":"#5"}
 RING_BUILDER_EXAMPLE_DATA_BY_VALUE = {"Metal":"14K Yellow Gold", "Shape":"Round", "Prong":"Standard", "Ring Size":"5"}
+RING_BUILDER_EXAMPLE_DATA_INTERNATIONAL_BY_VALUE = {"Metal":"14KY", "Shape":"Round", "Prong":"Standard", "Ring Size":"5"}
 
 ALL_DIAMONDS_FILTER_DATA = {"Attribute Set":"Diamonds", "Status":"Enabled", "Quantity->from":"1", "Quantity->to":"1"}
 

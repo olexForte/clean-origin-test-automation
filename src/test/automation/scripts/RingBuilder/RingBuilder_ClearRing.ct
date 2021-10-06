@@ -13,6 +13,7 @@ Click on item 'mainPage.START_WITH_A_SETTINGS_BUTTON';
 Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:1';
 
 Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA_BY_VALUE';
+Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA_INTERNATIONAL_BY_VALUE';
 
 Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
 Wait for '5' seconds;

@@ -3,13 +3,13 @@
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Wait for '3' seconds;
-Click on item 'mainPage.START_WITH_A_SETTINGS_BUTTON';
+Click on item 'generalPage.ACCEPT_COOKIES';
+Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
 
 # generate random numbers
 Generate value 'RANDOM.metal:min_max:1:6' to 'SAVED.metal';
 Generate value 'RANDOM.ring:min_max:1:6' to 'SAVED.ringCollection';
-Generate value 'RANDOM.ring:min_max:1:3' to 'SAVED.ringShape';
-Save element text 'engagementPage.RING_QUANTITY_ON_PLP' to 'SAVED.ringIndex';
+Calculate value 'RANDOM.ringIndex:1d' plus '1' to 'saved.ringIndex';
 Generate value 'RANDOM.diamondIndex:min_max:1:6' to 'SAVED.diamondIndex';
 
 # set metal filters
@@ -18,14 +18,6 @@ Click on item 'engagementPage.RING_METAL_FILTER_ITEM_BY_INDEX:SAVED.ringCollecti
 
 Click on item 'engagementPage.RING_COLLECTION_FILTER_BUTTON';
 Click on item 'engagementPage.RING_COLLECTION_FILTER_ITEM_BY_INDEX:SAVED.metal';
-
-Click on item 'engagementPage.RING_SHAPE_FILTER_BUTTON';
-Click on item 'engagementPage.RING_SHAPE_FILTER_ITEM_BY_INDEX:SAVED.ringShape';
-
-Optional Click on item 'generalPage.ACCEPT_COOKIES';
-
-#Type value 'Perfect Fit Milgrain Petite Ring 18kt White Gold' to 'mainPage.SEARCH_INPUT_FIELD';
-#Click on item 'mainPage.SEARCH_INPUT_FIELD_BUTTON';
 
 # Select Random ring
 Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:saved.ringIndex';
@@ -41,7 +33,7 @@ Optional Save element text 'engagementPage.RING_SHAPE_SELECT' to 'SAVED.ringShap
 Save value 'Round' to 'SAVED.ringShape' if empty;
 Optional Save element text 'engagementPage.RING_PRONG_SELECT' to 'SAVED.ringProng';
 Save element text 'engagementPage.RING_SIZE_SELECT' to 'SAVED.ringSize';
-Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice'  and 'REMOVE:CA';
+Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.ringPrice'  and 'REMOVE:A$';
 
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
@@ -68,7 +60,7 @@ Click on item 'diamondsPage.VIEW_DIAMOND_BY_PARAMETERS_LOCATOR:saved.Diamond.sha
 Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 
 Save element text 'diamondsPage.DIAMOND_NAME_LABEL' to 'SAVED.diamondName';
-Save element text 'diamondsPage.DIAMOND_PRICE_LABEL' to 'SAVED.diamondPrice' and 'REMOVE:CA';
+Save element text 'diamondsPage.DIAMOND_PRICE_LABEL' to 'SAVED.diamondPrice' and 'REMOVE:A$';
 
 Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
 
@@ -76,11 +68,12 @@ Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
 # record Custom Ring panel values
-Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.ringNameOnTopPanel' and 'REMOVE: 18K White Gold' and 'REMOVE: Wedding Ring';
+Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.ringNameOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_PRICE' to 'SAVED.ringPriceOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_PRICE' to 'SAVED.diamondPriceOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.diamondWeightOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_SHAPE' to 'SAVED.diamondShapeOnTopPanel';
+debug
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_TOTAL_PRICE' to 'SAVED.ringTotalOnTopPanel';
 
 # save Ring and Diamond details from Details page before checkout
@@ -88,12 +81,20 @@ Optional Save entity 'engagementPage.SELECTED_RING_DETAILS_ENTYTY_LOCATOR' to 's
 Optional Save entity 'engagementPage.SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR' to 'saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE' by position last;
 
 # validate Prices
-Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.diamondPriceOnTopPanel';
-Optional Validate value 'SAVED.ringPrice' equals 'SAVED.ringPriceOnTopPanel';
-Optional Validate value 'SAVED.ringName' equals 'SAVED.ringNameOnTopPanel';
+debug
+Calculate value 'SAVED.ringTotalOnTopPanel' round '0' to 'SAVED.ringTotalOnTopPanel';
+Calculate value 'SAVED.diamondPriceOnTopPanel' round '0' to 'SAVED.diamondPriceOnTopPanel';
+Calculate value 'SAVED.ringPriceOnTopPanel' round '0' to 'SAVED.ringPriceOnTopPanel';
 
 Calculate value 'saved.ringPrice' plus 'saved.diamondPrice' to 'saved.expectedFullPrice';
+Calculate value 'SAVED.expectedFullPrice' round '0' to 'SAVED.expectedFullPrice';
 Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.ringTotalOnTopPanel';
+
+Calculate value 'SAVED.diamondPrice' round '0' to 'SAVED.diamondPrice';
+Calculate value 'SAVED.ringPrice' round '0' to 'SAVED.ringPrice';
+Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.diamondPriceOnTopPanel';
+Optional Validate value 'SAVED.ringPrice' equals 'SAVED.ringPriceOnTopPanel';
+Optional Validate value 'SAVED.ringNameOnTopPanel' contains 'SAVED.ringName';
 
 # todo add validation
 #Optional Validate value  'saved.RING_DETAILS_FROM_RINGBUILDER_PAGE' equals 'SAVED.ringMetal';
@@ -117,6 +118,11 @@ Save element text 'checkoutpage.second_item_in_checkout_info' to 'SAVED.ringInfo
 
 Save element text 'checkoutpage.CART_SUBTOTAL_LABEL' to 'SAVED.orderSubtotal';
 Save element text 'checkoutpage.CART_TOTAL_LABEL' to 'SAVED.orderTotal';
+
+Calculate value 'SAVED.expectedFullPrice' round '0' to 'SAVED.expectedFullPrice';
+Calculate value 'SAVED.orderTotal' round '0' to 'SAVED.orderTotal';
+Calculate value 'SAVED.orderSubtotal' round '0' to 'SAVED.orderSubtotal';
+
 Optional Validate value 'SAVED.expectedFullPrice' equals 'SAVED.orderSubtotal';
 Optional Validate value 'SAVED.orderTotal' equals 'SAVED.orderSubtotal';
 
@@ -128,20 +134,16 @@ Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
 # Validate expected data on Left product description panel
 Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
 Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
-Save element text 'checkoutpage.RING_ITEM_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.ringInCartOverview' and 'REMOVE:,';
-Save element text 'SAVED.ringInCartOverview' to 'SAVED.ringInCartOverview' and 'REGEXP_REMOVE:\nShape\n[A-Z][a-z]+';
-Save element text 'SAVED.ringInCartOverview' to 'SAVED.ringInCartOverview' and 'REGEXP_REMOVE:\nProng\n[A-Z][a-z]+';
-Save element text 'checkoutpage.DIAMOND_ITEM_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.diamondInCartOverview' and 'REMOVE:,';
 Save value 'smokeData.DEFAULT_CHECKOUT_RING_DATA_TEMPLATE:saved.RING_DETAILS_FROM_RINGBUILDER_PAGE.StyleNumber:saved.ringName:saved.ringPrice:saved.ringSize:saved.ringMetal:saved.ringShape:saved.ringProng:saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE.SKU' to 'saved.RING_EXPECTED_DATA' and 'REMOVE:,';
-Save value 'smokeData.DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE:saved.diamondName:saved.diamondPrice:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:,';
+Save value 'smokeData.DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE:saved.expectedFullPrice:saved.diamondName:saved.diamondPrice:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:,';
 
 #To Check Canada
-Save value 'SAVED.productsInCartOverview' to 'SAVED.productsInCartOverview' and 'REMOVE:CA';
-Save value 'saved.RING_EXPECTED_DATA' to 'saved.RING_EXPECTED_DATA' and 'REMOVE:CA';
-Save value 'saved.DIAMOND_EXPECTED_DATA' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:CA';
+#Save value 'SAVED.productsInCartOverview' to 'SAVED.productsInCartOverview' and 'REMOVE:CA';
+#Save value 'saved.RING_EXPECTED_DATA' to 'saved.RING_EXPECTED_DATA' and 'REMOVE:CA';
+#Save value 'saved.DIAMOND_EXPECTED_DATA' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:CA';
 
-Optional Validate value 'SAVED.ringInCartOverview' contains 'saved.RING_EXPECTED_DATA';
-Optional Validate value 'SAVED.diamondInCartOverview' contains 'saved.DIAMOND_EXPECTED_DATA';
+#Optional Validate value 'SAVED.productsInCartOverview' contains 'saved.RING_EXPECTED_DATA';
+#Optional Validate value 'SAVED.productsInCartOverview' contains 'saved.DIAMOND_EXPECTED_DATA';
 
 
 

@@ -13,6 +13,7 @@ Click on item 'mainPage.START_WITH_A_SETTINGS_BUTTON';
 Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:1';
 wait for '3' seconds;
 Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA_BY_VALUE';
+Fill data form 'smokeData.RING_BUILDER_EXAMPLE_DATA_INTERNATIONAL_BY_VALUE';
 
 Save element text 'engagementPage.RING_NAME_LABEL' to 'SAVED.ringName';
 Save element text 'engagementPage.RING_METAL_SELECT' to 'SAVED.ringMetal' and 'REGEXP_REMOVE:( \+.*)' ;
@@ -42,6 +43,7 @@ Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.ringNameOnTopPanel' and 'REMOVE: 14K Yellow Gold';
+Save value 'SAVED.ringNameOnTopPanel' to 'SAVED.ringNameOnTopPanel' and 'REMOVE: 14KY';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_PRICE' to 'SAVED.ringPriceOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_PRICE' to 'SAVED.diamondPriceOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_DIAMOND_WEIGHT' to 'SAVED.diamondWeightOnTopPanel';
@@ -73,6 +75,7 @@ Save element text 'engagementPage.RING_PRICE_LABEL' to 'SAVED.newRingPrice'  and
 Click on item 'engagementPage.UPDATE_RING_BUTTON';
 Wait for '5' seconds;
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_NAME' to 'SAVED.newRingNameOnTopPanel' and 'REMOVE: 18K White Gold';
+Save value 'SAVED.newRingNameOnTopPanel' to 'SAVED.newRingNameOnTopPanel' and 'REMOVE: 18KW';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_RING_PRICE' to 'SAVED.newRingPriceOnTopPanel';
 Save element text 'generalPage.MY_CUSTOM_RING_PANE_TOTAL_PRICE' to 'SAVED.ringTotalOnTopPanel';
 
