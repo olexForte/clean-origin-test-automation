@@ -22,6 +22,7 @@ public class ComparatorTool {
         String expectedValue = floatValue
                 .replace("CA$", "")
                 .replace("A$", "")
+                .replace("£", "")
                 .replace("$", "")
                 .replace(",","")
                 .trim();

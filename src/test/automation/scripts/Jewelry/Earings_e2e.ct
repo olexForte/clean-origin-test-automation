@@ -7,7 +7,7 @@ Click on item 'generalPage.ACCEPT_COOKIES';
 Hover over item "mainPage.NAVIGATION_MENU_ITEM:JEWELRY";
 Click on item 'mainPage.NAVIGATION_MENU_LINK_BY_INDEX:Diamond Stud Earrings:1';
 
-Generate value 'RANDOM.field:min_max:1:6' to 'SAVED.randomindex';
+Generate value 'RANDOM.field:min_max:1:5' to 'SAVED.randomindex';
 
 #Save element text 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_BY_INDEX:SAVED.randomindex' to 'SAVED.data';
 Save element text 'studsEarringsPage.STUDS_EARRINGS_TABLE_ITEM_PRICE_BY_INDEX:SAVED.randomindex' to 'SAVED.price';
