@@ -25,3 +25,5 @@ NAVIGATION_MENU_LINK_BY_INDEX = (//a[.="$PARAMETER1"])[$PARAMETER2]
 OPEN_CART_ICON = //a[@class="action showcart"]
 
 GO_TO_SHOPING_CART_LINK = //a[.='Go to Shopping Cart']
+
+GO_TO_MAIN_PAGE = //a[@class='logo']

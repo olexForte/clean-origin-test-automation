@@ -19,3 +19,7 @@ REMOVE_ITEM = //a[contains(translate(text(),' ',''),"$PARAMETER1")]/ancestor::tr
 
 SHOPPING_CART_EMPTY_MESSAGE = //p[contains(.,'Your shopping bag is empty.')]
 CONTINUE_SHOPPING_LINK = //div[@class="cart-empty"]//a[contains(.,'here')]
+
+ZILLION_CHECKBOX = //input[@id='inputmodal']
+ACCEPT_ZILLION_BUTTON = //button[@class='action primary action-accept zillion']
+NEXT_BUTTON = //button[@data-role='opc-continue']

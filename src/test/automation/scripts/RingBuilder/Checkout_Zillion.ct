@@ -1,0 +1,26 @@
+#Test: Ringbuilder E2E test with validation between steps
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Wait for '3' seconds;
+
+# sign in
+Click on item  'generalPage.SIGN_IN_LINK';
+Type value '${APP_CLIENT_USER}' to 'signInPage.USERNAME_INPUT';
+Type value '${APP_CLIENT_PASSWORD}' to 'signInPage.PASSWORD_INPUT';
+Click on item 'signInPage.SIGN_IN_BUTTON';
+
+# Checkout
+Click on item 'mainPage.OPEN_CART_ICON';
+Click on item 'generalPage.CHECKOUT_BUTTON';
+Wait for '20' seconds;
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
+
+Click on item 'CHECKOUTPAGE.NEXT_BUTTON';
+wait for '5' seconds;
+Click on item 'CHECKOUTPAGE.ZILLION_CHECKBOX';
+click on item 'CHECKOUTPAGE.ACCEPT_ZILLION_BUTTON';
+
+
+
+
