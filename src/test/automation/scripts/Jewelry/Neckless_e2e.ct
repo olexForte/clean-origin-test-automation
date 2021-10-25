@@ -53,6 +53,5 @@ Wait for '3' seconds;
 Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
 Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
 
-Optional Validate value 'SAVED.productsInCartOverview' contains 'SAVED.metal';
 Optional Validate value 'SAVED.productsInCartOverview' contains 'SAVED.name';
 
