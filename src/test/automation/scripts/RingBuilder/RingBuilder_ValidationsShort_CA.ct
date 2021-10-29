@@ -11,6 +11,7 @@ Generate value 'RANDOM.metal:min_max:1:6' to 'SAVED.metal';
 Generate value 'RANDOM.ring:min_max:1:6' to 'SAVED.ringCollection';
 Save element text 'engagementPage.RING_QUANTITY_ON_PLP' to 'SAVED.ringIndex';
 Generate value 'RANDOM.diamondIndex:min_max:1:6' to 'SAVED.diamondIndex';
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 
 # set metal filters
 Click on item 'engagementPage.RING_METAL_FILTER_BUTTON';

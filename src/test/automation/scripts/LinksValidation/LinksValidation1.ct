@@ -3,13 +3,12 @@
 #FOR menuitem link url expected
 #file:Menu_items_to_validate1.csv
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
-wait for '3' seconds;
+wait for '7' seconds;
 execute js 'general.close_close_close_CLOSE' '//body';
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 Hover over item "mainPage.NAVIGATION_MENU_ITEM:$menuitem";
 Optional Click on item "$link";
 wait for '3' seconds;
-debug
 Optional Get value from URL 'generalPage.BASE_PAGE_URL_REGEXP' to save 'SAVED.value';
 Optional Validate value 'SAVED.value' contains '$url';
 Optional Validate element "$expected" is visible;;

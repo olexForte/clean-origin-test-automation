@@ -3,6 +3,7 @@
 #FOR line
 #file:List_of_ring_filters.csv
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+wait for '7' seconds;
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 

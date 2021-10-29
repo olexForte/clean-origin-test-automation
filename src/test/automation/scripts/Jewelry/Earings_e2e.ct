@@ -1,6 +1,7 @@
 #Studs_Earrings
 
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+Wait for '7' seconds;
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 Click on item 'generalPage.ACCEPT_COOKIES';
 
@@ -57,6 +58,4 @@ Wait for '3' seconds;
 Optional Click on item 'checkoutPage.EXPAND_DETAILS_OF_ITEMS';
 Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.productsInCartOverview' and 'REMOVE:,';
 
-Optional Validate value 'SAVED.productsInCartOverview' contains 'SAVED.metal';
-Optional Validate value 'SAVED.productsInCartOverview' contains 'SAVED.size';
 Optional Validate value 'SAVED.productsInCartOverview' contains 'SAVED.name';

@@ -221,6 +221,9 @@ public class DriverProvider {
             capability.setCapability("visual", true); // To enable step by step screenshot
             capability.setCapability("video", true); // To enable video recording
             capability.setCapability("console", true); // To capture console logs
+            capability.setCapability("commandLog", true);
+            capability.setCapability("systemLog", true);
+            capability.setCapability("console",true);
 
             String gridURL = "https://" + username + ":" + accessKey + "@hub.lambdatest.com/wd/hub";
 

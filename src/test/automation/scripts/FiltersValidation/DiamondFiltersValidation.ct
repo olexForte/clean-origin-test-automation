@@ -3,6 +3,7 @@
 #FOR line
 #file:List_of_diamond_filters.csv
 Open page 'urls.DIAMONDS_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+wait for '7' seconds;
 Optional Click on item 'generalPage.CLOSE_PROMO_BANNER_DIALOG';
 execute js 'general.close_close_close_CLOSE' '//body';
 Wait for '3' seconds;
