@@ -55,7 +55,7 @@ Optional Save entity 'engagementPage.SELECTED_DIAMOND_DETAILS_ENTYTY_LOCATOR' to
 
 Optional Validate value 'SAVED.diamondPrice' equals 'SAVED.diamondPriceOnTopPanel';
 Optional Validate value 'SAVED.ringPrice' equals 'SAVED.ringPriceOnTopPanel';
-Optional Validate value 'SAVED.ringName' equals 'SAVED.ringNameOnTopPanel';
+Optional Validate value 'SAVED.ringNameOnTopPanel' contains 'SAVED.ringName';
 
 Calculate value 'saved.ringPrice' plus 'saved.diamondPrice' to 'saved.expectedFullPrice';
 Calculate value 'saved.expectedFullPrice' round '1' to 'saved.expectedFullPrice';

@@ -224,6 +224,7 @@ public class DriverProvider {
             capability.setCapability("commandLog", true);
             capability.setCapability("systemLog", true);
             capability.setCapability("console",true);
+            capability.setCapability("geoLocation","UA");
 
             String gridURL = "https://" + username + ":" + accessKey + "@hub.lambdatest.com/wd/hub";
 

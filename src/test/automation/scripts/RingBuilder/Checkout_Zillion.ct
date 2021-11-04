@@ -1,6 +1,7 @@
 #Test: Ringbuilder E2E test with validation between steps
 
 Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+Wait for '5' seconds;
 Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
 Wait for '3' seconds;
 
@@ -20,6 +21,7 @@ Click on item 'CHECKOUTPAGE.NEXT_BUTTON';
 wait for '5' seconds;
 Click on item 'CHECKOUTPAGE.ZILLION_CHECKBOX';
 click on item 'CHECKOUTPAGE.ACCEPT_ZILLION_BUTTON';
+Validate element 'CHECKOUTPAGE.ZILLION_CHECKBOX' is checked;
 
 
 

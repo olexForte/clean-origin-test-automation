@@ -632,6 +632,21 @@ public class BasePage {
     }
 
     /**
+     * Is element checked
+     * @param xpath
+     * @return
+     */
+    public boolean isElementChecked(String xpath, boolean isChecked) {
+        try {
+            WebElement element = findElement(By.xpath(xpath));
+            boolean result = element.isSelected();
+            return result && isChecked;
+        } catch (Exception e) {
+            return !isChecked; // return false - for isChecked - return true for checked
+        }
+    }
+
+    /**
      * Is text present on page
      * @param text
      * @return

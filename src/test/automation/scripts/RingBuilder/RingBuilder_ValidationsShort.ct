@@ -133,7 +133,9 @@ Save element text 'checkoutpage.ITEMS_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.p
 Save element text 'checkoutpage.RING_ITEM_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.ringInCartOverview' and 'REMOVE:,';
 Save element text 'SAVED.ringInCartOverview' to 'SAVED.ringInCartOverview' and 'REGEXP_REMOVE:\nShape\n[A-Z][a-z]+';
 Save element text 'SAVED.ringInCartOverview' to 'SAVED.ringInCartOverview' and 'REGEXP_REMOVE:\nProng\n[A-Z][a-z]+';
+Save element text 'SAVED.ringInCartOverview' to 'SAVED.ringInCartOverview' and 'REMOVE:.00';
 Save element text 'checkoutpage.DIAMOND_ITEM_IN_CART_PRODUCT_DETAILS_PANEL' to 'SAVED.diamondInCartOverview' and 'REMOVE:,';
+Save element text 'SAVED.diamondInCartOverview' to 'SAVED.diamondInCartOverview' and 'REMOVE:.00';
 Save value 'smokeData.DEFAULT_CHECKOUT_RING_DATA_TEMPLATE:saved.RING_DETAILS_FROM_RINGBUILDER_PAGE.StyleNumber:saved.ringName:saved.ringPrice:saved.ringSize:saved.ringMetal:saved.ringShape:saved.ringProng:saved.DIAMOND_DETAILS_FROM_RINGBUILDER_PAGE.SKU' to 'saved.RING_EXPECTED_DATA' and 'REMOVE:,';
 Save value 'smokeData.DEFAULT_CHECKOUT_DIAMOND_DATA_TEMPLATE:saved.diamondName:saved.diamondPrice:saved.Diamond.weight:saved.Diamond.color:saved.Diamond.clarity:saved.Diamond.grade' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:,';
 
@@ -142,8 +144,8 @@ Save value 'SAVED.productsInCartOverview' to 'SAVED.productsInCartOverview' and 
 Save value 'saved.RING_EXPECTED_DATA' to 'saved.RING_EXPECTED_DATA' and 'REMOVE:CA';
 Save value 'saved.DIAMOND_EXPECTED_DATA' to 'saved.DIAMOND_EXPECTED_DATA' and 'REMOVE:CA';
 
-Optional Validate value 'SAVED.ringInCartOverview' contains 'saved.RING_EXPECTED_DATA';
-Optional Validate value 'SAVED.diamondInCartOverview' contains 'saved.DIAMOND_EXPECTED_DATA';
+Optional Validate value 'saved.RING_EXPECTED_DATA' contains 'SAVED.ringInCartOverview';
+Optional Validate value 'saved.DIAMOND_EXPECTED_DATA' contains 'SAVED.diamondInCartOverview';
 
 
 
