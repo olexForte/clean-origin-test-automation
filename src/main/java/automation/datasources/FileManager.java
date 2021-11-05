@@ -41,7 +41,7 @@ public class FileManager {
      * @return test output dir
      */
     private static String getOutputDir(){
-        String directory = System.getProperty("user.dir") + File.separator + "target" + File.separator + SessionManager.getSessionID();
+        String directory = System.getProperty("user.dir") + File.separator + "target" + File.separator + "reports" + File.separator + SessionManager.getSessionID();
         System.setProperty("OUTPUT_DIR", directory);
         //create output dir
         try {
