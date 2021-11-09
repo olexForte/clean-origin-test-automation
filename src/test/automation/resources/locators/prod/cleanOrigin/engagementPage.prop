@@ -52,6 +52,8 @@ RING_SHAPE_SELECT = //label[contains(.,'Shape')]/following-sibling::div[1]/selec
 RING_PRONG_SELECT = //label[contains(.,'Prong')]/following-sibling::div[1]/select[1]
 RING_SIZE_SELECT = //label[contains(.,'Ring Size')]/following-sibling::div[1]/select[1]
 
+SELECT_OPTION = //option[text()='$PARAMETER1']
+
 RING_PRICE_LABEL = //div[@class='product-info-price']//span[@class='price']
 
 RING_NAME_LABEL = //span[@data-ui-id='page-title-wrapper']

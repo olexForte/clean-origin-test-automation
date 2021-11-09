@@ -1,0 +1,55 @@
+#Test: Ringbuilder E2E test with validation between steps
+
+Open page 'urls.MAIN_URL:${CLIENT_USER}:${CLIENT_PASSWORD}';
+Wait for '5' seconds;
+Optional Click on item 'generalPage.CLOSE_MODAL_DIALOG';
+Wait for '3' seconds;
+
+# sign in
+Click on item  'generalPage.SIGN_IN_LINK';
+Type value '${APP_CLIENT_USER}' to 'signInPage.USERNAME_INPUT';
+Type value '${APP_CLIENT_PASSWORD}' to 'signInPage.PASSWORD_INPUT';
+Click on item 'signInPage.SIGN_IN_BUTTON';
+
+# open ring builder
+Click on item 'mainPage.GO_TO_MAIN_PAGE';
+Click on item 'mainPage.BUILD_YOUR_RING_BUTTON';
+
+# search ring
+Type value 'Quiet Beauty Princess Cut Ring' to 'mainPage.SEARCH_INPUT_FIELD';
+Click on item 'mainPage.SEARCH_INPUT_FIELD_BUTTON';
+
+# Select first ring
+Click on item 'engagementPage.RING_PRODUCT_ITEM_BY_INDEX:1';
+Wait for '3' seconds;
+Optional Click on item 'generalPage.CLOSE_CHAT_DIALOG';
+
+Click on item 'engagementPage.RING_METAL_SELECT';
+click on item 'engagementPage.SELECT_OPTION:14K White Gold';
+
+Click on item 'engagementPage.RING_SIZE_SELECT';
+click on item 'engagementPage.SELECT_OPTION:4';
+
+Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
+Optional Click on item 'engagementPage.CHOSE_THIS_SETTING_BUTTON';
+
+# select diamond from first page
+Click on item 'diamondsPage.VIEW_DIAMOND_BY_INDEX:1';
+Click on item 'diamondsPage.ADD_TO_RING_BUTTON';
+Click on item 'engagementPage.ADD_TO_BAG_BUTTON';
+
+# Checkout
+Click on item 'mainPage.OPEN_CART_ICON';
+Click on item 'generalPage.CHECKOUT_BUTTON';
+Wait for '20' seconds;
+Optional Validate element 'generalPage.LOADING_IMAGE' is invisible;
+
+Click on item 'CHECKOUTPAGE.NEXT_BUTTON';
+wait for '5' seconds;
+Click on item 'CHECKOUTPAGE.ZILLION_CHECKBOX';
+click on item 'CHECKOUTPAGE.ACCEPT_ZILLION_BUTTON';
+Validate element 'CHECKOUTPAGE.ZILLION_CHECKBOX' is checked;
+
+
+
+

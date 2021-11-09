@@ -43,6 +43,8 @@ VIEW_DIAMOND_BY_PARAMETERS_LOCATOR = //td[contains(.,'$PARAMETER1')]\
 /following-sibling::td[contains(.,'$PARAMETER6')]\
 /following-sibling::td[@data-attr='diamond_link']
 
+VIEW_DIAMOND_BY_INDEX = (//td[@data-attr='diamond_link']/a)[$PARAMETER1]
+
 DIAMOND_SPEC_ON_PLP = //div[@class='preview-specs']
 
 # PDP
